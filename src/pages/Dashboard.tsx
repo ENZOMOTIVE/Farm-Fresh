@@ -82,7 +82,9 @@ export const Dashboard = () => {
           {/* Main Content */}
           <div className="lg:col-span-3">
             {/* Welcome Section */}
-            <div className="bg-white rounded-xl shadow-sm p-6 mb-6 border border-gray-200">
+
+            {user && (
+             <div className="bg-white rounded-xl shadow-sm p-6 mb-6 border border-gray-200">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 Welcome back, {user?.name}! 👋
               </h2>
@@ -90,6 +92,9 @@ export const Dashboard = () => {
                 Discover fresh eggs and artisan pastries from local farms and bakeries.
               </p>
             </div>
+            )
+            }
+           
 
             {/* Trust Badges */}
             <TrustBadges />

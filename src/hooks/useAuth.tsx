@@ -34,6 +34,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   }, []);
 
+  
+
   const login = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true);
     
@@ -58,6 +60,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setIsLoading(false);
     return false;
   };
+
+
+
 
   const logout = () => {
     setUser(null);

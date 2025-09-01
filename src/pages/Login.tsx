@@ -4,6 +4,8 @@ import { useAuth } from '../hooks/useAuth';
 import { Input } from '../components/common/Input';
 import { Button } from '../components/common/Button';
 import { useNavigate } from 'react-router-dom';
+import { GoogleLogin } from "@react-oauth/google";
+
 
  const  Login = () => {
   const [email, setEmail] = useState('');
@@ -94,9 +96,15 @@ import { useNavigate } from 'react-router-dom';
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-gray-600 text-sm">
-              Demo: Use any email and password to sign in
-            </p>
+            
+             <p className="text-gray-600 text-sm">OR </p>
+
+
+          </div>
+
+          <div className='flex justify-center p-2'>
+                <GoogleLogin onSuccess={() => {console.log("Success Logged in")}} onError={() => console.log("There is an error")} />
+
           </div>
         </div>
 

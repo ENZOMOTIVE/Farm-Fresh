@@ -1,7 +1,6 @@
-import React from 'react';
-import { AuthProvider, useAuth } from './hooks/useAuth';
+
+import { AuthProvider } from './hooks/useAuth';
 import { CartProvider } from './hooks/useCart';
-import { Dashboard } from './pages/Dashboard';
 import AppRoutes from './Routes/Routes';
 
 

@@ -3,13 +3,16 @@ import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { Input } from '../components/common/Input';
 import { Button } from '../components/common/Button';
+import { useNavigate } from 'react-router-dom';
 
-export const Login = () => {
+ const  Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const { login, isLoading } = useAuth();
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,9 +24,12 @@ export const Login = () => {
     }
 
     const success = await login(email, password);
+
     if (!success) {
       setError('Invalid credentials. Please try again.');
     }
+
+    navigate('/');
   };
 
   return (
@@ -94,22 +100,10 @@ export const Login = () => {
           </div>
         </div>
 
-        {/* Features */}
-        <div className="mt-8 grid grid-cols-3 gap-4 text-center">
-          <div className="bg-white rounded-lg p-4 shadow-sm">
-            <div className="text-2xl mb-1">🥚</div>
-            <p className="text-xs text-gray-600">Fresh Eggs</p>
-          </div>
-          <div className="bg-white rounded-lg p-4 shadow-sm">
-            <div className="text-2xl mb-1">🥐</div>
-            <p className="text-xs text-gray-600">Artisan Pastries</p>
-          </div>
-          <div className="bg-white rounded-lg p-4 shadow-sm">
-            <div className="text-2xl mb-1">🚚</div>
-            <p className="text-xs text-gray-600">Fresh Delivery</p>
-          </div>
-        </div>
+        
       </div>
     </div>
   );
 };
+
+export default Login;

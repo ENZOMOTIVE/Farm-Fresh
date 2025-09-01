@@ -3,6 +3,7 @@ import { Search, ShoppingBag, Menu, X, Bell } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
 import { useCart } from '../../hooks/useCart';
 import { Button } from '../common/Button';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 interface HeaderProps {
   onSearchChange: (query: string) => void;
@@ -10,11 +11,14 @@ interface HeaderProps {
 }
 
 export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
+
   const { user, logout } = useAuth();
   const { getTotalItems } = useCart();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const totalItems = getTotalItems();
+
+  const navigate = useNavigate();
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -51,31 +55,37 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
               <Bell className="w-5 h-5" />
               <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
             </button>
-            
             <div className="relative">
-              <Button variant="outline" className="relative p-2">
-                <ShoppingBag className="w-5 h-5" />
-                {totalItems > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                    {totalItems}
-                  </span>
-                )}
-              </Button>
-            </div>
-            
-            <div className="flex items-center space-x-2">
-              <img 
-                src={user?.avatar} 
-                alt={user?.name}
-                className="w-8 h-8 rounded-full"
-              />
-              <span className="text-sm font-medium text-gray-700">{user?.name}</span>
-            </div>
-            
-            <Button variant="outline" onClick={logout} size="sm">
-              Logout
-            </Button>
-          </div>
+    <Button variant="outline" className="relative p-2">
+      <ShoppingBag className="w-5 h-5" />
+      {totalItems > 0 && (
+        <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+          {totalItems}
+        </span>
+      )}
+    </Button>
+  </div>
+
+  {user ? (
+    <>
+      <div className="flex items-center space-x-2">
+        <img 
+          src={user.avatar} 
+          alt={user.name}
+          className="w-8 h-8 rounded-full"
+        />
+        <span className="text-sm font-medium text-gray-700">{user.name}</span>
+      </div>
+      <Button variant="outline" onClick={logout} size="sm">
+        Logout
+      </Button>
+    </>
+  ) : (
+    <Button variant='outline' onClick={() => navigate('/login')} size='sm'>
+      Log in
+    </Button>
+  )}
+</div>
 
           {/* Mobile Menu Button */}
           <button 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Heart } from 'lucide-react';
+import { FaCcVisa, FaCcPaypal, FaCcStripe, FaCcMastercard } from "react-icons/fa";
 
 export const Footer = () => {
   return (
@@ -41,7 +42,7 @@ export const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Bringing you the finest farm-fresh eggs and artisan pastries since 1985. 
+              Bringing you the finest farm-fresh eggs and artisan pastries since 1985.
               Quality, freshness, and taste in every bite.
             </p>
             <div className="flex space-x-3">
@@ -102,7 +103,7 @@ export const Footer = () => {
                 <span className="text-gray-300 text-sm">hello@farmfresh.com</span>
               </div>
             </div>
-            
+
             <div className="mt-6 p-4 bg-gray-800 rounded-lg">
               <h5 className="font-semibold text-green-400 mb-2">Store Hours</h5>
               <div className="text-sm text-gray-300 space-y-1">
@@ -127,11 +128,25 @@ export const Footer = () => {
                 <a href="#" className="hover:text-green-400 transition-colors">Cookie Policy</a>
               </div>
             </div>
-            <div className="flex items-center space-x-1 text-sm text-gray-400">
-              <span>Made with</span>
-              <Heart className="w-4 h-4 text-red-500 fill-current" />
-              <span>for fresh food lovers</span>
+            <div className="flex items-center gap-4 text-sm text-gray-400">
+              <FaCcVisa
+                size={35}
+                className=" h35transition-transform duration-200 hover:scale-110 hover:text-gray-500"
+              />
+              <FaCcPaypal
+                size={35}
+                className="transition-transform duration-200 hover:scale-110 hover:text-gray-600"
+              />
+              <FaCcStripe
+                size={35}
+                className="transition-transform duration-200 hover:scale-110 hover:text-gray-500"
+              />
+              <FaCcMastercard
+                size={35}
+                className="transition-transform duration-200 hover:scale-110 hover:text-gray-500"
+              />
             </div>
+
           </div>
         </div>
       </div>

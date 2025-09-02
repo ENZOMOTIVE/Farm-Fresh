@@ -7,12 +7,14 @@ import { useNavigate } from 'react-router-dom';
 import { GoogleLogin } from "@react-oauth/google";
 
 
- const  Login = () => {
+
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
-  const { login, isLoading } = useAuth();
+  const { login, loginWithGoogle, isLoading } = useAuth();
+
 
   const navigate = useNavigate();
 
@@ -96,19 +98,27 @@ import { GoogleLogin } from "@react-oauth/google";
           </form>
 
           <div className="mt-6 text-center">
-            
-             <p className="text-gray-600 text-sm">OR </p>
+
+            <p className="text-gray-600 text-sm">OR </p>
 
 
           </div>
 
           <div className='flex justify-center p-2'>
-                <GoogleLogin onSuccess={() => {console.log("Success Logged in")}} onError={() => console.log("There is an error")} />
+            <GoogleLogin
+              onSuccess={async (credentialResponse) => {
+                if (credentialResponse.credential) {
+                  const success = await loginWithGoogle(credentialResponse.credential);
+                  if (success) navigate("/");
+                }
+              }}
+              onError={() => setError("Google login failed. Please try again.")}
+            />
 
           </div>
         </div>
 
-        
+
       </div>
     </div>
   );

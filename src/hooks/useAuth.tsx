@@ -3,7 +3,9 @@ import { User } from '../types';
 
 interface AuthContextType {
   user: User | null;
+  
   login: (email: string, password: string) => Promise<boolean>;
+  loginWithGoogle: (credential: string) => Promise<boolean>;
   logout: () => void;
   isLoading: boolean;
 }
@@ -61,6 +63,35 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     return false;
   };
 
+  const loginWithGoogle = async (credential: string): Promise<boolean> => {
+  setIsLoading(true);
+
+  try {
+    // In real use, you'd send this credential (JWT) to your backend
+    // and verify with Google. For demo, decode it on client:
+    const base64Url = credential.split(".")[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    const decodedPayload = JSON.parse(window.atob(base64));
+
+    const newUser: User = {
+      id: decodedPayload.sub,
+      email: decodedPayload.email,
+      name: decodedPayload.name,
+      avatar: decodedPayload.picture,
+    };
+
+    setUser(newUser);
+    localStorage.setItem("user", JSON.stringify(newUser));
+    setIsLoading(false);
+    return true;
+  } catch (error) {
+    console.error("Google login error", error);
+    setIsLoading(false);
+    return false;
+  }
+};
+
+
 
 
 
@@ -70,7 +101,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, isLoading }}>
+    <AuthContext.Provider value={{ user, login,  loginWithGoogle, logout, isLoading }}>
       {children}
     </AuthContext.Provider>
   );

@@ -131,19 +131,19 @@ export const Footer = () => {
             <div className="flex items-center gap-4 text-sm text-gray-400">
               <FaCcVisa
                 size={35}
-                className=" h35transition-transform duration-200 hover:scale-110 hover:text-gray-500"
+                className="  cursor-pointer transition-colors duration-200 hover:scale-110 hover:text-green-400 "
               />
               <FaCcPaypal
                 size={35}
-                className="transition-transform duration-200 hover:scale-110 hover:text-gray-600"
+                className="  cursor-pointer transition-colors duration-200 hover:scale-110 hover:text-green-400 "
               />
               <FaCcStripe
                 size={35}
-                className="transition-transform duration-200 hover:scale-110 hover:text-gray-500"
+                className="  cursor-pointer transition-colors duration-200 hover:scale-110 hover:text-green-400 "
               />
               <FaCcMastercard
                 size={35}
-                className="transition-transform duration-200 hover:scale-110 hover:text-gray-500"
+                className="  cursor-pointer transition-colors duration-200 hover:scale-110 hover:text-green-400 "
               />
             </div>
 

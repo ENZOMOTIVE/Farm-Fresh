@@ -83,24 +83,10 @@ export const Dashboard = () => {
           <div className="lg:col-span-3">
             {/* Welcome Section */}
 
-            {user && (
-             <div className="bg-white rounded-xl shadow-sm p-6 mb-6 border border-gray-200">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                Welcome back, {user?.name}! 👋
-              </h2>
-              <p className="text-gray-600">
-                Discover fresh eggs and artisan pastries from local farms and bakeries.
-              </p>
-            </div>
-            )
-            }
+            
            
 
-            {/* Trust Badges */}
-            <TrustBadges />
-
-            {/* Product Stats */}
-            <ProductStats />
+            
 
             {/* Featured Categories */}
             <FeaturedCategories onCategorySelect={handleCategorySelect} />
@@ -138,6 +124,11 @@ export const Dashboard = () => {
                 </div>
               )}
             </div>
+            {/* Trust Badges */}
+            <TrustBadges />
+
+            {/* Product Stats */}
+            <ProductStats />
           </div>
 
           {/* Cart Sidebar */}

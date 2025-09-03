@@ -56,39 +56,41 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
               <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
             </button>
             <div className="relative">
-    <Button variant="outline" className="relative p-2">
-      <ShoppingBag className="w-5 h-5" />
-      {totalItems > 0 && (
-        <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-          {totalItems}
-        </span>
-      )}
-    </Button>
-  </div>
+              <Button variant="outline" className="relative p-2">
+                <ShoppingBag className="w-5 h-5" />
+                {totalItems > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                    {totalItems}
+                  </span>
+                )}
+              </Button>
+            </div>
 
-  {user ? (
-    <>
-      <div className="flex items-center space-x-2">
-        <img 
-          src={user.avatar} 
-          alt={user.name}
-          className="w-8 h-8 rounded-full"
-        />
-        <span className="text-sm font-medium text-gray-700">{user.name}</span>
-      </div>
-      <Button variant="outline" onClick={logout} size="sm">
-        Logout
-      </Button>
-    </>
-  ) : (
-    <Button variant='outline' onClick={() => navigate('/login')} size='sm'>
-      Log in
-    </Button>
-  )}
-</div>
+            {user ? (
+              <>
+                <button   onClick={() => navigate('/profile')}
+ 
+                      className="flex items-center space-x-2">
+                        <img
+                          src={user.avatar}
+                          alt={user.name}
+                          className="w-8 h-8 rounded-full"
+                        />
+                        <span className="text-sm font-medium text-gray-700">{user.name}</span>
+                      </button>
+                <Button variant="outline" onClick={logout} size="sm">
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <Button variant='outline' onClick={() => navigate('/login')} size='sm'>
+                Log in
+              </Button>
+            )}
+          </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -116,8 +118,8 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
             <div className="flex flex-col space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <img 
-                    src={user?.avatar} 
+                  <img
+                    src={user?.avatar}
                     alt={user?.name}
                     className="w-8 h-8 rounded-full"
                   />
@@ -136,9 +138,27 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
                     <Bell className="w-5 h-5" />
                     <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
                   </button>
-                  <Button variant="outline" onClick={logout} size="sm">
-                    Logout
-                  </Button>
+                  {user ? (
+                    <>
+                      <button   onClick={() => navigate('/profile')}
+ 
+                      className="flex items-center space-x-2">
+                        <img
+                          src={user.avatar}
+                          alt={user.name}
+                          className="w-8 h-8 rounded-full"
+                        />
+                        <span className="text-sm font-medium text-gray-700">{user.name}</span>
+                      </button>
+                      <Button variant="outline" onClick={logout} size="sm">
+                        Logout
+                      </Button>
+                    </>
+                  ) : (
+                    <Button variant='outline' onClick={() => navigate('/login')} size='sm'>
+                      Log in
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>

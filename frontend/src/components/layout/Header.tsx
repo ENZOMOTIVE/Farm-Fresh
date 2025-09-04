@@ -55,16 +55,7 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
               <Bell className="w-5 h-5" />
               <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
             </button>
-            <div className="relative">
-              <Button variant="outline" className="relative p-2">
-                <ShoppingBag className="w-5 h-5" />
-                {totalItems > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                    {totalItems}
-                  </span>
-                )}
-              </Button>
-            </div>
+            
 
             {user ? (
               <>
@@ -126,14 +117,7 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
                   <span className="text-sm font-medium text-gray-700">{user?.name}</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Button variant="outline" className="relative p-2">
-                    <ShoppingBag className="w-5 h-5" />
-                    {totalItems > 0 && (
-                      <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                        {totalItems}
-                      </span>
-                    )}
-                  </Button>
+                  
                   <button className="relative p-2 text-gray-600 hover:text-green-600 transition-colors">
                     <Bell className="w-5 h-5" />
                     <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>

@@ -11,6 +11,7 @@ import { TrustBadges } from '../components/features/TrustBadges';
 import { Footer } from '../components/layout/Footer';
 import { getProducts, searchProducts, getAIRecommendations } from '../services/products';
 import { useAuth } from '../hooks/useAuth';
+import { ChatbotWidget } from '@/components/features/chatbot';
 
 export const Dashboard = () => {
   const { user } = useAuth();
@@ -84,10 +85,6 @@ export const Dashboard = () => {
            
 
             
-           
-
-            
-
             {/* Featured Categories */}
             <FeaturedCategories onCategorySelect={handleCategorySelect} />
 
@@ -141,6 +138,8 @@ export const Dashboard = () => {
       </main>
       
       <Footer />
+      <ChatbotWidget />
+
     </div>
   );
 };

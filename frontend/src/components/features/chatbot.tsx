@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { MessageCircle, X } from 'lucide-react';
 
+import { RiRobot2Line } from 'react-icons/ri';
+
 export const ChatbotWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -12,7 +14,7 @@ export const ChatbotWidget = () => {
           onClick={() => setIsOpen(true)}
           className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition"
         >
-          <MessageCircle size={24} />
+          <RiRobot2Line size={30} />
         </button>
       )}
 

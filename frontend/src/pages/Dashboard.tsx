@@ -83,7 +83,7 @@ export const Dashboard = () => {
     <div className="min-h-screen bg-background relative">
       <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />
 
-      <div className="relative h-[600px] overflow-hidden">
+      <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden">
         <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
           <source
             src="/placeholder.mp4?height=720&width=1280&query=premium organic farm with modern technology and fresh produce"
@@ -97,38 +97,44 @@ export const Dashboard = () => {
 
         {/* Premium hero content */}
         <div className="relative z-10 h-full flex items-center">
-          <div className="container mx-auto px-6 lg:px-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl">
-              <div className="flex items-center gap-3 mb-6">
-                <Badge variant="secondary" className="bg-primary/20 text-primary border-primary/30 backdrop-blur-sm">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <Badge
+                  variant="secondary"
+                  className="bg-primary/20 text-primary border-primary/30 backdrop-blur-sm text-xs sm:text-sm"
+                >
                   Premium Quality
                 </Badge>
-                <Badge variant="secondary" className="bg-accent/20 text-accent border-accent/30 backdrop-blur-sm">
+                <Badge
+                  variant="secondary"
+                  className="bg-accent/20 text-accent border-accent/30 backdrop-blur-sm text-xs sm:text-sm"
+                >
                   Farm Fresh
                 </Badge>
               </div>
 
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white text-balance leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white text-balance leading-tight">
                 Premium Farm
                 <span className="block text-primary">Products</span>
               </h1>
 
-              <p className="text-xl md:text-2xl mb-8 text-white/90 text-balance max-w-2xl leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 text-balance max-w-2xl leading-relaxed">
                 Experience the finest selection of organic eggs and artisanal pastries, delivered fresh from our
                 sustainable farms to your doorstep.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
                 >
                   Explore Products
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
-                  className="bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-sm px-8 py-4 text-lg font-semibold transition-all duration-300"
+                  className="bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-sm px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 w-full sm:w-auto"
                 >
                   Learn Our Story
                 </Button>
@@ -138,10 +144,10 @@ export const Dashboard = () => {
         </div>
       </div>
 
-      <main className="container mx-auto px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
           {/* Main Content */}
-          <div className="lg:col-span-3 space-y-8">
+          <div className="lg:col-span-3 space-y-6 sm:space-y-8">
             {/* Featured Categories */}
             <FeaturedCategories onCategorySelect={handleCategorySelect} />
 
@@ -153,24 +159,28 @@ export const Dashboard = () => {
 
             {/* Products Grid */}
             <Card className="border-border/50 shadow-sm">
-              <div className="p-8">
-                <div className="flex items-center justify-between mb-6">
+              <div className="p-4 sm:p-6 lg:p-8">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-foreground mb-2">Premium Products</h3>
-                    <p className="text-muted-foreground">
+                    <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1 sm:mb-2">Premium Products</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground">
                       Discover our curated selection of {filteredProducts.length} premium items
                     </p>
                   </div>
-                  <Button onClick={() => setShowCart(!showCart)} variant="outline" className="lg:hidden">
+                  <Button
+                    onClick={() => setShowCart(!showCart)}
+                    variant="outline"
+                    className="lg:hidden w-full sm:w-auto"
+                  >
                     View Cart
                   </Button>
                 </div>
 
                 {filteredProducts.length === 0 ? (
-                  <div className="text-center py-16">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
+                  <div className="text-center py-12 sm:py-16">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
                       <svg
-                        className="w-8 h-8 text-muted-foreground"
+                        className="w-6 h-6 sm:w-8 sm:h-8 text-muted-foreground"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -183,13 +193,13 @@ export const Dashboard = () => {
                         />
                       </svg>
                     </div>
-                    <h4 className="text-lg font-semibold text-foreground mb-2">No products found</h4>
-                    <p className="text-muted-foreground">
+                    <h4 className="text-base sm:text-lg font-semibold text-foreground mb-2">No products found</h4>
+                    <p className="text-sm sm:text-base text-muted-foreground px-4">
                       Try adjusting your search criteria or browse our featured categories
                     </p>
                   </div>
                 ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
                     {filteredProducts.map((product) => (
                       <ProductCard key={product.id} product={product} />
                     ))}
@@ -205,9 +215,20 @@ export const Dashboard = () => {
             <ProductStats />
           </div>
 
-          {/* Cart Sidebar */}
-          <div className={`lg:block ${showCart ? "block" : "hidden"} lg:col-span-1`}>
-            <div className="sticky top-32">
+          <div
+            className={`lg:block ${showCart ? "fixed inset-0 z-50 bg-black/50 lg:bg-transparent lg:relative lg:inset-auto" : "hidden"} lg:col-span-1`}
+          >
+            <div
+              className={`${showCart ? "fixed right-0 top-0 h-full w-full max-w-sm bg-background shadow-xl lg:shadow-none lg:static lg:max-w-none" : ""} lg:sticky lg:top-32`}
+            >
+              {showCart && (
+                <div className="lg:hidden p-4 border-b flex items-center justify-between">
+                  <h3 className="font-semibold">Shopping Cart</h3>
+                  <Button variant="ghost" size="sm" onClick={() => setShowCart(false)}>
+                    ✕
+                  </Button>
+                </div>
+              )}
               <Cart />
             </div>
           </div>

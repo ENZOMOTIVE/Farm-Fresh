@@ -80,29 +80,25 @@ export const Dashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen bg-background relative overflow-x-hidden">
       <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />
 
-      <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden">
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source
-            src="/placeholder.mp4?height=720&width=1280&query=premium organic farm with modern technology and fresh produce"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
+      <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] w-full overflow-hidden">
+        <img
+          src="/heroImage.jpg"
+          alt="Premium organic farm with modern technology"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
-        {/* Enhanced gradient overlay for better readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/30"></div>
 
-        {/* Premium hero content */}
         <div className="relative z-10 h-full flex items-center">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl">
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <Badge
                   variant="secondary"
-                  className="bg-primary/20 text-primary border-primary/30 backdrop-blur-sm text-xs sm:text-sm"
+                  className="bg-primary/20 text-green-500 border-primary/30 backdrop-blur-sm text-xs sm:text-sm"
                 >
                   Premium Quality
                 </Badge>
@@ -114,9 +110,9 @@ export const Dashboard = () => {
                 </Badge>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white text-balance leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-white text-balance leading-tight">
                 Premium Farm
-                <span className="block text-primary">Products</span>
+                <span className="block text-green-500 ">Products</span>
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 text-balance max-w-2xl leading-relaxed">
@@ -144,24 +140,19 @@ export const Dashboard = () => {
         </div>
       </div>
 
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-3 space-y-6 sm:space-y-8">
-            {/* Featured Categories */}
+          <div className="lg:col-span-3 space-y-6 sm:space-y-8 min-w-0">
             <FeaturedCategories onCategorySelect={handleCategorySelect} />
 
-            {/* AI Recommendations */}
             <AIRecommendations recommendations={recommendations} />
 
-            {/* Filters */}
             <Filters filters={filters} onFiltersChange={setFilters} />
 
-            {/* Products Grid */}
             <Card className="border-border/50 shadow-sm">
               <div className="p-4 sm:p-6 lg:p-8">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-4">
-                  <div>
+                  <div className="min-w-0">
                     <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1 sm:mb-2">Premium Products</h3>
                     <p className="text-sm sm:text-base text-muted-foreground">
                       Discover our curated selection of {filteredProducts.length} premium items
@@ -170,7 +161,7 @@ export const Dashboard = () => {
                   <Button
                     onClick={() => setShowCart(!showCart)}
                     variant="outline"
-                    className="lg:hidden w-full sm:w-auto"
+                    className="lg:hidden w-full sm:w-auto flex-shrink-0"
                   >
                     View Cart
                   </Button>
@@ -208,10 +199,8 @@ export const Dashboard = () => {
               </div>
             </Card>
 
-            {/* Trust Badges */}
             <TrustBadges />
 
-            {/* Product Stats */}
             <ProductStats />
           </div>
 
@@ -219,10 +208,10 @@ export const Dashboard = () => {
             className={`lg:block ${showCart ? "fixed inset-0 z-50 bg-black/50 lg:bg-transparent lg:relative lg:inset-auto" : "hidden"} lg:col-span-1`}
           >
             <div
-              className={`${showCart ? "fixed right-0 top-0 h-full w-full max-w-sm bg-background shadow-xl lg:shadow-none lg:static lg:max-w-none" : ""} lg:sticky lg:top-32`}
+              className={`${showCart ? "fixed right-0 top-0 h-full w-full max-w-sm bg-background shadow-xl lg:shadow-none lg:static lg:max-w-none overflow-y-auto" : ""} lg:sticky lg:top-32`}
             >
               {showCart && (
-                <div className="lg:hidden p-4 border-b flex items-center justify-between">
+                <div className="lg:hidden p-4 border-b flex items-center justify-between flex-shrink-0">
                   <h3 className="font-semibold">Shopping Cart</h3>
                   <Button variant="ghost" size="sm" onClick={() => setShowCart(false)}>
                     ✕

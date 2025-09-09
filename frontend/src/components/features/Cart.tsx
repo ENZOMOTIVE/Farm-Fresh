@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { ShoppingBag, Plus, Minus, Trash2 } from 'lucide-react';
 import { useCart } from '../../hooks/useCart';
 import { Button } from '../common/Button';

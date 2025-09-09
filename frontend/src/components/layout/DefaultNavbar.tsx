@@ -31,12 +31,18 @@ export default function DefaultNavbar() {
             {user ? (
               <>
                 <div className="flex items-center space-x-2">
+                  <button
+                  
+                  className="flex items-center space-x-3 hover:bg-gray-50 rounded-lg p-2 transition-colors"
+                >
                   <img
                     src={user.avatar}
                     alt={user.name}
-                    className="w-8 h-8 rounded-full"
+                    className="w-9 h-9 rounded-full border-2 border-green-200"
                   />
-                  <span className="text-sm font-medium text-gray-700">{user.name}</span>
+                  <span className="text-sm font-semibold text-gray-700">{user.name}</span>
+                </button>
+                
                 </div>
                 <Button variant="outline" onClick={logout} size="sm">
                   Logout
@@ -67,10 +73,10 @@ export default function DefaultNavbar() {
                   {user && (
                     <>
                       <img
-                        src={user.avatar}
-                        alt={user.name}
-                        className="w-8 h-8 rounded-full"
-                      />
+                    src={user.avatar}
+                    alt={user.name}
+                    className="w-9 h-9 rounded-full border-2 border-green-200"
+                  />
                       <span className="text-sm font-medium text-gray-700">{user.name}</span>
                     </>
                   )}

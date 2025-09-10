@@ -81,7 +81,11 @@ export const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-background relative overflow-x-hidden">
-      <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />
+      <div className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
+  <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />
+</div>
+
+
 
       <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] w-full overflow-hidden">
         <img

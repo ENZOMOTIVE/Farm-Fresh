@@ -26,11 +26,15 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">🥚</span>
+            <div className="flex items-center justify-center">
+              <img
+                    src='/brand-logo.png'
+                    
+                    className="w-14 h-14 rounded-full border-2 border-green-200"
+                  />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">Farm Fresh</h1>
+              <h1 className="text-xl font-bold text-green-500">Farm Fresh</h1>
               <p className="text-xs text-green-600">Eggs & Pastries</p>
             </div>
           </div>

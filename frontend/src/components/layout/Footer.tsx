@@ -33,9 +33,13 @@ export const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">🥚</span>
-              </div>
+              <div className="flex items-center justify-center">
+              <img
+                    src='/brand-logo.png'
+                    
+                    className="w-14 h-14 rounded-full border-2 border-green-200"
+                  />
+            </div>
               <div>
                 <h3 className="text-xl font-bold">Farm Fresh</h3>
                 <p className="text-sm text-green-400">Eggs & Pastries</p>

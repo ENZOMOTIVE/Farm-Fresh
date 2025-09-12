@@ -2,17 +2,18 @@
 
 import { useState } from "react"
 import { Globe, ChevronDown, Check } from "lucide-react"
-import i18n from "@/i18n" // adjust the import path if needed
+import i18n from "@/utils/i18n" // adjust the import path if needed
 
 const languages = [
+  { code: "zh", name: "中文", flag: "🇨🇳" },
   { code: "en", name: "English", flag: "🇺🇸" },
   { code: "fr", name: "Français", flag: "🇫🇷" },
-  { code: "zh", name: "中文", flag: "🇨🇳" },
+ 
 ]
 
 export default function LanguageSelector() {
   const [isOpen, setIsOpen] = useState(false)
-  const [currentLang, setCurrentLang] = useState("en")
+  const [currentLang, setCurrentLang] = useState("zh")
 
   const handleLanguageChange = (langCode: string) => {
     setCurrentLang(langCode)

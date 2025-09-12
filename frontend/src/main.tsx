@@ -4,7 +4,7 @@ import App from './App.tsx';
 import './index.css';
 import { BrowserRouter } from "react-router-dom";
 import { GoogleOAuthProvider } from '@react-oauth/google'
-import './i18n.ts';
+import './utils/i18n.ts';
 import { AuthProvider } from './hooks/useAuth.tsx';
 
 

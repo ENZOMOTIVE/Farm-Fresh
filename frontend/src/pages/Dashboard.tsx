@@ -77,7 +77,7 @@ export const Dashboard = () => {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="animate-spin rounded-full h-12 w-12 border-2 border-primary border-t-transparent"></div>
-          <p className="text-muted-foreground font-medium">Loading premium experience...</p>
+          <p className="text-muted-foreground font-medium">{t("LoadingPremium")}</p>
         </div>
       </div>
     )
@@ -115,18 +115,17 @@ export const Dashboard = () => {
                   variant="secondary"
                   className="bg-accent/20 text-accent border-accent/30 backdrop-blur-sm text-xs sm:text-sm"
                 >
-                  Farm Fresh
+                 {t('FarmFresh')}
                 </Badge>
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-white text-balance leading-tight">
-                Premium Farm
-                <span className="block text-green-500 ">Products</span>
+                {t('PremiumFarm')}
+                <span className="block text-green-500 ">{t('Products')}</span>
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 text-balance max-w-2xl leading-relaxed">
-                Experience the finest selection of organic eggs and artisanal pastries, delivered fresh from our
-                sustainable farms to your doorstep.
+                {t("FarmDescription")}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -134,14 +133,14 @@ export const Dashboard = () => {
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
                 >
-                  Explore Products
+                  {t('ExploreProducts')}
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
                   className="bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-sm px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 w-full sm:w-auto"
                 >
-                  Learn Our Story
+                  {t('LearnOurStory')}
                 </Button>
               </div>
             </div>

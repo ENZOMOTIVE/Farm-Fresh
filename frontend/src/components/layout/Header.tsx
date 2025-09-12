@@ -7,6 +7,7 @@ import { useCart } from "../../hooks/useCart"
 import { Button } from "../common/Button"
 import { useNavigate } from "react-router-dom"
 import LanguageSelector from "../features/languagetoggler"
+import { useTranslation } from "react-i18next"
 
 interface HeaderProps {
   onSearchChange: (query: string) => void
@@ -17,7 +18,8 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
   const { user, logout } = useAuth()
   const { getTotalItems } = useCart()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
+      const { t} = useTranslation();
+  
   const totalItems = getTotalItems()
 
   const navigate = useNavigate()
@@ -32,7 +34,7 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
               <img src="/brand-logo.png" className="w-14 h-14 rounded-full border-2 border-green-200" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-green-500">Farm Fresh</h1>
+              <h1 className="text-xl font-bold text-green-500">Farm Fresh  </h1>
               <p className="text-xs text-green-600">Eggs & Pastries</p>
             </div>
           </div>

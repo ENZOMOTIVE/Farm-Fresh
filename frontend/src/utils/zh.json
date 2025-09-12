@@ -21,7 +21,11 @@
            "EnterEmail": "输入您的邮箱",
            "Email": "电子邮件",
              "EnterPassword": "输入您的密码",
-             "Password": "密码"
+             "Password": "密码",
+
+
+             "Login": "登录",
+             "Logout": "退出"
 
 
 

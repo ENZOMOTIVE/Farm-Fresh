@@ -4,10 +4,13 @@ import { useAuth } from '../../hooks/useAuth';
 import { useCart } from '../../hooks/useCart';
 import { Button } from '../common/Button';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function DefaultNavbar() {
   const { user, logout } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const {t} = useTranslation();
 
   const navigate = useNavigate();
 
@@ -25,7 +28,7 @@ export default function DefaultNavbar() {
               />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-green-500">Farm Fresh</h1>
+              <h1 className="text-xl font-bold text-green-500">{t('FarmFresh')}</h1>
               <p className="text-xs text-green-600">Eggs & Pastries</p>
             </div>
           </div>
@@ -49,12 +52,12 @@ export default function DefaultNavbar() {
                 
                 </div>
                 <Button variant="outline" onClick={logout} size="sm">
-                  Logout
+                {t('Logout')}
                 </Button>
               </>
             ) : (
               <Button variant="outline" onClick={() => navigate('/login')} size="sm">
-                Log in
+                {t('Login')}
               </Button>
             )}
           </div>

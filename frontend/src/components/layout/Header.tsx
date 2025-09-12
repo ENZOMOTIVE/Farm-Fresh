@@ -18,8 +18,8 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
   const { user, logout } = useAuth()
   const { getTotalItems } = useCart()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-      const { t} = useTranslation();
-  
+  const { t } = useTranslation();
+
   const totalItems = getTotalItems()
 
   const navigate = useNavigate()
@@ -34,7 +34,7 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
               <img src="/brand-logo.png" className="w-14 h-14 rounded-full border-2 border-green-200" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-green-500">Farm Fresh  </h1>
+              <h1 className="text-xl font-bold text-green-500">{t('FarmFresh')}  </h1>
               <p className="text-xs text-green-600">Eggs & Pastries</p>
             </div>
           </div>
@@ -74,13 +74,12 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
                   <span className="text-sm font-semibold text-gray-700">{user.name}</span>
                 </button>
                 <Button variant="outline" onClick={logout} size="sm">
-                  Logout
+                  {t('Logout')}
                 </Button>
               </>
             ) : (
               <Button variant="outline" onClick={() => navigate("/login")} size="sm">
-                Log in
-              </Button>
+                {t('Login')}            </Button>
             )}
           </div>
 
@@ -109,7 +108,7 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
           <div className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
             <div className="flex flex-col space-y-3">
               <div className="flex items-center justify-between gap-1">
-                
+
                 <div className="flex items-center space-x-2">
                   {user ? (
                     <>
@@ -122,12 +121,12 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
                         <span className="text-sm font-medium text-gray-700">{user.name}</span>
                       </button>
                       <Button variant="outline" onClick={logout} size="sm">
-                        Logout
+                        {t('Logout')}
                       </Button>
                     </>
                   ) : (
                     <Button variant="outline" onClick={() => navigate("/login")} size="sm">
-                      Log in
+                      {t('Login')}
                     </Button>
                   )}
                 </div>

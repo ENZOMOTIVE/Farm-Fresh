@@ -22,7 +22,12 @@
             "EnterEmail": "Enter your email",
             "Email": "email",
               "EnterPassword": "Enter your password",
-              "Password": "Password"
+              "Password": "Password",
+
+
+
+              "Login": "Log In",
+              "Logout": "Log Out"
 
 
 

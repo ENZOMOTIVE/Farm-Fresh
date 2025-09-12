@@ -21,7 +21,11 @@
             "EnterEmail": "Entrez votre email",
             "Email": "E-mail",
               "EnterPassword": "Entrez votre mot de passe",
-              "Password": "Mot de passe"
+              "Password": "Mot de passe",
+
+
+              "Login": "Se connecter",
+              "Logout": "Se déconnecter"
 
 
 

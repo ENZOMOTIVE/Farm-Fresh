@@ -27,7 +27,7 @@ export const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [showCart, setShowCart] = useState(false)
 
-    const { t} = useTranslation();
+  const { t } = useTranslation();
 
 
   const [filters, setFilters] = useState<SearchFilters>({
@@ -84,10 +84,10 @@ export const Dashboard = () => {
   }
 
   return (
-   <div className="min-h-screen bg-background relative overflow-x-hidden pt-16">
-  <div className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
-    <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />
-  </div>
+    <div className="min-h-screen bg-background relative overflow-x-hidden pt-16">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
+        <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />
+      </div>
 
 
 
@@ -109,13 +109,13 @@ export const Dashboard = () => {
                   className="bg-primary/20 text-green-500 border-primary/30 backdrop-blur-sm text-xs sm:text-sm"
                 >
                   {t('PremiumQuality')}
-                 
+
                 </Badge>
                 <Badge
                   variant="secondary"
                   className="bg-accent/20 text-accent border-accent/30 backdrop-blur-sm text-xs sm:text-sm"
                 >
-                 {t('FarmFresh')}
+                  {t('FarmFresh')}
                 </Badge>
               </div>
 
@@ -163,15 +163,14 @@ export const Dashboard = () => {
                   <div className="min-w-0">
                     <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1 sm:mb-2">Premium Products</h3>
                     <p className="text-sm sm:text-base text-muted-foreground">
-                      Discover our curated selection of {filteredProducts.length} premium items
+                      {t("DiscoverSelection")} {filteredProducts.length} {t("PremiumItems")}
                     </p>
                   </div>
                   <Button
                     onClick={() => setShowCart(!showCart)}
                     variant="outline"
                     className="lg:hidden w-full sm:w-auto flex-shrink-0"
-                  >
-                    View Cart
+                  >{t("ViewCart")}
                   </Button>
                 </div>
 
@@ -192,9 +191,9 @@ export const Dashboard = () => {
                         />
                       </svg>
                     </div>
-                    <h4 className="text-base sm:text-lg font-semibold text-foreground mb-2">No products found</h4>
+                    <h4 className="text-base sm:text-lg font-semibold text-foreground mb-2">{t("NoProductsFound")}</h4>
                     <p className="text-sm sm:text-base text-muted-foreground px-4">
-                      Try adjusting your search criteria or browse our featured categories
+                     {t("SearchHint")}
                     </p>
                   </div>
                 ) : (
@@ -220,7 +219,7 @@ export const Dashboard = () => {
             >
               {showCart && (
                 <div className="lg:hidden p-4 border-b flex items-center justify-between flex-shrink-0">
-                  <h3 className="font-semibold">Shopping Cart</h3>
+                  <h3 className="font-semibold">{t("ShoppingCart")}</h3>
                   <Button variant="ghost" size="sm" onClick={() => setShowCart(false)}>
                     ✕
                   </Button>

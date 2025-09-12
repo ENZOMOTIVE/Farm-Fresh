@@ -6,5 +6,17 @@
   "PremiumFarm": "优质农场",
   "Products": "产品",
   "ExploreProducts": "探索产品",
-  "LearnOurStory": "了解我们的故事"
+  "LearnOurStory": "了解我们的故事",
+    "DiscoverSelection": "探索我们精心挑选的",
+      "PremiumItems": "优质商品",
+        "ViewCart": "查看购物车",
+          "NoProductsFound": "未找到产品",
+            "SearchHint": "请尝试调整搜索条件或浏览我们的精选分类",
+              "ShoppingCart": "购物车"
+
+
+
+
+
+
 }

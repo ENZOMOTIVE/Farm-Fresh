@@ -17,6 +17,7 @@ import { ChatbotWidget } from "@/components/features/chatbot"
 import { Button } from "@/components/common/Button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { useTranslation } from "react-i18next"
 
 export const Dashboard = () => {
   const { user } = useAuth()
@@ -25,6 +26,9 @@ export const Dashboard = () => {
   const [recommendations, setRecommendations] = useState<Product[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [showCart, setShowCart] = useState(false)
+
+    const { t} = useTranslation();
+
 
   const [filters, setFilters] = useState<SearchFilters>({
     query: "",
@@ -80,10 +84,10 @@ export const Dashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background relative overflow-x-hidden">
-      <div className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
-  <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />
-</div>
+   <div className="min-h-screen bg-background relative overflow-x-hidden pt-16">
+  <div className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
+    <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />
+  </div>
 
 
 
@@ -104,7 +108,8 @@ export const Dashboard = () => {
                   variant="secondary"
                   className="bg-primary/20 text-green-500 border-primary/30 backdrop-blur-sm text-xs sm:text-sm"
                 >
-                  Premium Quality
+                  {t('PremiumQuality')}
+                 
                 </Badge>
                 <Badge
                   variant="secondary"

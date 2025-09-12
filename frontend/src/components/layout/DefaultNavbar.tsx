@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  Menu, X,  } from 'lucide-react';
+import { Menu, X, } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
 import { useCart } from '../../hooks/useCart';
 import { Button } from '../common/Button';
@@ -10,7 +10,7 @@ export default function DefaultNavbar() {
   const { user, logout } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
 
@@ -39,20 +39,20 @@ export default function DefaultNavbar() {
               <>
                 <div className="flex items-center space-x-2">
                   <button
-                  
-                  className="flex items-center space-x-3 hover:bg-gray-50 rounded-lg p-2 transition-colors"
-                >
-                  <img
-                    src={user.avatar}
-                    alt={user.name}
-                    className="w-9 h-9 rounded-full border-2 border-green-200"
-                  />
-                  <span className="text-sm font-semibold text-gray-700">{user.name}</span>
-                </button>
-                
+
+                    className="flex items-center space-x-3 hover:bg-gray-50 rounded-lg p-2 transition-colors"
+                  >
+                    <img
+                      src={user.avatar}
+                      alt={user.name}
+                      className="w-9 h-9 rounded-full border-2 border-green-200"
+                    />
+                    <span className="text-sm font-semibold text-gray-700">{user.name}</span>
+                  </button>
+
                 </div>
                 <Button variant="outline" onClick={logout} size="sm">
-                {t('Logout')}
+                  {t('Logout')}
                 </Button>
               </>
             ) : (
@@ -80,10 +80,10 @@ export default function DefaultNavbar() {
                   {user && (
                     <>
                       <img
-                    src={user.avatar}
-                    alt={user.name}
-                    className="w-9 h-9 rounded-full border-2 border-green-200"
-                  />
+                        src={user.avatar}
+                        alt={user.name}
+                        className="w-9 h-9 rounded-full border-2 border-green-200"
+                      />
                       <span className="text-sm font-medium text-gray-700">{user.name}</span>
                     </>
                   )}

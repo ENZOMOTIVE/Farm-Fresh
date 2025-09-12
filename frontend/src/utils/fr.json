@@ -13,24 +13,18 @@
   "NoProductsFound": "Aucun produit trouvé",
   "SearchHint": "Essayez d’ajuster vos critères de recherche ou parcourez nos catégories en vedette",
   "ShoppingCart": "Panier",
-
-    "InvalidCredentials": "Identifiants invalides. Veuillez réessayer.",
-      "FillAllFields": "Veuillez remplir tous les champs",
-        "GoogleLoginFailed": "Échec de la connexion Google. Veuillez réessayer.",
-          "Or": "OU",
-            "EnterEmail": "Entrez votre email",
-            "Email": "E-mail",
-              "EnterPassword": "Entrez votre mot de passe",
-              "Password": "Mot de passe",
-
-
-              "Login": "Se connecter",
-              "Logout": "Se déconnecter"
-
-
-
-
-
-
-
+  "InvalidCredentials": "Identifiants invalides. Veuillez réessayer.",
+  "FillAllFields": "Veuillez remplir tous les champs",
+  "GoogleLoginFailed": "Échec de la connexion Google. Veuillez réessayer.",
+  "Or": "OU",
+  "EnterEmail": "Entrez votre email",
+  "Email": "E-mail",
+  "EnterPassword": "Entrez votre mot de passe",
+  "Password": "Mot de passe",
+  "Login": "Se connecter",
+  "Logout": "Se déconnecter",
+  "EggsnPastries": "Œufs et pâtisseries",
+  "SearchPlaceholder": "Recherchez des œufs frais, des pâtisseries...",
+  "SignIn": "Se connecter",
+  "SigningIn": "Connexion en cours..."
 }

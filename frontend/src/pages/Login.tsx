@@ -16,7 +16,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const { login, loginWithGoogle, isLoading } = useAuth();
 
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
 
   const navigate = useNavigate();
@@ -43,18 +43,18 @@ const Login = () => {
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Logo and Header */}
-       <div className="text-center mb-5">
-  <div className="flex items-center justify-center space-x-3">
-    <img
-      src="/brand-logo.png"
-      className="w-20 h-20 rounded-full border-2 border-green-200"
-      alt="Brand Logo"
-    />
-    <span className="text-2xl font-semibold text-green-700">{t('FarmFresh')}</span>
-  </div>
+        <div className="text-center mb-5">
+          <div className="flex items-center justify-center space-x-3">
+            <img
+              src="/brand-logo.png"
+              className="w-20 h-20 rounded-full border-2 border-green-200"
+              alt="Brand Logo"
+            />
+            <span className="text-2xl font-semibold text-green-700">{t('FarmFresh')}</span>
+          </div>
 
- 
-</div>
+
+        </div>
 
 
         {/* Login Form */}
@@ -101,7 +101,7 @@ const Login = () => {
               size="lg"
               disabled={isLoading}
             >
-              {isLoading ? 'Signing in...' : 'Sign In'}
+              {isLoading ? t("SigningIn") : t("SignIn")}
             </Button>
           </form>
 

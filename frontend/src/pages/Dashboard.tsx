@@ -193,7 +193,7 @@ export const Dashboard = () => {
                     </div>
                     <h4 className="text-base sm:text-lg font-semibold text-foreground mb-2">{t("NoProductsFound")}</h4>
                     <p className="text-sm sm:text-base text-muted-foreground px-4">
-                     {t("SearchHint")}
+                      {t("SearchHint")}
                     </p>
                   </div>
                 ) : (

@@ -77,7 +77,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       id: decodedPayload.sub,
       email: decodedPayload.email,
       name: decodedPayload.name,
-      avatar: decodedPayload.picture,
+  avatar: decodedPayload.picture || "https://via.placeholder.com/150",
     };
 
     setUser(newUser);

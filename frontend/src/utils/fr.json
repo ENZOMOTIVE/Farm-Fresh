@@ -8,11 +8,21 @@
   "ExploreProducts": "Explorer les produits",
   "LearnOurStory": "Apprenez notre histoire",
   "DiscoverSelection": "Découvrez notre sélection soignée de",
-    "PremiumItems": "articles premium",
+  "PremiumItems": "articles premium",
   "ViewCart": "Voir le panier",
-    "NoProductsFound": "Aucun produit trouvé",
-      "SearchHint": "Essayez d’ajuster vos critères de recherche ou parcourez nos catégories en vedette",
-        "ShoppingCart": "Panier"
+  "NoProductsFound": "Aucun produit trouvé",
+  "SearchHint": "Essayez d’ajuster vos critères de recherche ou parcourez nos catégories en vedette",
+  "ShoppingCart": "Panier",
+
+    "InvalidCredentials": "Identifiants invalides. Veuillez réessayer.",
+      "FillAllFields": "Veuillez remplir tous les champs",
+        "GoogleLoginFailed": "Échec de la connexion Google. Veuillez réessayer.",
+          "Or": "OU",
+            "EnterEmail": "Entrez votre email",
+            "Email": "E-mail",
+              "EnterPassword": "Entrez votre mot de passe",
+              "Password": "Mot de passe"
+
 
 
 

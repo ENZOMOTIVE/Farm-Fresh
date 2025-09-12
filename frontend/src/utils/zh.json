@@ -7,16 +7,26 @@
   "Products": "产品",
   "ExploreProducts": "探索产品",
   "LearnOurStory": "了解我们的故事",
-    "DiscoverSelection": "探索我们精心挑选的",
-      "PremiumItems": "优质商品",
-        "ViewCart": "查看购物车",
-          "NoProductsFound": "未找到产品",
-            "SearchHint": "请尝试调整搜索条件或浏览我们的精选分类",
-              "ShoppingCart": "购物车"
+  "DiscoverSelection": "探索我们精心挑选的",
+  "PremiumItems": "优质商品",
+  "ViewCart": "查看购物车",
+  "NoProductsFound": "未找到产品",
+  "SearchHint": "请尝试调整搜索条件或浏览我们的精选分类",
+  "ShoppingCart": "购物车",
+
+   "InvalidCredentials": "凭证无效。请重试。",
+     "FillAllFields": "请填写所有字段",
+       "GoogleLoginFailed": "Google 登录失败。请重试。",
+         "Or": "或",
+           "EnterEmail": "输入您的邮箱",
+           "Email": "电子邮件",
+             "EnterPassword": "输入您的密码",
+             "Password": "密码"
 
 
 
 
 
 
+  
 }

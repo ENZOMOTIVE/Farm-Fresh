@@ -5,6 +5,7 @@ import { Input } from '../components/common/Input';
 import { Button } from '../components/common/Button';
 import { useNavigate } from 'react-router-dom';
 import { GoogleLogin } from "@react-oauth/google";
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -15,6 +16,8 @@ const Login = () => {
   const [error, setError] = useState('');
   const { login, loginWithGoogle, isLoading } = useAuth();
 
+  const {t} = useTranslation();
+
 
   const navigate = useNavigate();
 
@@ -23,14 +26,14 @@ const Login = () => {
     setError('');
 
     if (!email || !password) {
-      setError('Please fill in all fields');
+      setError(t('FillAllFields'));
       return;
     }
 
     const success = await login(email, password);
 
     if (!success) {
-      setError('Invalid credentials. Please try again.');
+      setError(t("InvalidCredentials"));
     }
 
     navigate('/');
@@ -40,22 +43,27 @@ const Login = () => {
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Logo and Header */}
-        <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-            <span className="text-white text-2xl">🥚</span>
-          </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Farm Fresh</h1>
-          <p className="text-green-600 font-medium">Eggs & Pastries</p>
-          <p className="text-gray-600 text-sm mt-2">Welcome back! Please sign in to your account</p>
-        </div>
+       <div className="text-center mb-5">
+  <div className="flex items-center justify-center space-x-3">
+    <img
+      src="/brand-logo.png"
+      className="w-20 h-20 rounded-full border-2 border-green-200"
+      alt="Brand Logo"
+    />
+    <span className="text-2xl font-semibold text-green-700">{t('FarmFresh')}</span>
+  </div>
+
+ 
+</div>
+
 
         {/* Login Form */}
         <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
           <form onSubmit={handleSubmit} className="space-y-6">
             <Input
               type="email"
-              label="Email Address"
-              placeholder="Enter your email"
+              label={t('Email')}
+              placeholder={t("EnterEmail")}
               value={email}
               onChange={setEmail}
               icon={<Mail className="w-5 h-5" />}
@@ -65,8 +73,8 @@ const Login = () => {
             <div className="relative">
               <Input
                 type={showPassword ? 'text' : 'password'}
-                label="Password"
-                placeholder="Enter your password"
+                label={t('Password')}
+                placeholder={t("EnterPassword")}
                 value={password}
                 onChange={setPassword}
                 icon={<Lock className="w-5 h-5" />}
@@ -99,7 +107,7 @@ const Login = () => {
 
           <div className="mt-6 text-center">
 
-            <p className="text-gray-600 text-sm">OR </p>
+            <p className="text-gray-600 text-sm">{t("Or")} </p>
 
 
           </div>
@@ -112,7 +120,7 @@ const Login = () => {
                   if (success) navigate("/");
                 }
               }}
-              onError={() => setError("Google login failed. Please try again.")}
+              onError={() => setError(t("GoogleLoginFailed"))}
             />
 
           </div>

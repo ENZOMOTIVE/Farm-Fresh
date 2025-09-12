@@ -8,11 +8,21 @@
   "ExploreProducts": "Explore Products",
   "LearnOurStory": "Learn Our Story",
   "DiscoverSelection": "Discover our curated selection of",
-    "PremiumItems": "premium items",
-    "ViewCart": "View Cart",
-      "NoProductsFound": "No products found",
-        "SearchHint": "Try adjusting your search criteria or browse our featured categories",
-          "ShoppingCart": "Shopping Cart"
+  "PremiumItems": "premium items",
+  "ViewCart": "View Cart",
+  "NoProductsFound": "No products found",
+  "SearchHint": "Try adjusting your search criteria or browse our featured categories",
+  "ShoppingCart": "Shopping Cart",
+
+
+    "InvalidCredentials": "Invalid credentials. Please try again.",
+      "FillAllFields": "Please fill in all fields",
+        "GoogleLoginFailed": "Google login failed. Please try again.",
+          "Or": "OR",
+            "EnterEmail": "Enter your email",
+            "Email": "email",
+              "EnterPassword": "Enter your password",
+              "Password": "Password"
 
 
 

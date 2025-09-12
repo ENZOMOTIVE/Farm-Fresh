@@ -29,7 +29,7 @@ export default function DefaultNavbar() {
             </div>
             <div>
               <h1 className="text-xl font-bold text-green-500">{t('FarmFresh')}</h1>
-              <p className="text-xs text-green-600">Eggs & Pastries</p>
+              <p className="text-xs text-green-600">{t('EggsnPastries')}</p>
             </div>
           </div>
 

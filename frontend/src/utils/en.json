@@ -31,7 +31,11 @@
   "farmFreshEggs": "Farm-fresh eggs from happy, free-range hens.",
       "artisanPastries": "Artisan Pastries",
           "handcraftedPastries": "Handcrafted pastries made with premium ingredients",
-              "shopNow": "Shop Now"
+              "shopNow": "Shop Now",
+                  "bagEmpty": "Your bag is empty",
+                      "addItemsToGetStarted": "Add some delicious items to get started!"
+
+
 
 
 

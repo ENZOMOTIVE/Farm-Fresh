@@ -31,7 +31,11 @@
           "farmFreshEggs": "來自快樂放養母雞的新鮮農場雞蛋。",
               "artisanPastries": "手工烘焙糕點",
                   "handcraftedPastries": "以頂級食材製作的手工糕點",
-                      "shopNow": "立即購買"
+                      "shopNow": "立即購買",
+                          "bagEmpty": "您的購物袋是空的",
+                              "addItemsToGetStarted": "添加一些美味的商品來開始吧！"
+
+
 
 
 

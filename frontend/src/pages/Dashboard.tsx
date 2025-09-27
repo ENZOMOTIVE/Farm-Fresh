@@ -5,8 +5,8 @@ import type { Product, SearchFilters } from "../types"
 import { Header } from "../components/layout/Header"
 import { Filters } from "../components/layout/Filters"
 import { ProductCard } from "../components/common/ProductCard"
-import { Cart } from "../components/features/Cart"
-import { AIRecommendations } from "../components/features/AIRecommendations"
+//import { Cart } from "../components/features/Cart"
+//import { AIRecommendations } from "../components/features/AIRecommendations"
 import { ProductStats } from "../components/features/ProductStats"
 import { FeaturedCategories } from "../components/features/FeaturedCategories"
 import { TrustBadges } from "../components/features/TrustBadges"
@@ -84,7 +84,7 @@ export const Dashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background relative overflow-x-hidden pt-16">
+    <div className="min-h-screen bg-background relative overflow-x-hidden pt-16 bg-gradient-to-br from-green-50 to-emerald-50">
       <div className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
         <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />
       </div>
@@ -210,23 +210,7 @@ export const Dashboard = () => {
             <ProductStats />
           </div>
 
-          <div
-            className={`lg:block ${showCart ? "fixed inset-0 z-50 bg-black/50 lg:bg-transparent lg:relative lg:inset-auto" : "hidden"} lg:col-span-1`}
-          >
-            <div
-              className={`${showCart ? "fixed right-0 top-0 h-full w-full max-w-sm bg-background shadow-xl lg:shadow-none lg:static lg:max-w-none overflow-y-auto" : ""} lg:sticky lg:top-32`}
-            >
-              {showCart && (
-                <div className="lg:hidden p-4 border-b flex items-center justify-between flex-shrink-0">
-                  <h3 className="font-semibold">{t("ShoppingCart")}</h3>
-                  <Button variant="ghost" size="sm" onClick={() => setShowCart(false)}>
-                    ✕
-                  </Button>
-                </div>
-              )}
-              <Cart />
-            </div>
-          </div>
+         
         </div>
       </main>
 

@@ -5,8 +5,7 @@ import { useState } from "react"
 import { Button } from "../components/common/Button"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Edit, Mail, Phone, MapPin, Calendar, Shield, Bell } from "lucide-react"
+import { Edit, Mail, Phone, MapPin, Calendar, User} from "lucide-react"
 import { Cart } from "../components/features/Cart"
 
 export default function Profile() {
@@ -35,194 +34,143 @@ export default function Profile() {
     },
   }
 
-  return (
-    <div className="min-h-screen bg-white">
+    return (
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
       <DefaultNavbar />
 
-      <main className="container mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <main className="container mx-auto px-4 py-8 max-w-7xl">
+        <div className="mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="space-y-2">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-green-700 text-balance">
+                Account Details
+              </h1>
+              <p className="text-green-600/80 text-sm sm:text-base">View and manage your personal information</p>
+            </div>
+            
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 xl:grid-cols-4 gap-6 lg:gap-8">
           {/* Main Content */}
-          <div className="lg:col-span-3">
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h1 className="text-3xl font-bold text-green-600 mb-2">Account Details</h1>
-                  <p className="text-gray-600">View and manage your personal information</p>
+          <div className="xl:col-span-3 space-y-6 lg:space-y-8">
+            <Card className="border-green-200 shadow-lg hover:shadow-xl transition-shadow duration-200 bg-white/80 backdrop-blur-sm">
+              <CardHeader className="pb-4">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-white font-bold text-xl sm:text-2xl">
+                      {userData.firstName[0]}
+                      {userData.lastName[0]}
+                    </span>
+                  </div>
+                  <div className="flex-1">
+                    <CardTitle className="text-green-700 text-xl sm:text-2xl font-bold">
+                      {userData.firstName} {userData.lastName}
+                    </CardTitle>
+                    <CardDescription className="text-green-600/70 mt-1">
+                      Member since {userData.memberSince}
+                    </CardDescription>
+                  </div>
                 </div>
-                <Button className="bg-green-600 hover:bg-green-700 text-white">
-                  <Edit className="w-4 h-4 mr-2" />
+              </CardHeader>
+            </Card>
 
-                </Button>
-              </div>
-
-              {/* Personal Information */}
-              <Card className="border-green-100">
-                <CardHeader>
-                  <CardTitle className="text-green-600 flex items-center">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-green-600 font-bold text-lg">
-                        {userData.firstName[0]}
-                        {userData.lastName[0]}
-                      </span>
+            <Card className="border-green-200 shadow-lg hover:shadow-xl transition-shadow duration-200 bg-white/80 backdrop-blur-sm">
+              <CardHeader>
+                <CardTitle className="text-green-700 flex items-center text-lg sm:text-xl">
+                  <User className="w-5 h-5 mr-2" />
+                  Contact Information
+                </CardTitle>
+                <CardDescription>Your contact details and personal information</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="flex items-start gap-3 p-4 rounded-lg bg-green-50/50 hover:bg-green-50 transition-colors">
+                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Mail className="w-5 h-5 text-green-600" />
                     </div>
-                    {userData.firstName} {userData.lastName}
-                  </CardTitle>
-                  <CardDescription>Your basic account information</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="flex items-center">
-                      <Mail className="w-5 h-5 text-green-600 mr-3" />
-                      <div>
-                        <h4 className="font-medium text-gray-700">Email Address</h4>
-                        <p className="text-gray-900">{userData.email}</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center">
-                      <Phone className="w-5 h-5 text-green-600 mr-3" />
-                      <div>
-                        <h4 className="font-medium text-gray-700">Phone Number</h4>
-                        <p className="text-gray-900">{userData.phone}</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center">
-                      <Calendar className="w-5 h-5 text-green-600 mr-3" />
-                      <div>
-                        <h4 className="font-medium text-gray-700">Date of Birth</h4>
-                        <p className="text-gray-900">{userData.dateOfBirth}</p>
-                      </div>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="font-semibold text-green-800 text-sm">Email Address</h4>
+                      <p className="text-green-700 text-sm break-all">{userData.email}</p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
 
-              {/* Addresses */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Shipping Address */}
-                <Card className="border-green-100">
-                  <CardHeader>
-                    <CardTitle className="text-green-600 flex items-center">
-                      <MapPin className="w-5 h-5 mr-2" />
-                      Shipping Address
-                    </CardTitle>
-                    <CardDescription>Default delivery address</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-1 text-gray-900">
-                      <p>{userData.shippingAddress.street}</p>
-                      {userData.shippingAddress.apartment && <p>{userData.shippingAddress.apartment}</p>}
-                      <p>
-                        {userData.shippingAddress.city}, {userData.shippingAddress.state} {userData.shippingAddress.zip}
-                      </p>
-                      <p>{userData.shippingAddress.country}</p>
+                  <div className="flex items-start gap-3 p-4 rounded-lg bg-green-50/50 hover:bg-green-50 transition-colors">
+                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-5 h-5 text-green-600" />
                     </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-green-100">
-                  <CardHeader>
-                    <CardTitle className="text-green-600 flex items-center">
-                      <Bell className="w-5 h-5 mr-2" />
-                      Notification Preferences
-                    </CardTitle>
-                    <CardDescription>Your communication preferences</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-700">Email Notifications</span>
-                        <Badge
-                          variant={userData.preferences.emailNotifications ? "default" : "secondary"}
-                          className={userData.preferences.emailNotifications ? "bg-green-600" : ""}
-                        >
-                          {userData.preferences.emailNotifications ? "Enabled" : "Disabled"}
-                        </Badge>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-700">Promotional Emails</span>
-                        <Badge
-                          variant={userData.preferences.promotionalEmails ? "default" : "secondary"}
-                          className={userData.preferences.promotionalEmails ? "bg-green-600" : ""}
-                        >
-                          {userData.preferences.promotionalEmails ? "Enabled" : "Disabled"}
-                        </Badge>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-700">SMS Notifications</span>
-                        <Badge
-                          variant={userData.preferences.smsNotifications ? "default" : "secondary"}
-                          className={userData.preferences.smsNotifications ? "bg-green-600" : ""}
-                        >
-                          {userData.preferences.smsNotifications ? "Enabled" : "Disabled"}
-                        </Badge>
-                      </div>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="font-semibold text-green-800 text-sm">Phone Number</h4>
+                      <p className="text-green-700 text-sm">{userData.phone}</p>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
 
+                  <div className="flex items-start gap-3 p-4 rounded-lg bg-green-50/50 hover:bg-green-50 transition-colors sm:col-span-2 lg:col-span-1">
+                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Calendar className="w-5 h-5 text-green-600" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="font-semibold text-green-800 text-sm">Date of Birth</h4>
+                      <p className="text-green-700 text-sm">{userData.dateOfBirth}</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
-              </div>
-
-
-
-              {/* Security Info */}
-              <Card className="border-green-100">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <Card className="border-green-200 shadow-lg hover:shadow-xl transition-shadow duration-200 bg-white/80 backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle className="text-green-600 flex items-center">
-                    <Shield className="w-5 h-5 mr-2" />
-                    Security & Privacy
+                  <CardTitle className="text-green-700 flex items-center text-lg">
+                    <MapPin className="w-5 h-5 mr-2" />
+                    Shipping Address
                   </CardTitle>
-                  <CardDescription>Account security information</CardDescription>
+                  <CardDescription>Default delivery address</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="font-medium text-gray-700">Password</h4>
-                        <p className="text-sm text-gray-500">Last updated 2 months ago</p>
-                      </div>
-                      <Button
-                        variant="outline"
-                        className="border-green-600 text-green-600 hover:bg-green-50 bg-transparent"
-                      >
-                        Change Password
-                      </Button>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="font-medium text-gray-700">Two-Factor Authentication</h4>
-                        <p className="text-sm text-gray-500">Add an extra layer of security</p>
-                      </div>
-                      <Badge variant="secondary">Not Enabled</Badge>
-                    </div>
+                  <div className="space-y-2 text-green-800 bg-green-50/50 p-4 rounded-lg">
+                    <p className="font-medium">{userData.shippingAddress.street}</p>
+                    {userData.shippingAddress.apartment && (
+                      <p className="text-green-700">{userData.shippingAddress.apartment}</p>
+                    )}
+                    <p className="text-green-700">
+                      {userData.shippingAddress.city}, {userData.shippingAddress.state} {userData.shippingAddress.zip}
+                    </p>
+                    <p className="text-green-700">{userData.shippingAddress.country}</p>
                   </div>
                 </CardContent>
               </Card>
+
+              
             </div>
 
-
+            
           </div>
 
-          {/* Cart Sidebar */}
-          <div className={`lg:block ${showCart ? "block" : "hidden"} lg:col-span-1`}>
-            <div className="sticky top-24">
+          <div className={`xl:block ${showCart ? "block" : "hidden"} xl:col-span-1`}>
+            <div className="sticky top-6">
+              <div className="xl:hidden mb-4">
+                <Button
+                  onClick={() => setShowCart(false)}
+                  variant="outline"
+                  className="w-full border-green-200 text-green-700 hover:bg-green-50"
+                >
+                  Hide Cart
+                </Button>
+              </div>
               <Cart />
             </div>
           </div>
-
-
-
-
         </div>
 
-
+        <div className="xl:hidden fixed bottom-6 right-6 z-50">
+          <Button
+            onClick={() => setShowCart(!showCart)}
+            className="bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transition-all duration-200 rounded-full w-14 h-14 p-0"
+          >
+            <span className="text-lg">🛒</span>
+          </Button>
+        </div>
       </main>
     </div>
   )

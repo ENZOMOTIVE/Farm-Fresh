@@ -31,7 +31,11 @@
     "farmFreshEggs": "Œufs fermiers frais provenant de poules heureuses et élevées en plein air.",
         "artisanPastries": "Pâtisseries artisanales",
             "handcraftedPastries": "Pâtisseries artisanales faites avec des ingrédients de qualité supérieure",
-                "shopNow": "Acheter maintenant"
+                "shopNow": "Acheter maintenant",
+                    "bagEmpty": "Votre sac est vide",
+                        "addItemsToGetStarted": "Ajoutez quelques articles délicieux pour commencer !"
+
+
 
 
 

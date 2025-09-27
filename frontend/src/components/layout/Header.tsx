@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Search, Menu, X, Bell } from "lucide-react"
+import { Search, Menu, X, ShoppingBag } from "lucide-react"
 import { useAuth } from "../../hooks/useAuth"
 import { useCart } from "../../hooks/useCart"
 import { Button } from "../common/Button"
@@ -57,7 +57,7 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSelector />
             <button className="relative p-2 text-gray-600 hover:text-green-600 transition-colors">
-              <Bell className="w-5 h-5" />
+              < ShoppingBag onClick={() => navigate("cart")} className="w-5 h-5" />
               <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
             </button>
             {user ? (

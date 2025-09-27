@@ -3,32 +3,32 @@
 import { useState } from "react"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import {  Mail, Phone, MapPin, Calendar, User} from "lucide-react"
+import { Mail, Phone, MapPin, Calendar, User } from "lucide-react"
 import { Header } from "@/components/layout/Header"
-import type {  SearchFilters } from "../types"
-
+import type { SearchFilters } from "../types"
+import { useAuth } from "@/hooks/useAuth"
 
 export default function Profile() {
 
+  const { user } = useAuth()
+
 
   const [filters, setFilters] = useState<SearchFilters>({
-      query: "",
-      category: "all",
-      priceRange: [0, 100],
-      inStockOnly: false,
-    })
+    query: "",
+    category: "all",
+    priceRange: [0, 100],
+    inStockOnly: false,
+  })
 
-    const handleSearchChange = (query: string) => {
+  const handleSearchChange = (query: string) => {
     setFilters((prev) => ({ ...prev, query }))
   }
 
   const userData = {
-    firstName: "sadas",
-    lastName: "sad",
-    email: "john",
-    phone: "+1 (555) 123-4567",
-    dateOfBirth: "January 15, 1990",
-    memberSince: "March 2022",
+    firstName: user?.name,
+
+    email: user?.email,
+
     shippingAddress: {
       street: "123 Main Street",
       apartment: "Apt 4B",
@@ -45,7 +45,7 @@ export default function Profile() {
     },
   }
 
-    return (
+  return (
     <div className="min-h-screen bg-background relative overflow-x-hidden pt-16 bg-gradient-to-br from-green-50 to-emerald-50">
 
       <div className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
@@ -61,7 +61,7 @@ export default function Profile() {
               </h1>
               <p className="text-green-600/80 text-sm sm:text-base">View and manage your personal information</p>
             </div>
-            
+
           </div>
         </div>
 
@@ -71,34 +71,35 @@ export default function Profile() {
             <Card className="border-green-200 shadow-lg hover:shadow-xl transition-shadow duration-200 bg-white/80 backdrop-blur-sm">
               <CardHeader className="pb-4">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-white font-bold text-xl sm:text-2xl">
-                      {userData.firstName[0]}
-                      {userData.lastName[0]}
-                    </span>
+                  {/* Avatar */}
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg overflow-hidden">
+                    <img
+                      src={user?.avatar || "/default-avatar.png"}
+                      alt={user?.name || "User Avatar"}
+                      className="w-full h-full object-cover rounded-full border-2 border-green-200"
+                    />
                   </div>
+
+                  {/* Name */}
                   <div className="flex-1">
                     <CardTitle className="text-green-700 text-xl sm:text-2xl font-bold">
-                      {userData.firstName} {userData.lastName}
+                      {userData.firstName}
                     </CardTitle>
-                    <CardDescription className="text-green-600/70 mt-1">
-                      Member since {userData.memberSince}
-                    </CardDescription>
                   </div>
                 </div>
               </CardHeader>
-            </Card>
 
-            <Card className="border-green-200 shadow-lg hover:shadow-xl transition-shadow duration-200 bg-white/80 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-green-700 flex items-center text-lg sm:text-xl">
+              <CardContent>
+                <CardTitle className="text-green-700 flex items-center text-lg sm:text-xl mb-2">
                   <User className="w-5 h-5 mr-2" />
                   Contact Information
                 </CardTitle>
-                <CardDescription>Your contact details and personal information</CardDescription>
-              </CardHeader>
-              <CardContent>
+                <CardDescription className="mb-4">
+                  Your contact details and personal information
+                </CardDescription>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {/* Email */}
                   <div className="flex items-start gap-3 p-4 rounded-lg bg-green-50/50 hover:bg-green-50 transition-colors">
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <Mail className="w-5 h-5 text-green-600" />
@@ -109,28 +110,31 @@ export default function Profile() {
                     </div>
                   </div>
 
+                  {/* Phone */}
                   <div className="flex items-start gap-3 p-4 rounded-lg bg-green-50/50 hover:bg-green-50 transition-colors">
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <Phone className="w-5 h-5 text-green-600" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <h4 className="font-semibold text-green-800 text-sm">Phone Number</h4>
-                      <p className="text-green-700 text-sm">{userData.phone}</p>
+                      <p className="text-green-700 text-sm break-all">Phone number</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 p-4 rounded-lg bg-green-50/50 hover:bg-green-50 transition-colors sm:col-span-2 lg:col-span-1">
+                  {/* Date of Birth */}
+                  <div className="flex items-start gap-3 p-4 rounded-lg bg-green-50/50 hover:bg-green-50 transition-colors">
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <Calendar className="w-5 h-5 text-green-600" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <h4 className="font-semibold text-green-800 text-sm">Date of Birth</h4>
-                      <p className="text-green-700 text-sm">{userData.dateOfBirth}</p>
+                      <p className="text-green-700 text-sm">03/05/2003</p>
                     </div>
                   </div>
                 </div>
               </CardContent>
             </Card>
+
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <Card className="border-green-200 shadow-lg hover:shadow-xl transition-shadow duration-200 bg-white/80 backdrop-blur-sm">
@@ -155,16 +159,16 @@ export default function Profile() {
                 </CardContent>
               </Card>
 
-              
+
             </div>
 
-            
+
           </div>
 
-          
+
         </div>
 
-      
+
       </main>
     </div>
   )

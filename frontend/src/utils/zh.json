@@ -26,5 +26,15 @@
   "EggsnPastries": "雞蛋和糕點",
   "SearchPlaceholder": "搜索新鮮雞蛋、糕點...",
   "SignIn": "登錄",
-  "SigningIn": "正在登錄..."
+  "SigningIn": "正在登錄...",
+      "freshEggs": "新鮮雞蛋",
+          "farmFreshEggs": "來自快樂放養母雞的新鮮農場雞蛋。",
+              "artisanPastries": "手工烘焙糕點",
+                  "handcraftedPastries": "以頂級食材製作的手工糕點",
+                      "shopNow": "立即購買"
+
+
+
+
+
 }

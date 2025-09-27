@@ -26,5 +26,15 @@
   "EggsnPastries": "Œufs et pâtisseries",
   "SearchPlaceholder": "Recherchez des œufs frais, des pâtisseries...",
   "SignIn": "Se connecter",
-  "SigningIn": "Connexion en cours..."
+  "SigningIn": "Connexion en cours...",
+      "freshEggs": "Œufs frais",
+    "farmFreshEggs": "Œufs fermiers frais provenant de poules heureuses et élevées en plein air.",
+        "artisanPastries": "Pâtisseries artisanales",
+            "handcraftedPastries": "Pâtisseries artisanales faites avec des ingrédients de qualité supérieure",
+                "shopNow": "Acheter maintenant"
+
+
+
+
+
 }

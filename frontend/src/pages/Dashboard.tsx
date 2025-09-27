@@ -153,7 +153,6 @@ export const Dashboard = () => {
           <div className="lg:col-span-3 space-y-6 sm:space-y-8 min-w-0">
             <FeaturedCategories onCategorySelect={handleCategorySelect} />
 
-            <AIRecommendations recommendations={recommendations} />
 
             <Filters filters={filters} onFiltersChange={setFilters} />
 

@@ -1,23 +1,27 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface FeaturedCategoriesProps {
   onCategorySelect: (category: 'eggs' | 'pastries') => void;
 }
 
 export const FeaturedCategories = ({ onCategorySelect }: FeaturedCategoriesProps) => {
+
+    const { t } = useTranslation();
+  
   const categories = [
     {
       id: 'eggs' as const,
-      name: 'Fresh Eggs',
-      description: 'Farm-fresh eggs from happy, free-range hens',
+      name: t("freshEggs"),
+      description: t("farmFreshEggs"),
       image: 'https://images.pexels.com/photos/1556707/pexels-photo-1556707.jpeg?auto=compress&cs=tinysrgb&w=600',
       gradient: 'from-yellow-400 to-orange-500'
     },
     {
       id: 'pastries' as const,
-      name: 'Artisan Pastries',
-      description: 'Handcrafted pastries made with premium ingredients',
+      name: t("artisanPastries"),
+      description: t("handcraftedPastries"),
       image: 'https://images.pexels.com/photos/2638026/pexels-photo-2638026.jpeg?auto=compress&cs=tinysrgb&w=600',
       gradient: 'from-pink-400 to-red-500'
     }
@@ -45,7 +49,7 @@ export const FeaturedCategories = ({ onCategorySelect }: FeaturedCategoriesProps
                   <h4 className="text-2xl font-bold mb-2">{category.name}</h4>
                   <p className="text-white/90 mb-4">{category.description}</p>
                   <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2 group-hover:bg-white/30 transition-colors">
-                    <span className="font-semibold">Shop Now</span>
+                    <span className="font-semibold">{t("shopNow")}</span>
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>

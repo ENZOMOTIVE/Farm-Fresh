@@ -9,7 +9,6 @@ import { ProductCard } from "../components/common/ProductCard"
 //import { AIRecommendations } from "../components/features/AIRecommendations"
 import { ProductStats } from "../components/features/ProductStats"
 import { FeaturedCategories } from "../components/features/FeaturedCategories"
-import { TrustBadges } from "../components/features/TrustBadges"
 import { Footer } from "../components/layout/Footer"
 import { getProducts, searchProducts, getAIRecommendations } from "../services/products"
 import { useAuth } from "../hooks/useAuth"
@@ -19,6 +18,7 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
+import { Loader } from "@/components/common/loader"
 
 export const Dashboard = () => {
   const { user } = useAuth()
@@ -75,16 +75,13 @@ export const Dashboard = () => {
     setFilters((prev) => ({ ...prev, category }))
   }
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="animate-spin rounded-full h-12 w-12 border-2 border-primary border-t-transparent"></div>
-          <p className="text-muted-foreground font-medium">{t("LoadingPremium")}</p>
-        </div>
-      </div>
-    )
-  }
+
+
+  
+if (isLoading) {
+ return <Loader />
+}
+
 
   return (
     <div className="min-h-screen bg-background relative overflow-x-hidden pt-16 bg-gradient-to-br from-green-50 to-emerald-50">

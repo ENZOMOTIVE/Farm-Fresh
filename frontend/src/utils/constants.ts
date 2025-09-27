@@ -108,7 +108,91 @@ export const SAMPLE_PRODUCTS: Product[] = [
     rating: 4.7,
     reviews: 156,
     tags: ['sourdough', 'artisan', 'bread']
-  }
+  },
+   {
+    id: '9',
+    name: 'Farm Fresh Free-Range Eggs',
+    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    price: 8.99,
+    image: 'https://images.pexels.com/photos/1556707/pexels-photo-1556707.jpeg?auto=compress&cs=tinysrgb&w=500',
+    category: 'eggs',
+    inStock: true,
+    rating: 4.8,
+    reviews: 124,
+    tags: ['organic', 'free-range', 'local']
+  },
+   {
+    id: '10',
+    name: 'Farm Fresh Free-Range Eggs',
+    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    price: 8.99,
+    image: 'https://images.pexels.com/photos/1556707/pexels-photo-1556707.jpeg?auto=compress&cs=tinysrgb&w=500',
+    category: 'eggs',
+    inStock: true,
+    rating: 4.8,
+    reviews: 124,
+    tags: ['organic', 'free-range', 'local']
+  },
+   {
+    id: '11',
+    name: 'Farm Fresh Free-Range Eggs',
+    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    price: 8.99,
+    image: 'https://images.pexels.com/photos/1556707/pexels-photo-1556707.jpeg?auto=compress&cs=tinysrgb&w=500',
+    category: 'eggs',
+    inStock: true,
+    rating: 4.8,
+    reviews: 124,
+    tags: ['organic', 'free-range', 'local']
+  },
+   {
+    id: '12',
+    name: 'Farm Fresh Free-Range Eggs',
+    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    price: 8.99,
+    image: 'https://images.pexels.com/photos/1556707/pexels-photo-1556707.jpeg?auto=compress&cs=tinysrgb&w=500',
+    category: 'eggs',
+    inStock: true,
+    rating: 4.8,
+    reviews: 124,
+    tags: ['organic', 'free-range', 'local']
+  },
+   {
+    id: '13',
+    name: 'Farm Fresh Free-Range Eggs',
+    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    price: 8.99,
+    image: 'https://images.pexels.com/photos/1556707/pexels-photo-1556707.jpeg?auto=compress&cs=tinysrgb&w=500',
+    category: 'eggs',
+    inStock: true,
+    rating: 4.8,
+    reviews: 124,
+    tags: ['organic', 'free-range', 'local']
+  },
+   {
+    id: '14',
+    name: 'Farm Fresh Free-Range Eggs',
+    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    price: 8.99,
+    image: 'https://images.pexels.com/photos/1556707/pexels-photo-1556707.jpeg?auto=compress&cs=tinysrgb&w=500',
+    category: 'eggs',
+    inStock: true,
+    rating: 4.8,
+    reviews: 124,
+    tags: ['organic', 'free-range', 'local']
+  },
+   {
+    id: '15',
+    name: 'Farm Fresh Free-Range Eggs',
+    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    price: 8.99,
+    image: 'https://images.pexels.com/photos/1556707/pexels-photo-1556707.jpeg?auto=compress&cs=tinysrgb&w=500',
+    category: 'eggs',
+    inStock: true,
+    rating: 4.8,
+    reviews: 124,
+    tags: ['organic', 'free-range', 'local']
+  },
 ];
 
 import { Product } from '../types';

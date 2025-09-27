@@ -4,6 +4,7 @@ import { Dashboard } from "../pages/Dashboard";
 import Profile from "../pages/Profile";
 import CartPage from "@/pages/CartPage";
 import AboutPage from "@/pages/Aboutus";
+import ProductPage from "@/pages/ProductsPage";
 
 export default function AppRoutes() {
   return (
@@ -13,6 +14,7 @@ export default function AppRoutes() {
       <Route path="/profile" element={<Profile/>} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/about" element={<AboutPage />} />
+      <Route path="/products" element={<ProductPage />} />
 
     </Routes>
   )

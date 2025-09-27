@@ -1,20 +1,31 @@
 "use client"
 
-import DefaultNavbar from "../components/layout/DefaultNavbar"
 import { useState } from "react"
-import { Button } from "../components/common/Button"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Edit, Mail, Phone, MapPin, Calendar, User} from "lucide-react"
-import { Cart } from "../components/features/Cart"
+import {  Mail, Phone, MapPin, Calendar, User} from "lucide-react"
+import { Header } from "@/components/layout/Header"
+import type {  SearchFilters } from "../types"
+
 
 export default function Profile() {
-  const [showCart, setShowCart] = useState(false)
+
+
+  const [filters, setFilters] = useState<SearchFilters>({
+      query: "",
+      category: "all",
+      priceRange: [0, 100],
+      inStockOnly: false,
+    })
+
+    const handleSearchChange = (query: string) => {
+    setFilters((prev) => ({ ...prev, query }))
+  }
 
   const userData = {
-    firstName: "John",
-    lastName: "Doe",
-    email: "john.doe@example.com",
+    firstName: "sadas",
+    lastName: "sad",
+    email: "john",
     phone: "+1 (555) 123-4567",
     dateOfBirth: "January 15, 1990",
     memberSince: "March 2022",
@@ -36,7 +47,9 @@ export default function Profile() {
 
     return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
-      <DefaultNavbar />
+
+      <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />
+
 
       <main className="container mx-auto px-4 py-8 max-w-7xl">
         <div className="mb-8">
@@ -147,30 +160,10 @@ export default function Profile() {
             
           </div>
 
-          <div className={`xl:block ${showCart ? "block" : "hidden"} xl:col-span-1`}>
-            <div className="sticky top-6">
-              <div className="xl:hidden mb-4">
-                <Button
-                  onClick={() => setShowCart(false)}
-                  variant="outline"
-                  className="w-full border-green-200 text-green-700 hover:bg-green-50"
-                >
-                  Hide Cart
-                </Button>
-              </div>
-              <Cart />
-            </div>
-          </div>
+          
         </div>
 
-        <div className="xl:hidden fixed bottom-6 right-6 z-50">
-          <Button
-            onClick={() => setShowCart(!showCart)}
-            className="bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transition-all duration-200 rounded-full w-14 h-14 p-0"
-          >
-            <span className="text-lg">🛒</span>
-          </Button>
-        </div>
+      
       </main>
     </div>
   )

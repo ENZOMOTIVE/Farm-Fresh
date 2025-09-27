@@ -46,10 +46,11 @@ export default function Profile() {
   }
 
     return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
+    <div className="min-h-screen bg-background relative overflow-x-hidden pt-16 bg-gradient-to-br from-green-50 to-emerald-50">
 
-      <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />
-
+      <div className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
+        <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />
+      </div>
 
       <main className="container mx-auto px-4 py-8 max-w-7xl">
         <div className="mb-8">

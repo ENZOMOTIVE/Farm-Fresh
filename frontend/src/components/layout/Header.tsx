@@ -8,6 +8,7 @@ import { Button } from "../common/Button"
 import { useNavigate } from "react-router-dom"
 import LanguageSelector from "../features/languagetoggler"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 
 interface HeaderProps {
   onSearchChange: (query: string) => void
@@ -29,15 +30,18 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="flex items-center justify-center">
-              <img src="/brand-logo.png" className="w-14 h-14 rounded-full border-2 border-green-200" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-green-500">{t('FarmFresh')}  </h1>
-              <p className="text-xs text-green-600">{t('EggsnPastries')}</p>
-            </div>
-          </div>
+         <Link to="/" className="flex items-center space-x-2">
+  <div className="flex items-center justify-center">
+    <img
+      src="/brand-logo.png"
+      className="w-14 h-14 rounded-full border-2 border-green-200"
+    />
+  </div>
+  <div>
+    <h1 className="text-xl font-bold text-green-500">{t('FarmFresh')}</h1>
+    <p className="text-xs text-green-600">{t('EggsnPastries')}</p>
+  </div>
+</Link>
 
           {/* Desktop Search */}
           <div className="hidden md:flex flex-1 max-w-md mx-8 gap-3">

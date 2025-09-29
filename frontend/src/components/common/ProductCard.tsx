@@ -33,14 +33,13 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           </div>
         )}
         <div className="absolute top-2 right-2">
-  <span
-    className={`px-2 py-1 rounded-full text-xs font-medium ${
-      categoryStyles[product.category] || "bg-gray-100 text-gray-800"
-    }`}
-  >
-    {CATEGORIES[product.category as keyof typeof CATEGORIES] || "Other"}
-  </span>
-</div>
+          <span
+            className={`px-2 py-1 rounded-full text-xs font-medium ${categoryStyles[product.category] || "bg-gray-100 text-gray-800"
+              }`}
+          >
+            {CATEGORIES[product.category as keyof typeof CATEGORIES] || "Other"}
+          </span>
+        </div>
 
 
       </div>

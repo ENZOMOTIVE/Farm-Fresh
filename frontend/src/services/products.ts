@@ -2,8 +2,7 @@ import { Product, SearchFilters } from '../types';
 import { SAMPLE_PRODUCTS } from '../utils/constants';
 
 export const getProducts = async (): Promise<Product[]> => {
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 300));
+  
   return SAMPLE_PRODUCTS;
 };
 
@@ -29,14 +28,3 @@ export const searchProducts = (products: Product[], filters: SearchFilters): Pro
   });
 };
 
-export const getAIRecommendations = async (userId: string): Promise<Product[]> => {
-  // Simulate AI recommendation API
-  await new Promise(resolve => setTimeout(resolve, 500));
-  
-  // For demo, return a mix of highly rated products
-  const recommended = SAMPLE_PRODUCTS
-    .filter(p => p.rating >= 4.7 && p.inStock)
-    .slice(0, 3);
-    
-  return recommended;
-};

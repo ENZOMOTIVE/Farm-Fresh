@@ -3,30 +3,30 @@
 import { useState, useEffect } from "react"
 import type { Product, SearchFilters } from "../types"
 import { Header } from "../components/layout/Header"
-import { Filters } from "../components/layout/Filters"
-import { ProductCard } from "../components/common/ProductCard"
-//import { Cart } from "../components/features/Cart"
-//import { AIRecommendations } from "../components/features/AIRecommendations"
-import { ProductStats } from "../components/features/ProductStats"
+
+
 import { FeaturedCategories } from "../components/features/FeaturedCategories"
 import { Footer } from "../components/layout/Footer"
-import { getProducts, searchProducts, getAIRecommendations } from "../services/products"
+import { getProducts, searchProducts } from "../services/products"
 import { useAuth } from "../hooks/useAuth"
-import { ChatbotWidget } from "@/components/features/chatbot"
+
 import { Button } from "@/components/common/Button"
-import { Card } from "@/components/ui/card"
+
 import { Badge } from "@/components/ui/badge"
 import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
 import { Loader } from "@/components/common/loader"
 
+
 export const Dashboard = () => {
   const { user } = useAuth()
   const [products, setProducts] = useState<Product[]>([])
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([])
-  const [recommendations, setRecommendations] = useState<Product[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  const [showCart, setShowCart] = useState(false)
+  
+  
+ 
+
 
   const navigate = useNavigate();
 
@@ -42,25 +42,30 @@ export const Dashboard = () => {
 
   useEffect(() => {
     const loadData = async () => {
-      setIsLoading(true)
+      
+       setIsLoading(true)
       try {
-        const [productsData, recommendationsData] = await Promise.all([
+        const [productsData] = await Promise.all([
           getProducts(),
-          getAIRecommendations(user?.id || ""),
+          
         ])
 
         setProducts(productsData)
         setFilteredProducts(productsData)
-        setRecommendations(recommendationsData)
+        
       } catch (error) {
         console.error("Error loading data:", error)
       } finally {
-        setIsLoading(false)
+          setIsLoading(false)
       }
     }
 
     loadData()
   }, [user?.id])
+
+
+
+
 
   useEffect(() => {
     const filtered = searchProducts(products, filters)
@@ -71,16 +76,16 @@ export const Dashboard = () => {
     setFilters((prev) => ({ ...prev, query }))
   }
 
-  const handleCategorySelect = (category: "eggs" | "pastries") => {
+  const handleCategorySelect = (category: 'cheese_cakes' | 'chiffon_cakes' | 'french_tarts' | 'cream_puffs') => {
     setFilters((prev) => ({ ...prev, category }))
   }
-
 
 
 
   if (isLoading) {
     return <Loader />
   }
+
 
 
   return (
@@ -153,21 +158,11 @@ export const Dashboard = () => {
       <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
           <div className="lg:col-span-3 space-y-6 sm:space-y-8 min-w-0">
-            <FeaturedCategories  />
-
-
-
-
-
-
+            <FeaturedCategories />
           </div>
-
-
         </div>
       </main>
-
       <Footer />
-      <ChatbotWidget />
     </div>
   )
 }

@@ -1,4 +1,5 @@
 
+
 import { AuthProvider } from './hooks/useAuth';
 import { CartProvider } from './hooks/useCart';
 import AppRoutes from './Routes/Routes';
@@ -6,8 +7,10 @@ import AppRoutes from './Routes/Routes';
 
 
 
-
 function App() {
+
+
+
   return (
     
 

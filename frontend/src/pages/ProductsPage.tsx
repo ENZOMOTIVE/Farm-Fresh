@@ -50,7 +50,7 @@ export default function ProductPage() {
     setFilteredProducts(filtered)
   }, [products, filters])
 
-  const handleCategorySelect = (category: "eggs" | "pastries") => {
+  const handleCategorySelect = (category: 'cheese_cakes' | 'chiffon_cakes' | 'french_tarts' | 'cream_puffs') => {
     setFilters((prev) => ({ ...prev, category }))
   }
 

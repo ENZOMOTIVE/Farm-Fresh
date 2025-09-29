@@ -25,7 +25,7 @@ export interface CartItem {
 
 export interface SearchFilters {
   query: string;
-  category: 'all' | 'eggs' | 'pastries';
+  category: 'all' | 'cheese_cakes' | 'chiffon_cakes' | 'french_tarts' | 'cream_puffs';
   priceRange: [number, number];
   inStockOnly: boolean;
 }

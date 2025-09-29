@@ -132,6 +132,7 @@ export const Dashboard = () => {
                 <Button
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+                  onClick={() => navigate('/products')}
                 >
                   {t('ExploreProducts')}
                 </Button>
@@ -152,7 +153,7 @@ export const Dashboard = () => {
       <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
           <div className="lg:col-span-3 space-y-6 sm:space-y-8 min-w-0">
-            <FeaturedCategories onCategorySelect={handleCategorySelect} />
+            <FeaturedCategories  />
 
 
 

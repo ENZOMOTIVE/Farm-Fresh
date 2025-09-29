@@ -1,8 +1,10 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Heart } from 'lucide-react';
 import { FaCcVisa, FaCcPaypal, FaCcStripe, FaCcMastercard } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
 
 export const Footer = () => {
+  const {t} = useTranslation()
   return (
     <footer className="bg-gray-900 text-white">
       {/* Newsletter Section */}
@@ -10,17 +12,17 @@ export const Footer = () => {
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <h3 className="text-xl font-bold mb-2">Stay Fresh with Our Newsletter</h3>
-              <p className="text-green-100">Get weekly updates on fresh arrivals and exclusive offers</p>
+              <h3 className="text-xl font-bold mb-2">{t("newsletter")}</h3>
+              <p className="text-green-100">{t("weeklyUpdates")}</p>
             </div>
             <div className="flex w-full md:w-auto max-w-md">
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t('emailPlaceholder')}
                 className="flex-1 px-4 py-2 rounded-l-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-300"
               />
               <button className="bg-green-800 hover:bg-green-900 px-6 py-2 rounded-r-lg font-semibold transition-colors">
-                Subscribe
+                {t("subscribe")}
               </button>
             </div>
           </div>
@@ -41,13 +43,12 @@ export const Footer = () => {
                   />
             </div>
               <div>
-                <h3 className="text-xl font-bold">Farm Fresh</h3>
-                <p className="text-sm text-green-400">Eggs & Pastries</p>
+                <h3 className="text-xl font-bold">{t("FarmFresh")}</h3>
+                <p className="text-sm text-green-400">{t("EggsnPastries")}</p>
               </div>
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Bringing you the finest farm-fresh eggs and artisan pastries since 1985.
-              Quality, freshness, and taste in every bite.
+              {t("tagline")}
             </p>
             <div className="flex space-x-3">
               <a href="#" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">

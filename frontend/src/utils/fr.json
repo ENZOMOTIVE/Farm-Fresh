@@ -33,7 +33,18 @@
             "handcraftedPastries": "Pâtisseries artisanales faites avec des ingrédients de qualité supérieure",
                 "shopNow": "Acheter maintenant",
                     "bagEmpty": "Votre sac est vide",
-                        "addItemsToGetStarted": "Ajoutez quelques articles délicieux pour commencer !"
+                        "addItemsToGetStarted": "Ajoutez quelques articles délicieux pour commencer !",
+                        "shopByCategory": "Acheter par catégorie",
+                            "newsletter": "Restez à jour avec notre newsletter",
+                                "weeklyUpdates": "Recevez chaque semaine les nouveautés et des offres exclusives",
+                                    "subscribe": "S'abonner",
+                                        "emailPlaceholder": "Entrez votre e-mail",
+                                            "tagline": "Depuis 1985, nous vous offrons les meilleurs œufs fermiers et pâtisseries artisanales. Qualité, fraîcheur et saveur à chaque bouchée."
+
+
+
+
+
 
 
 

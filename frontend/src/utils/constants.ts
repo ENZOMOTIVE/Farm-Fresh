@@ -30,7 +30,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
   {
     id: '1',
     name: 'Classic New York Cheesecake',
-    description: 'Premium quality ',
+    description: 'Rich and creamy baked cheesecake with a classic New York taste.',
     price: 8.99,
     image: '/new-york-cheesecake.jpg',
     category: 'cheese_cakes',
@@ -42,7 +42,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
   {
     id: '2',
     name: 'Strawberry Cheesecake',
-    description: 'Nice Cake',
+    description: 'Creamy cheesecake topped with fresh strawberries and glaze.',
     price: 12.99,
     image: '/strawberry-cheesecake.jpg',
     category: 'cheese_cakes',
@@ -54,7 +54,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
   {
     id: '3',
     name: 'Basque Burnt Cheesecake',
-    description: 'cheesecake',
+    description: 'Caramelized top with a creamy, custard-like center.',
     price: 10.99,
     image: '/BurntBasque.jpg',
     category: 'cheese_cakes',
@@ -66,7 +66,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
   {
     id: '4',
     name: 'Blueberry Cheesecake',
-    description: 'Blueberry tasty',
+    description: 'Smooth cheesecake layered with fresh blueberries.',
     price: 15.99,
     image: '/blueberry-cheesecake.avif',
     category: 'cheese_cakes',
@@ -78,7 +78,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
   {
     id: '5',
     name: 'Tokyo Five-Cheese ',
-    description: 'Rich and creamy duck eggs from heritage breeds. Perfect for baking and gourmet cooking.',
+    description: 'A rich Japanese-style cheesecake made with five premium cheeses.',
     price: 18.99,
     image: '/tokyocheese.jpg',
     category: 'cheese_cakes',
@@ -90,7 +90,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
   {
     id: '6',
     name: 'Tiramisu (classic, with a hint of liqueur)',
-    description: 'Light and airy cream puffs filled with rich almond pastry cream.',
+    description: 'Classic Italian dessert with coffee-soaked layers and mascarpone cream.',
     price: 22.99,
     image: '/tiramisu.jpg',
     category: 'chiffon_cakes',
@@ -102,7 +102,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
   {
     id: '7',
     name: 'Baked Honey Cheesecake',
-    description: 'Delicate quail eggs perfect for gourmet dishes and appetizers.',
+    description: 'Cheesecake infused with natural honey and baked to perfection.',
     price: 24.99,
     image: '/Honey-Baked.jpg',
     category: 'chiffon_cakes',
@@ -114,7 +114,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
   {
     id: '8',
     name: 'White Chiffon Base',
-    description: 'Artisan sourdough bread with a perfect crust and tangy flavor.',
+    description: 'Light and fluffy chiffon cake with a delicate vanilla flavor.',
     price: 8.99,
     image: '/white-chiffon.jpeg',
     category: 'chiffon_cakes',
@@ -123,10 +123,10 @@ export const SAMPLE_PRODUCTS: Product[] = [
     reviews: 156,
     tags: ['sourdough', 'artisan', 'bread']
   },
-   {
+  {
     id: '9',
     name: 'Chocolate Chiffon Base',
-    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    description: 'Airy and moist chiffon cake with rich chocolate flavor.',
     price: 8.99,
     image: '/Chocolate-Chiffon-Cake.jpg',
     category: 'chiffon_cakes',
@@ -135,10 +135,10 @@ export const SAMPLE_PRODUCTS: Product[] = [
     reviews: 124,
     tags: ['organic', 'free-range', 'local']
   },
-   {
+  {
     id: '10',
     name: 'Yuzu Matcha Cheesecake',
-    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    description: 'A refreshing cheesecake blending earthy matcha with citrusy yuzu.',
     price: 8.99,
     image: '/yuzu-matcha.jpg',
     category: 'chiffon_cakes',
@@ -147,10 +147,10 @@ export const SAMPLE_PRODUCTS: Product[] = [
     reviews: 124,
     tags: ['organic', 'free-range', 'local']
   },
-   {
+  {
     id: '11',
     name: 'Lemon Tart',
-    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    description: 'Crisp tart shell filled with tangy and smooth lemon curd.',
     price: 8.99,
     image: '/lemon-tarte.webp',
     category: 'french_tarts',
@@ -159,10 +159,10 @@ export const SAMPLE_PRODUCTS: Product[] = [
     reviews: 124,
     tags: ['organic', 'free-range', 'local']
   },
-   {
+  {
     id: '12',
     name: 'Chocolate Tart',
-    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    description: 'Decadent tart filled with silky dark chocolate ganache.',
     price: 8.99,
     image: '/chocolate-tart.webp',
     category: 'french_tarts',
@@ -171,10 +171,10 @@ export const SAMPLE_PRODUCTS: Product[] = [
     reviews: 124,
     tags: ['organic', 'free-range', 'local']
   },
-   {
+  {
     id: '13',
     name: 'Taro Tart',
-    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    description: 'Buttery tart filled with smooth, subtly sweet taro cream.',
     price: 8.99,
     image: '/taro-tarts.jpg',
     category: 'french_tarts',
@@ -183,10 +183,10 @@ export const SAMPLE_PRODUCTS: Product[] = [
     reviews: 124,
     tags: ['organic', 'free-range', 'local']
   },
-   {
+  {
     id: '14',
     name: 'French Flower Tart - Lemon',
-    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    description: 'Delicate flower-shaped tart with zesty lemon filling.',
     price: 8.99,
     image: '/French-Lemon-Tart.jpg',
     category: 'french_tarts',
@@ -195,10 +195,10 @@ export const SAMPLE_PRODUCTS: Product[] = [
     reviews: 124,
     tags: ['organic', 'free-range', 'local']
   },
-   {
+  {
     id: '15',
     name: 'French Flower Tart – Chocolate',
-    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    description: 'Flower-shaped tart filled with smooth chocolate cream.',
     price: 8.99,
     image: '/tarte-au-chocolat.jpg',
     category: 'french_tarts',
@@ -210,7 +210,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
   {
     id: '16',
     name: 'Handmade Pineapple Puff – Vanilla',
-    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    description: 'Flaky puff pastry filled with sweet pineapple and vanilla cream.',
     price: 8.99,
     image: '/Pineapple_Puffs.jpeg',
     category: 'cream_puffs',
@@ -219,10 +219,10 @@ export const SAMPLE_PRODUCTS: Product[] = [
     reviews: 124,
     tags: ['organic', 'free-range', 'local']
   },
-   {
+  {
     id: '17',
     name: 'Donut – Strawberry',
-    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    description: 'Soft donut topped with strawberry glaze and sprinkles.',
     price: 8.99,
     image: '/donuts.webp',
     category: 'cream_puffs',
@@ -231,10 +231,10 @@ export const SAMPLE_PRODUCTS: Product[] = [
     reviews: 124,
     tags: ['organic', 'free-range', 'local']
   },
-   {
+  {
     id: '18',
     name: 'Donut – Chocolate',
-    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    description: 'Classic donut coated in rich chocolate glaze.',
     price: 8.99,
     image: '/donut-choco.jpg',
     category: 'cream_puffs',
@@ -246,7 +246,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
   {
     id: '19',
     name: 'Canelé – Original',
-    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    description: 'Traditional French pastry with a caramelized crust and custardy center.',
     price: 8.99,
     image: '/Canele.jpg',
     category: 'cream_puffs',
@@ -258,7 +258,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
   {
     id: '20',
     name: 'French Madeleine – Original',
-    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    description: 'Light, buttery sponge cakes with a delicate shell shape.',
     price: 8.99,
     image: '/French-Madeleines-Cookies.jpg',
     category: 'cream_puffs',
@@ -267,9 +267,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
     reviews: 124,
     tags: ['organic', 'free-range', 'local']
   },
-
-
-
 ];
+
 
 import { Product } from '../types';

@@ -1,8 +1,19 @@
+// constants.ts (or wherever you keep them)
 export const CATEGORIES = {
-  all: 'All Products',
-  eggs: 'Fresh Eggs',
-  pastries: 'Artisan Pastries'
+  all: "All Products",
+  eggs: "Fresh Eggs",
+  pastries: "Artisan Pastries",
+  cheese_cakes: "Cheese Cakes",
+  chiffon_cakes: "Chiffon Cakes",
 } as const;
+
+export const categoryStyles: Record<string, string> = {
+  eggs: "bg-yellow-100 text-yellow-800",
+  cheese_cakes: "bg-purple-100 text-purple-800",
+  chiffon_cakes: "bg-green-100 text-green-800",
+  pastries: "bg-pink-100 text-pink-800",
+};
+
 
 export const PRICE_RANGES = [
   { label: 'All Prices', value: [0, 100] as [number, number] },
@@ -15,11 +26,11 @@ export const PRICE_RANGES = [
 export const SAMPLE_PRODUCTS: Product[] = [
   {
     id: '1',
-    name: 'Farm Fresh Free-Range Eggs',
-    description: 'Premium free-range eggs from happy hens. Rich, golden yolks perfect for any recipe.',
+    name: 'Classic New York Cheesecake',
+    description: 'Premium quality ',
     price: 8.99,
-    image: 'https://images.pexels.com/photos/1556707/pexels-photo-1556707.jpeg?auto=compress&cs=tinysrgb&w=500',
-    category: 'eggs',
+    image: '/new-york-cheesecake.jpg',
+    category: 'cheese_cakes',
     inStock: true,
     rating: 4.8,
     reviews: 124,
@@ -27,11 +38,11 @@ export const SAMPLE_PRODUCTS: Product[] = [
   },
   {
     id: '2',
-    name: 'Artisan Croissants',
-    description: 'Buttery, flaky croissants baked fresh daily with premium French butter.',
+    name: 'Strawberry Cheesecake',
+    description: 'Nice Cake',
     price: 12.99,
-    image: 'https://images.pexels.com/photos/2638026/pexels-photo-2638026.jpeg?auto=compress&cs=tinysrgb&w=500',
-    category: 'pastries',
+    image: '/strawberry-cheesecake.jpg',
+    category: 'cheese_cakes',
     inStock: true,
     rating: 4.9,
     reviews: 89,
@@ -39,11 +50,11 @@ export const SAMPLE_PRODUCTS: Product[] = [
   },
   {
     id: '3',
-    name: 'Organic Brown Eggs',
-    description: 'Nutrient-rich brown eggs from pasture-raised hens. Perfect for healthy cooking.',
+    name: 'Basque Burnt Cheesecake',
+    description: 'cheesecake',
     price: 10.99,
-    image: 'https://images.pexels.com/photos/4110456/pexels-photo-4110456.jpeg?auto=compress&cs=tinysrgb&w=500',
-    category: 'eggs',
+    image: '/BurntBasque.jpg',
+    category: 'cheese_cakes',
     inStock: true,
     rating: 4.7,
     reviews: 156,
@@ -51,11 +62,11 @@ export const SAMPLE_PRODUCTS: Product[] = [
   },
   {
     id: '4',
-    name: 'Chocolate Danish Pastries',
-    description: 'Decadent chocolate-filled Danish pastries with a crispy, golden exterior.',
+    name: 'Blueberry Cheesecake',
+    description: 'Blueberry tasty',
     price: 15.99,
-    image: 'https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?auto=compress&cs=tinysrgb&w=500',
-    category: 'pastries',
+    image: '/blueberry-cheesecake.avif',
+    category: 'cheese_cakes',
     inStock: false,
     rating: 4.6,
     reviews: 67,
@@ -63,11 +74,11 @@ export const SAMPLE_PRODUCTS: Product[] = [
   },
   {
     id: '5',
-    name: 'Heritage Breed Duck Eggs',
+    name: 'Tokyo Five-Cheese ',
     description: 'Rich and creamy duck eggs from heritage breeds. Perfect for baking and gourmet cooking.',
     price: 18.99,
-    image: 'https://images.pexels.com/photos/7937481/pexels-photo-7937481.jpeg?auto=compress&cs=tinysrgb&w=500',
-    category: 'eggs',
+    image: '/tokyocheese.jpg',
+    category: 'cheese_cakes',
     inStock: true,
     rating: 4.9,
     reviews: 43,
@@ -75,11 +86,11 @@ export const SAMPLE_PRODUCTS: Product[] = [
   },
   {
     id: '6',
-    name: 'Almond Cream Puffs',
+    name: 'Tiramisu (classic, with a hint of liqueur)',
     description: 'Light and airy cream puffs filled with rich almond pastry cream.',
     price: 22.99,
-    image: 'https://images.pexels.com/photos/1291712/pexels-photo-1291712.jpeg?auto=compress&cs=tinysrgb&w=500',
-    category: 'pastries',
+    image: '/tiramisu.jpg',
+    category: 'chiffon_cakes',
     inStock: true,
     rating: 4.8,
     reviews: 92,

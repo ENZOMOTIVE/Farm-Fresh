@@ -78,9 +78,9 @@ export const Dashboard = () => {
 
 
 
-if (isLoading) {
- return <Loader />
-}
+  if (isLoading) {
+    return <Loader />
+  }
 
 
   return (
@@ -139,7 +139,7 @@ if (isLoading) {
                   variant="outline"
                   size="lg"
                   className="bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-sm px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 w-full sm:w-auto"
-                  onClick={() => {navigate('/about')}}
+                  onClick={() => { navigate('/about') }}
                 >
                   {t('LearnOurStory')}
                 </Button>
@@ -155,14 +155,13 @@ if (isLoading) {
             <FeaturedCategories onCategorySelect={handleCategorySelect} />
 
 
-            
 
-            
 
-            <ProductStats />
+
+
           </div>
 
-         
+
         </div>
       </main>
 

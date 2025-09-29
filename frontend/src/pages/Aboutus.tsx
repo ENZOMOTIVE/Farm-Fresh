@@ -1,11 +1,29 @@
-import { Button } from "@/components/common/Button"
-import DefaultNavbar from "@/components/layout/DefaultNavbar"
+
 import { Card, CardContent } from "@/components/ui/card"
+import { Header } from "@/components/layout/Header"
+import { SearchFilters } from "@/types"
+import { useState } from "react"
+
 
 export default function AboutPage() {
+
+    const [filters, setFilters] = useState<SearchFilters>({
+      query: "",
+      category: "all",
+      priceRange: [0, 100],
+      inStockOnly: false,
+    })
+
+   const handleSearchChange = (query: string) => {
+    setFilters((prev) => ({ ...prev, query }))
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
-      <DefaultNavbar />
+      <div className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
+              <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />
+            </div>
+      
 
       {/* Our Story Section */}
       <section className="pt-32 pb-24 px-6">

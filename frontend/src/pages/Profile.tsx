@@ -1,16 +1,21 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Mail, Phone, MapPin, Calendar, User } from "lucide-react"
 import { Header } from "@/components/layout/Header"
 import type { SearchFilters } from "../types"
 import { useAuth } from "@/hooks/useAuth"
+import { Loader } from "@/components/common/loader"
 
 export default function Profile() {
 
   const { user } = useAuth()
+
+  
+
+
 
 
   const [filters, setFilters] = useState<SearchFilters>({

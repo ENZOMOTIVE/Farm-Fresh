@@ -11,7 +11,7 @@ export interface Product {
   description: string;
   price: number;
   image: string;
-  category: 'eggs' | 'pastries';
+  category: 'eggs' | 'pastries' | 'cheese_cakes' | 'chiffon_cakes';
   inStock: boolean;
   rating: number;
   reviews: number;

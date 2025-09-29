@@ -52,7 +52,7 @@ export const Dashboard = () => {
       // Run both fetch and 4s delay in parallel
       const [productsData] = await Promise.all([
         getProducts(),
-        delay(3000) // ensures loader shows at least 4 seconds
+        delay(2000) // ensures loader shows at least 4 seconds
       ]);
 
       setProducts(productsData);

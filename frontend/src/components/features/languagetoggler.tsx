@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Globe, ChevronDown, Check } from "lucide-react"
 import i18n from "@/utils/i18n" // adjust the import path if needed
+import PastryLoader from "../common/intro_loader"
 
 const languages = [
   { code: "zh", name: "中文", flag: "🇨🇳" },
@@ -14,11 +15,21 @@ const languages = [
 export default function LanguageSelector() {
   const [isOpen, setIsOpen] = useState(false)
   const [currentLang, setCurrentLang] = useState("zh")
+  const [loading, setloading] = useState(false)
 
   const handleLanguageChange = (langCode: string) => {
-    setCurrentLang(langCode)
-    i18n.changeLanguage(langCode)
-    setIsOpen(false)
+    setIsOpen(false)    // close dropdown immediately
+    setloading(true)    // show loader
+
+    setTimeout(() => {
+      setCurrentLang(langCode)
+      i18n.changeLanguage(langCode)
+      setloading(false) // hide loader after 1 sec
+    }, 1000)
+  }
+
+  if (loading){
+    return <PastryLoader />
   }
 
   const getCurrentLanguage = () => {

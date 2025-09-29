@@ -16,6 +16,7 @@ import { Badge } from "@/components/ui/badge"
 import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
 import { Loader } from "@/components/common/loader"
+import PastryLoader from "@/components/common/intro_loader"
 
 
 export const Dashboard = () => {
@@ -40,28 +41,32 @@ export const Dashboard = () => {
     inStockOnly: false,
   })
 
-  useEffect(() => {
-    const loadData = async () => {
-      
-       setIsLoading(true)
-      try {
-        const [productsData] = await Promise.all([
-          getProducts(),
-          
-        ])
+ useEffect(() => {
+  const loadData = async () => {
+    setIsLoading(true);
 
-        setProducts(productsData)
-        setFilteredProducts(productsData)
-        
-      } catch (error) {
-        console.error("Error loading data:", error)
-      } finally {
-          setIsLoading(false)
-      }
+    // Helper to delay for given ms
+    const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
+
+    try {
+      // Run both fetch and 4s delay in parallel
+      const [productsData] = await Promise.all([
+        getProducts(),
+        delay(3000) // ensures loader shows at least 4 seconds
+      ]);
+
+      setProducts(productsData);
+      setFilteredProducts(productsData);
+    } catch (error) {
+      console.error("Error loading data:", error);
+    } finally {
+      setIsLoading(false);
     }
+  }
 
-    loadData()
-  }, [user?.id])
+  loadData();
+}, [user?.id]);
+
 
 
 
@@ -83,7 +88,7 @@ export const Dashboard = () => {
 
 
   if (isLoading) {
-    return <Loader />
+    return <PastryLoader />
   }
 
 

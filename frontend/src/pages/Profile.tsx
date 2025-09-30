@@ -11,6 +11,8 @@ import { Loader } from "@/components/common/loader"
 
 export default function Profile() {
 
+    const [phone, setPhone] = useState("")
+
   const { user } = useAuth()
 
   
@@ -117,14 +119,20 @@ export default function Profile() {
 
                   {/* Phone */}
                   <div className="flex items-start gap-3 p-4 rounded-lg bg-green-50/50 hover:bg-green-50 transition-colors">
-                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-5 h-5 text-green-600" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <h4 className="font-semibold text-green-800 text-sm">Phone Number</h4>
-                      <p className="text-green-700 text-sm break-all">Phone number</p>
-                    </div>
-                  </div>
+      <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+        <Phone className="w-5 h-5 text-green-600" />
+      </div>
+      <div className="min-w-0 flex-1">
+        <h4 className="font-semibold text-green-800 text-sm">Phone Number</h4>
+        <input
+          type="tel"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          placeholder="Enter phone number"
+          className="mt-1 w-full rounded-md border border-green-200 bg-green-50 px-2 py-1 text-sm text-green-700 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+      </div>
+    </div>
 
                   {/* Date of Birth */}
                   <div className="flex items-start gap-3 p-4 rounded-lg bg-green-50/50 hover:bg-green-50 transition-colors">

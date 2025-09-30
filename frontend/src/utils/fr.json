@@ -43,7 +43,27 @@
                                               "cheese_cakes": "Gâteaux au fromage",
     "chiffon_cakes": "Gâteaux chiffon",
     "french_tarts": "Tartes françaises",
-    "cream_puffs": "Choux à la crème"
+    "cream_puffs": "Choux à la crème",
+    "classicNewYorkCheesecake": "Cheesecake New-Yorkais Classique",
+      "strawberryCheesecake": "Cheesecake à la Fraise",
+      "basqueBurntCheesecake": "Cheesecake Basque Brûlé",
+      "blueberryCheesecake": "Cheesecake aux Myrtilles",
+      "tokyoFiveCheese": "Cheesecake Tokyo aux Cinq Fromages",
+      "tiramisuClassic": "Tiramisu (classique, avec une touche de liqueur)",
+      "bakedHoneyCheesecake": "Cheesecake au Miel Cuit",
+      "whiteChiffonBase": "Base Chiffon Blanche",
+      "chocolateChiffonBase": "Base Chiffon au Chocolat",
+      "yuzuMatchaCheesecake": "Cheesecake au Matcha et Yuzu",
+      "lemonTart": "Tarte au Citron",
+      "chocolateTart": "Tarte au Chocolat",
+      "taroTart": "Tarte au Taro",
+      "frenchFlowerTartLemon": "Tarte Fleur Française - Citron",
+      "frenchFlowerTartChocolate": "Tarte Fleur Française – Chocolat",
+      "pineapplePuffVanilla": "Chou à l’Ananas – Vanille",
+      "donutStrawberry": "Donut – Fraise",
+      "donutChocolate": "Donut – Chocolat",
+      "caneleOriginal": "Canelé – Original",
+      "frenchMadeleineOriginal": "Madeleine Française – Originale"
 
 
 

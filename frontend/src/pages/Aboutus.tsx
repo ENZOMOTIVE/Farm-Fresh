@@ -166,15 +166,15 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="py-24 bg-white/50">
+      <section className="py-24 ">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
-            MEET THE
-            <br />
-            <span className="text-green-500">FARMERS</span>
+            MEET THE  <span className="text-green-500">TEAM</span>
+            
+           
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="justify-center">
             <div className="text-center">
               <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden">
                 <img
@@ -183,45 +183,17 @@ export default function AboutPage() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">John Heritage</h3>
-              <p className="text-green-500 font-semibold mb-4">Farm Owner & Head of Operations</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Prof. Chung Ming Chang</h3>
+              <p className="text-green-500 font-semibold mb-4">Head of Operations</p>
               <p className="text-gray-600 leading-relaxed">
                 Third-generation farmer passionate about sustainable agriculture and maintaining the family tradition of
                 excellence.
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1494790108755-2616c6f30e8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                  alt="Maria Heritage"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Maria Heritage</h3>
-              <p className="text-green-500 font-semibold mb-4">Master Baker & Co-Owner</p>
-              <p className="text-gray-600 leading-relaxed">
-                Artisan baker with 25 years of experience, creating exceptional pastries using traditional techniques
-                and farm-fresh ingredients.
-              </p>
-            </div>
+            
 
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                  alt="Sarah Heritage"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Sarah Heritage</h3>
-              <p className="text-green-500 font-semibold mb-4">Sustainability Coordinator</p>
-              <p className="text-gray-600 leading-relaxed">
-                Environmental scientist ensuring our farming practices protect and enhance the land for future
-                generations.
-              </p>
-            </div>
+            
           </div>
         </div>
       </section>

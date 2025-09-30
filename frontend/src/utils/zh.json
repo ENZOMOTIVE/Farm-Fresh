@@ -43,7 +43,27 @@
                                                     "cheese_cakes": "芝士蛋糕",
     "chiffon_cakes": "戚风蛋糕",
     "french_tarts": "法式塔",
-    "cream_puffs": "泡芙"
+    "cream_puffs": "泡芙",
+    "classicNewYorkCheesecake": "经典纽约芝士蛋糕",
+      "strawberryCheesecake": "草莓芝士蛋糕",
+      "basqueBurntCheesecake": "巴斯克焦香芝士蛋糕",
+      "blueberryCheesecake": "蓝莓芝士蛋糕",
+      "tokyoFiveCheese": "东京五重芝士蛋糕",
+      "tiramisuClassic": "提拉米苏（经典，带少许利口酒）",
+      "bakedHoneyCheesecake": "蜂蜜烤芝士蛋糕",
+      "whiteChiffonBase": "香草戚风蛋糕",
+      "chocolateChiffonBase": "巧克力戚风蛋糕",
+      "yuzuMatchaCheesecake": "柚子抹茶芝士蛋糕",
+      "lemonTart": "柠檬挞",
+      "chocolateTart": "巧克力挞",
+      "taroTart": "芋头挞",
+      "frenchFlowerTartLemon": "法式花形柠檬挞",
+      "frenchFlowerTartChocolate": "法式花形巧克力挞",
+      "pineapplePuffVanilla": "手工菠萝泡芙 – 香草",
+      "donutStrawberry": "草莓甜甜圈",
+      "donutChocolate": "巧克力甜甜圈",
+      "caneleOriginal": "法式可露丽 – 原味",
+      "frenchMadeleineOriginal": "法式玛德琳 – 原味"
 
 
 

@@ -39,7 +39,11 @@
                                 "weeklyUpdates": "Recevez chaque semaine les nouveautés et des offres exclusives",
                                     "subscribe": "S'abonner",
                                         "emailPlaceholder": "Entrez votre e-mail",
-                                            "tagline": "Depuis 1985, nous vous offrons les meilleurs œufs fermiers et pâtisseries artisanales. Qualité, fraîcheur et saveur à chaque bouchée."
+                                            "tagline": "Depuis 1985, nous vous offrons les meilleurs œufs fermiers et pâtisseries artisanales. Qualité, fraîcheur et saveur à chaque bouchée.",
+                                              "cheese_cakes": "Gâteaux au fromage",
+    "chiffon_cakes": "Gâteaux chiffon",
+    "french_tarts": "Tartes françaises",
+    "cream_puffs": "Choux à la crème"
 
 
 

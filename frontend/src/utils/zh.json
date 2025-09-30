@@ -39,7 +39,11 @@
                                        "weeklyUpdates": "每週掌握最新到貨與獨家優惠",
                                            "subscribe": "訂閱",
                                                "emailPlaceholder": "輸入您的電子郵件",
-                                                   "tagline": "自1985年以來，為您帶來最優質的新鮮農場雞蛋與手工烘焙點心。每一口都蘊含品質、新鮮與美味。"
+                                                   "tagline": "自1985年以來，為您帶來最優質的新鮮農場雞蛋與手工烘焙點心。每一口都蘊含品質、新鮮與美味。",
+                                                    "cheese_cakes": "芝士蛋糕",
+    "chiffon_cakes": "戚风蛋糕",
+    "french_tarts": "法式塔",
+    "cream_puffs": "泡芙"
 
 
 

@@ -15,28 +15,28 @@ export const FeaturedCategories = ({ onCategorySelect }: FeaturedCategoriesProps
   const categories = [
     {
       id: 'cheese_cakes' as const,
-      name: 'Cheese Cakes',
+      name: t("cheese_cakes"),
       description: t("farmFreshEggs"),
       image: 'https://images.pexels.com/photos/1854652/pexels-photo-1854652.jpeg?auto=compress&cs=tinysrgb&w=800',
       gradient: 'from-yellow-400 to-orange-500'
     },
     {
       id: 'chiffon_cakes' as const,
-      name: "Chiffon Cakes",
+      name: t("chiffon_cakes"),
       description: t("handcraftedPastries"),
       image: 'https://images.pexels.com/photos/2638026/pexels-photo-2638026.jpeg?auto=compress&cs=tinysrgb&w=600',
       gradient: 'from-pink-400 to-red-500'
     },
      {
     id: 'french_tarts' as const,
-    name: "French Tarts",
+    name: t("french_tarts"),
     description: t("frenchTartsDesc"),
     image: 'https://images.pexels.com/photos/3026804/pexels-photo-3026804.jpeg?auto=compress&cs=tinysrgb&w=600',
     gradient: 'from-purple-400 to-indigo-500'
   },
   {
     id: 'cream_puffs' as const,
-    name: "Cream Puffs",
+    name: t("cream_puffs"),
     description: t("creamPuffsDesc"),
     image: 'https://images.pexels.com/photos/704569/pexels-photo-704569.jpeg?auto=compress&cs=tinysrgb&w=600',
     gradient: 'from-green-400 to-teal-500'

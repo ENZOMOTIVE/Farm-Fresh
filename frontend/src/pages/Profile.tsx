@@ -302,7 +302,7 @@ export default function Profile() {
                         variant="outline"
                         className="border-green-600 text-green-600 hover:bg-green-50"
                       >
-                        <MapPin className="w-4 h-4 mr-2" />
+                        
                         Add Address
                       </Button>
                     </div>

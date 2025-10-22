@@ -67,12 +67,8 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">About Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Our Farm</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Fresh Eggs</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Artisan Pastries</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Bulk Orders</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Gift Cards</a></li>
+              <li><a href="/about" className="text-gray-300 hover:text-green-400 transition-colors">About Us</a></li>
+              
             </ul>
           </div>
 
@@ -80,44 +76,18 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Customer Service</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Contact Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Shipping Info</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Returns & Exchanges</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">FAQ</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Track Your Order</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Size Guide</a></li>
+
+              
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Get in Touch</h4>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">
-                  123 Farm Road, Green Valley, CA 95945
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">(555) 123-FARM</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">hello@farmfresh.com</span>
-              </div>
-            </div>
+            <h4 className='text-lg font-semibold mb-4'>Become a Seller</h4>
+                          <li><a href="/seller" className="text-gray-300 hover:text-green-400 transition-colors">Join Us as Seller</a></li>
 
-            <div className="mt-6 p-4 bg-gray-800 rounded-lg">
-              <h5 className="font-semibold text-green-400 mb-2">Store Hours</h5>
-              <div className="text-sm text-gray-300 space-y-1">
-                <p>Mon - Fri: 6:00 AM - 8:00 PM</p>
-                <p>Saturday: 7:00 AM - 9:00 PM</p>
-                <p>Sunday: 8:00 AM - 6:00 PM</p>
-              </div>
-            </div>
           </div>
+          
+          
         </div>
       </div>
 

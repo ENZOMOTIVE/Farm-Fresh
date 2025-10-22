@@ -9,7 +9,7 @@ import { Textarea } from "@/components/common/TextArea"
 import { Card } from "@/components/ui/card"
 import { Upload, Store, User, Mail, Phone, FileText, CheckCircle2 } from "lucide-react"
 
-export default function SellerRegistration() {
+export default function Seller() {
     const [formData, setFormData] = useState({
         shopName: "",
         sellerName: "",

@@ -1,10 +1,12 @@
-import React from 'react';
-import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Heart } from 'lucide-react';
+
+import {  Facebook, Instagram, Twitter } from 'lucide-react';
 import { FaCcVisa, FaCcPaypal, FaCcStripe, FaCcMastercard } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 export const Footer = () => {
   const {t} = useTranslation()
+  const navigate = useNavigate()
   return (
     <footer className="bg-gray-900 text-white">
       {/* Newsletter Section */}
@@ -83,8 +85,12 @@ export const Footer = () => {
 
           <div>
             <h4 className='text-lg font-semibold mb-4'>Become a Seller</h4>
-                          <li><a href="/seller" className="text-gray-300 hover:text-green-400 transition-colors">Join Us as Seller</a></li>
-
+<button
+      onClick={() => navigate("/seller")}
+      className="text-gray-300 hover:text-green-400 transition-colors"
+    >
+      Join Us as Seller
+    </button>
           </div>
           
           

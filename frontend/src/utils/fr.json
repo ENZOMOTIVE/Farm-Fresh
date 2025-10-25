@@ -63,11 +63,30 @@
       "donutStrawberry": "Donut – Fraise",
       "donutChocolate": "Donut – Chocolat",
       "caneleOriginal": "Canelé – Original",
-      "frenchMadeleineOriginal": "Madeleine Française – Originale"
+      "frenchMadeleineOriginal": "Madeleine Française – Originale",
 
 
 
-
+    "desc.classicNewYorkCheesecake": "Cheesecake riche et crémeux, cuit à la perfection dans le style new-yorkais.",
+  "desc.strawberryCheesecake": "Cheesecake crémeux garni de fraises fraîches et d'un glaçage brillant.",
+  "desc.basqueBurntCheesecake": "Dessus caramélisé avec un cœur crémeux façon crème pâtissière.",
+  "desc.blueberryCheesecake": "Cheesecake onctueux avec des couches de myrtilles fraîches.",
+  "desc.tokyoFiveCheese": "Cheesecake japonais riche, réalisé avec cinq fromages raffinés.",
+  "desc.tiramisuClassic": "Dessert italien classique avec café et crème mascarpone.",
+  "desc.bakedHoneyCheesecake": "Cheesecake au miel naturel, cuit lentement pour une saveur délicate.",
+  "desc.whiteChiffonBase": "Gâteau chiffon léger et moelleux, arôme vanille.",
+  "desc.chocolateChiffonBase": "Gâteau chiffon aérien au chocolat intense.",
+  "desc.yuzuMatchaCheesecake": "Cheesecake frais au matcha et yuzu, à la fois doux et acidulé.",
+  "desc.lemonTart": "Pâte croustillante garnie d'un doux lemon curd acidulé.",
+  "desc.chocolateTart": "Tarte décadente à la ganache chocolat soyeuse.",
+  "desc.taroTart": "Tarte beurrée garnie d'une crème de taro subtilement sucrée.",
+  "desc.frenchFlowerTartLemon": "Tarte en forme de fleur, garnie d'un citron acidulé.",
+  "desc.frenchFlowerTartChocolate": "Tarte fleur garnie d'une crème chocolat fondante.",
+  "desc.pineapplePuffVanilla": "Feuilleté croustillant à l'ananas et à la vanille.",
+  "desc.donutStrawberry": "Donut moelleux au glaçage à la fraise et éclats sucrés.",
+  "desc.donutChocolate": "Donut classique au glaçage chocolat.",
+  "desc.caneleOriginal": "Pâtisserie bordelaise caramélisée, cœur tendre et vanillé.",
+  "desc.frenchMadeleineOriginal": "Madeleine légère et beurrée en forme de coquillage."
 
 
 

@@ -5,6 +5,7 @@ import { Button } from './Button';
 import { useCart } from '../../hooks/useCart';
 import { categoryStyles } from '@/utils/constants'
 import { CATEGORIES } from '@/utils/constants';
+import { useTranslation } from 'react-i18next';
 
 interface ProductCardProps {
   product: Product;
@@ -12,6 +13,7 @@ interface ProductCardProps {
 
 export const ProductCard = ({ product }: ProductCardProps) => {
   const { addToCart } = useCart();
+  const {t} = useTranslation();
 
   const handleAddToCart = () => {
     if (product.inStock) {
@@ -46,11 +48,11 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
       <div className="p-4">
         <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-1">
-          {product.name}
+          {t(product.name)}
         </h3>
 
         <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-          {product.description}
+          {t(product.description)}
         </p>
 
         <div className="flex items-center gap-2 mb-3">

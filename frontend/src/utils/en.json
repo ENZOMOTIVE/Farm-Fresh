@@ -63,5 +63,26 @@
       "donutStrawberry": "Donut – Strawberry",
       "donutChocolate": "Donut – Chocolate",
       "caneleOriginal": "Canelé – Original",
-      "frenchMadeleineOriginal": "French Madeleine – Original"
+      "frenchMadeleineOriginal": "French Madeleine – Original",
+
+      "desc.classicNewYorkCheesecake": "Rich and creamy baked cheesecake with a classic New York taste.",
+  "desc.strawberryCheesecake": "Creamy cheesecake topped with fresh strawberries and glaze.",
+  "desc.basqueBurntCheesecake": "Caramelized top with a creamy, custard-like center.",
+  "desc.blueberryCheesecake": "Smooth cheesecake layered with fresh blueberries.",
+  "desc.tokyoFiveCheese": "A rich Japanese-style cheesecake made with five premium cheeses.",
+  "desc.tiramisuClassic": "Classic Italian dessert with coffee-soaked layers and mascarpone cream.",
+  "desc.bakedHoneyCheesecake": "Cheesecake infused with natural honey and baked to perfection.",
+  "desc.whiteChiffonBase": "Light and fluffy chiffon cake with a delicate vanilla flavor.",
+  "desc.chocolateChiffonBase": "Airy and moist chiffon cake with rich chocolate flavor.",
+  "desc.yuzuMatchaCheesecake": "A refreshing cheesecake blending earthy matcha with citrusy yuzu.",
+  "desc.lemonTart": "Crisp tart shell filled with tangy and smooth lemon curd.",
+  "desc.chocolateTart": "Decadent tart filled with silky dark chocolate ganache.",
+  "desc.taroTart": "Buttery tart filled with smooth, subtly sweet taro cream.",
+  "desc.frenchFlowerTartLemon": "Delicate flower-shaped tart with zesty lemon filling.",
+  "desc.frenchFlowerTartChocolate": "Flower-shaped tart filled with smooth chocolate cream.",
+  "desc.pineapplePuffVanilla": "Flaky puff pastry filled with sweet pineapple and vanilla cream.",
+  "desc.donutStrawberry": "Soft donut topped with strawberry glaze and sprinkles.",
+  "desc.donutChocolate": "Classic donut coated in rich chocolate glaze.",
+  "desc.caneleOriginal": "Traditional French pastry with a caramelized crust and custardy center.",
+  "desc.frenchMadeleineOriginal": "Light, buttery sponge cakes with a delicate shell shape."
 }

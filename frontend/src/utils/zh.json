@@ -133,6 +133,18 @@
 
   "noAddressAdded": "尚未添加地址",
   "addYourShippingAddress": "添加您的收货地址以开始使用",
-  "addAddress": "添加地址"
+  "addAddress": "添加地址",
+
+  "farmFormosa": "福尔摩沙农场",
+  "farmStory": "使用优质有机食材，每日新鲜烘焙，我们的蛋糕和糕点旨在为您的餐桌带来欢乐、新鲜和难忘的美味。",
+  "bakedFresh": "每日新鲜烘焙",
+  "bakedFreshDescription1": "从杯子蛋糕和羊角面包到手工蛋糕和糕点，我们专注于新鲜、美味和品质。每批产品都小量手工制作，确保完美口感和质地。",
+  "bakedFreshDescription2": "无论是庆祝、温馨的夜晚还是甜食欲望——我们提供的美味让每一刻都特别。无防腐剂，无捷径——只有纯粹美味。",
+  "meetThe": "认识团",
+  "team": "队",
+  "headOfOperations": "运营主管",
+  "headOfOperationsDescription": "主管及业务负责人",
+  "technicalLead": "技术负责人 & 开发者",
+  "technicalLeadDescription": "负责所有技术开发。"
 
 }

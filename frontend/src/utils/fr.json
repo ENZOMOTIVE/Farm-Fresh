@@ -133,7 +133,22 @@
 
   "noAddressAdded": "Aucune adresse ajoutée",
   "addYourShippingAddress": "Ajoutez votre adresse de livraison pour commencer",
-  "addAddress": "Ajouter une adresse"
+  "addAddress": "Ajouter une adresse",
+
+  "farmFormosa": "FERME Formosa",
+  "farmStory": "Confectionnés avec des ingrédients biologiques de qualité supérieure et cuits chaque jour, nos gâteaux et pâtisseries apportent joie, fraîcheur et saveur inoubliable à votre table.",
+  "bakedFresh": "Fraîchement cuit. Tous les jours.",
+  "bakedFreshDescription1": "Des cupcakes et croissants aux gâteaux et pâtisseries artisanales, nous mettons l'accent sur la fraîcheur, le goût et la qualité. Chaque lot est fait à la main en petites quantités pour garantir une texture et un goût parfaits.",
+  "bakedFreshDescription2": "Que ce soit pour une célébration, une soirée cosy ou une envie de sucré — nous livrons des douceurs qui rendent chaque instant spécial. Pas de conservateurs, pas de raccourcis — juste de la pure gourmandise.",
+  "meetThe": "RENCONTREZ L'",
+    "team": "ÉQUIPE",
+
+  "headOfOperations": "Responsable des opérations",
+  "headOfOperationsDescription": "Superviseur et responsable des opérations",
+  "technicalLead": "Responsable technique & Développeur",
+  "technicalLeadDescription": "En charge de tout le développement technique."
+
+
 
   
 }

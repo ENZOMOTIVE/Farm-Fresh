@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Header } from "@/components/layout/Header"
 import { SearchFilters } from "@/types"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 
 
 export default function AboutPage() {
@@ -18,6 +19,8 @@ export default function AboutPage() {
     setFilters((prev) => ({ ...prev, query }))
   }
 
+  const {t} = useTranslation();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
       <div className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
@@ -30,12 +33,11 @@ export default function AboutPage() {
   <div className="max-w-6xl mx-auto">
     <div className="text-center mb-16">
       <h2 className="text-4xl md:text-5xl font-bold text-green-500 mb-6">
-        FARM Formosa
+        {t("farmFormosa")}
         
       </h2>
       <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        Crafted with premium organic ingredients and baked daily, our cakes and pastries 
-        are made to bring joy, freshness, and unforgettable flavor to your table.
+       {t("farmStory")}
       </p>
     </div>
 
@@ -49,15 +51,13 @@ export default function AboutPage() {
       </div>
 
       <div className="space-y-6">
-        <h3 className="text-3xl font-bold text-green-500">Baked Fresh. Every Day.</h3>
+        <h3 className="text-3xl font-bold text-green-500">{t("bakedFresh")}</h3>
         <p className="text-lg text-gray-600 leading-relaxed">
-          From cupcakes and croissants to artisanal cakes and pastries, we focus on freshness,
-          flavor, and quality. Every batch is handcrafted in small quantities to ensure
-          the perfect taste and texture.
+          {t("bakedFreshDescription1")}
         </p>
         <p className="text-lg text-gray-600 leading-relaxed">
-          Whether it's a celebration, a cozy evening, or a sweet craving — we deliver 
-          treats that make every moment special. No preservatives, no shortcuts — just pure goodness.
+        {t("bakedFreshDescription2")}
+
         </p>
       </div>
     </div>
@@ -73,7 +73,7 @@ export default function AboutPage() {
       <section className="py-24 ">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
-            MEET THE  <span className="text-green-500">TEAM</span>
+            {t("meetThe")} <span className="text-green-500">{t("team")}</span>
             
            
           </h2>
@@ -89,9 +89,9 @@ export default function AboutPage() {
       />
     </div>
     <h3 className="text-2xl font-bold text-gray-900 mb-2">Prof. Chung Ming Chang</h3>
-    <p className="text-green-500 font-semibold mb-4">Head of Operations</p>
+    <p className="text-green-500 font-semibold mb-4">{t("headOfOperations")}</p>
     <p className="text-gray-600 leading-relaxed text-sm max-w-sm mx-auto">
-Supervisor and Business lead   </p>
+{t("headOfOperationsDescription")} </p>
   </div>
 
   {/* Team Member 2 */}
@@ -104,9 +104,9 @@ Supervisor and Business lead   </p>
       />
     </div>
     <h3 className="text-2xl font-bold text-gray-900 mb-2">Aayushman Bhaba Padhy</h3>
-    <p className="text-green-500 font-semibold mb-4">Technical Lead & Developer</p>
+    <p className="text-green-500 font-semibold mb-4">{t("technicalLead")}</p>
     <p className="text-gray-600 leading-relaxed text-sm max-w-sm mx-auto">
-      In charge of all technical development.
+      {t("technicalLeadDescription")}
     </p>
   </div>
 </div>

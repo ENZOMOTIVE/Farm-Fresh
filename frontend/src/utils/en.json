@@ -134,7 +134,19 @@
 
   "noAddressAdded": "No address added",
   "addYourShippingAddress": "Add your shipping address to get started",
-  "addAddress": "Add Address"
+  "addAddress": "Add Address",
+
+  "farmFormosa": "FARM Formosa",
+  "farmStory": "Crafted with premium organic ingredients and baked daily, our cakes and pastries are made to bring joy, freshness, and unforgettable flavor to your table.",
+  "bakedFresh": "Baked Fresh. Every Day.",
+  "bakedFreshDescription1": "From cupcakes and croissants to artisanal cakes and pastries, we focus on freshness, flavor, and quality. Every batch is handcrafted in small quantities to ensure the perfect taste and texture.",
+  "bakedFreshDescription2": "Whether it's a celebration, a cozy evening, or a sweet craving — we deliver treats that make every moment special. No preservatives, no shortcuts — just pure goodness.",
+  "meetThe": "MEET THE ",
+  "team": "TEAM",
+  "headOfOperations": "Head of Operations",
+  "headOfOperationsDescription": "Supervisor and Business lead",
+  "technicalLead": "Technical Lead & Developer",
+  "technicalLeadDescription": "In charge of all technical development."
 
  
 }

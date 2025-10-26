@@ -11,6 +11,7 @@ import { Button } from "@/components/common/Button"
 import { ProductCard } from "@/components/common/ProductCard"
 import { getProducts, searchProducts } from "../services/products"
 import { Loader } from "@/components/common/loader"
+import { ChatbotWidget } from "@/components/features/chatbot"
 
 export default function ProductPage() {
   const [showCart, setShowCart] = useState(false)
@@ -126,6 +127,8 @@ export default function ProductPage() {
               </Card>
             </div>
           </div>
+
+          <ChatbotWidget />
         </main>
       </main>
     </div>

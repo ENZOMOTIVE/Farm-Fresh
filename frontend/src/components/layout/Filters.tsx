@@ -1,7 +1,8 @@
-import React from 'react';
+
 import { Filter } from 'lucide-react';
 import { SearchFilters } from '../../types';
 import { CATEGORIES, PRICE_RANGES } from '../../utils/constants';
+import { useTranslation } from 'react-i18next';
 
 interface FiltersProps {
   filters: SearchFilters;
@@ -16,18 +17,20 @@ export const Filters = ({ filters, onFiltersChange }: FiltersProps) => {
     });
   };
 
+  const {t} = useTranslation();
+
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
       <div className="flex items-center gap-2 mb-4">
         <Filter className="w-5 h-5 text-green-600" />
-        <h3 className="font-semibold text-gray-900">Filters</h3>
+        <h3 className="font-semibold text-gray-900">{t("filters")}</h3>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Category Filter */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Category
+            {t("category")}
           </label>
           <select
             value={filters.category}
@@ -43,7 +46,7 @@ export const Filters = ({ filters, onFiltersChange }: FiltersProps) => {
         {/* Price Range Filter */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Price Range
+            {t("priceRange")}
           </label>
           <select
             value={`${filters.priceRange[0]}-${filters.priceRange[1]}`}
@@ -67,7 +70,7 @@ export const Filters = ({ filters, onFiltersChange }: FiltersProps) => {
         {/* Stock Filter */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Availability
+            {t("availability")}
           </label>
           <label className="flex items-center">
             <input
@@ -76,7 +79,7 @@ export const Filters = ({ filters, onFiltersChange }: FiltersProps) => {
               onChange={(e) => updateFilter('inStockOnly', e.target.checked)}
               className="rounded border-gray-300 text-green-600 focus:ring-green-500"
             />
-            <span className="ml-2 text-sm text-gray-700">In stock only</span>
+            <span className="ml-2 text-sm text-gray-700">{t("inStockOnly")}</span>
           </label>
         </div>
       </div>

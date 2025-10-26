@@ -4,7 +4,6 @@ import { ShoppingBag, Plus, Minus, Trash2 } from "lucide-react"
 import { Button } from "../common/Button"
 import { useCart } from "@/hooks/useCart"
 import { useTranslation } from "react-i18next"
-import { useAuth } from "@/hooks/useAuth"
 
 
 
@@ -72,7 +71,7 @@ export const Cart = () => {
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <h4 className="font-semibold text-foreground text-balance leading-tight mb-1">{item.product.name}</h4>
+                  <h4 className="font-semibold text-foreground text-balance leading-tight mb-1">{t(item.product.name)}</h4>
                   <p className="text-muted-foreground text-sm mb-3">${item.product.price.toFixed(2)} each</p>
 
                   <div className="flex items-center gap-3">
@@ -131,7 +130,7 @@ export const Cart = () => {
             size="lg"
             onClick={() => order(items,getTotalPrice())}
           >
-            <span>Proceed to Checkout</span>
+            <span>{t("proceedToCheckout")}</span>
           </Button>
         </div>
       </div>

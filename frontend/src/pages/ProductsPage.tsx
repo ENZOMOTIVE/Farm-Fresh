@@ -79,7 +79,7 @@ export default function ProductPage() {
                 <div className="p-4 sm:p-6 lg:p-8">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-4">
                     <div className="min-w-0">
-                      <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1 sm:mb-2">Premium Products</h3>
+                      <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1 sm:mb-2">{t("premiumproducts")}</h3>
                       <p className="text-sm sm:text-base text-muted-foreground">
                         {t("DiscoverSelection")} {filteredProducts.length} {t("PremiumItems")}
                       </p>

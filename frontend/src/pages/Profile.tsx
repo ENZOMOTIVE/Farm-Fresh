@@ -6,11 +6,12 @@ import { Mail, Phone, MapPin, Calendar, User, Edit, Save, X } from "lucide-react
 import { Header } from "@/components/layout/Header"
 import type { SearchFilters } from "../types"
 import { useAuth } from "@/hooks/useAuth"
+import { useTranslation } from "react-i18next"
 
 export default function Profile() {
   const { user } = useAuth()
   const [isEditing, setIsEditing] = useState(false)
-  
+
   const [filters, setFilters] = useState<SearchFilters>({
     query: "",
     category: "all",
@@ -32,7 +33,6 @@ export default function Profile() {
       zip: "",
       country: "",
     },
-   
   })
 
   // Temporary edit data
@@ -71,6 +71,8 @@ export default function Profile() {
     }))
   }
 
+  const {t} = useTranslation();
+
   return (
     <div className="min-h-screen bg-background relative overflow-x-hidden pt-16 bg-gradient-to-br from-green-50 to-emerald-50">
       <div className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
@@ -82,37 +84,29 @@ export default function Profile() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div className="space-y-2">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-green-700 text-balance">
-                Account Details
+                {t("accountDetails")}
               </h1>
-              <p className="text-green-600/80 text-sm sm:text-base">
-                View and manage your personal information
-              </p>
+              <p className="text-green-600/80 text-sm sm:text-base">{t("accountDetailsSubtitle")}</p>
             </div>
             <div className="flex gap-2">
               {!isEditing ? (
-                <Button
-                  onClick={handleEdit}
-                  className="bg-green-600 hover:bg-green-700 text-white"
-                >
+                <Button onClick={handleEdit} className="bg-green-600 hover:bg-green-700 text-white">
                   <Edit className="w-4 h-4 mr-2" />
-                  Edit Profile
+                  {t("editProfile")}
                 </Button>
               ) : (
                 <>
                   <Button
                     onClick={handleCancel}
                     variant="outline"
-                    className="border-green-600 text-green-600 hover:bg-green-50"
+                    className="border-green-600 text-green-600 hover:bg-green-50 bg-transparent"
                   >
                     <X className="w-4 h-4 mr-2" />
-                    Cancel
+                    {t("cancel")}
                   </Button>
-                  <Button
-                    onClick={handleSave}
-                    className="bg-green-600 hover:bg-green-700 text-white"
-                  >
+                  <Button onClick={handleSave} className="bg-green-600 hover:bg-green-700 text-white">
                     <Save className="w-4 h-4 mr-2" />
-                    Save Changes
+                    {t("saveChanges")}
                   </Button>
                 </>
               )}
@@ -136,20 +130,16 @@ export default function Profile() {
                   </div>
                   {/* Name */}
                   <div className="flex-1">
-                    <CardTitle className="text-green-700 text-xl sm:text-2xl font-bold">
-                      {userData.firstName}
-                    </CardTitle>
+                    <CardTitle className="text-green-700 text-xl sm:text-2xl font-bold">{userData.firstName}</CardTitle>
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
                 <CardTitle className="text-green-700 flex items-center text-lg sm:text-xl mb-2">
                   <User className="w-5 h-5 mr-2" />
-                  Contact Information
+                  {t("contactInformation")}
                 </CardTitle>
-                <CardDescription className="mb-4">
-                  Your contact details and personal information
-                </CardDescription>
+                <CardDescription className="mb-4">{t("contactInformationSubtitle")}</CardDescription>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {/* Email */}
                   <div className="flex items-start gap-3 p-4 rounded-lg bg-green-50/50 hover:bg-green-50 transition-colors">
@@ -157,7 +147,7 @@ export default function Profile() {
                       <Mail className="w-5 h-5 text-green-600" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="font-semibold text-green-800 text-sm">Email Address</h4>
+                      <h4 className="font-semibold text-green-800 text-sm">{t("emailAddress")}</h4>
                       <p className="text-green-700 text-sm break-all">{userData.email}</p>
                     </div>
                   </div>
@@ -168,21 +158,17 @@ export default function Profile() {
                       <Phone className="w-5 h-5 text-green-600" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="font-semibold text-green-800 text-sm">Phone Number</h4>
+                      <h4 className="font-semibold text-green-800 text-sm">{t("phoneNumber")}</h4>
                       {isEditing ? (
                         <input
                           type="tel"
                           value={editData.phone}
-                          onChange={(e) =>
-                            setEditData((prev) => ({ ...prev, phone: e.target.value }))
-                          }
-                          placeholder="Enter phone number"
+                          onChange={(e) => setEditData((prev) => ({ ...prev, phone: e.target.value }))}
+                          placeholder= {t("enterPhoneNumber")}
                           className="mt-1 w-full rounded-md border border-green-300 bg-white px-3 py-2 text-sm text-green-700 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
                         />
                       ) : (
-                        <p className="text-green-700 text-sm mt-1">
-                          {userData.phone || "Not provided"}
-                        </p>
+                        <p className="text-green-700 text-sm mt-1">{userData.phone || t("dateOfBirth")}</p>
                       )}
                     </div>
                   </div>
@@ -193,7 +179,7 @@ export default function Profile() {
                       <Calendar className="w-5 h-5 text-green-600" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="font-semibold text-green-800 text-sm">Date of Birth</h4>
+                      <h4 className="font-semibold text-green-800 text-sm">{t("dateOfBirth")}</h4>
                       <p className="text-green-700 text-sm">{userData.dateOfBirth}</p>
                     </div>
                   </div>
@@ -285,8 +271,7 @@ export default function Profile() {
                         <p className="text-green-700">{userData.shippingAddress.apartment}</p>
                       )}
                       <p className="text-green-700">
-                        {userData.shippingAddress.city}, {userData.shippingAddress.state}{" "}
-                        {userData.shippingAddress.zip}
+                        {userData.shippingAddress.city}, {userData.shippingAddress.state} {userData.shippingAddress.zip}
                       </p>
                       <p className="text-green-700">{userData.shippingAddress.country}</p>
                     </div>
@@ -300,9 +285,8 @@ export default function Profile() {
                       <Button
                         onClick={handleEdit}
                         variant="outline"
-                        className="border-green-600 text-green-600 hover:bg-green-50"
+                        className="border-green-600 text-green-600 hover:bg-green-50 bg-transparent"
                       >
-                        
                         Add Address
                       </Button>
                     </div>

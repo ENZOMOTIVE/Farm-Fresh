@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Star, ShoppingBag } from 'lucide-react';
 import { Product } from '../../types';
 import { Button } from './Button';
@@ -31,7 +31,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         />
         {!product.inStock && (
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <span className="text-white font-semibold text-lg">Out of Stock</span>
+            <span className="text-white font-semibold text-lg">{t("outOfStock")}</span>
           </div>
         )}
         <div className="absolute top-2 right-2">
@@ -87,7 +87,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             className="flex items-center gap-2 transform hover:scale-105 transition-transform"
           >
             <ShoppingBag className="w-4 h-4" />
-            {product.inStock ? 'Add to Bag' : 'Out of Stock'}
+            {product.inStock ? t('addToBag') : t('outOfStock')}
           </Button>
         </div>
       </div>

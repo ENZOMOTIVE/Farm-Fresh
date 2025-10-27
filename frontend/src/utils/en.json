@@ -146,7 +146,20 @@
   "headOfOperations": "Head of Operations",
   "headOfOperationsDescription": "Supervisor and Business lead",
   "technicalLead": "Technical Lead & Developer",
-  "technicalLeadDescription": "In charge of all technical development."
+  "technicalLeadDescription": "In charge of all technical development.",
+
+  "quickLinks": "Quick Links",
+  "aboutUs": "About Us",
+  "customerService": "Customer Service",
+  "contactUs": "Contact Us",
+  "faq": "FAQ",
+  "forSellers": "For Sellers",
+  "sellerTagline": "Join our platform and start selling your fresh products to thousands of customers.",
+  "joinAsSeller": "Join as Seller",
+  "privacyPolicy": "Privacy Policy",
+  "termsOfService": "Terms of Service",
+  "cookiePolicy": "Cookie Policy",
+  "allRightsReserved": "All rights reserved."
 
  
 }

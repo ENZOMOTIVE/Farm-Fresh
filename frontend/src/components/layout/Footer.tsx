@@ -71,11 +71,11 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">{t("quickLinks")}</h4>
             <ul className="space-y-2">
               <li>
                 <a href="/about" className="text-gray-300 hover:text-green-400 transition-colors">
-                  About Us
+                  {t("aboutUs")}
                 </a>
               </li>
             </ul>
@@ -83,16 +83,16 @@ export const Footer = () => {
 
           {/* Customer Service */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Customer Service</h4>
+            <h4 className="text-lg font-semibold mb-4">{t("customerService")}</h4>
             <ul className="space-y-2">
               <li>
                 <a href="/contact" className="text-gray-300 hover:text-green-400 transition-colors">
-                  Contact Us
+                  {t("contactUs")}
                 </a>
               </li>
               <li>
                 <a href="/faq" className="text-gray-300 hover:text-green-400 transition-colors">
-                  FAQ
+                  {t("faq")}
                 </a>
               </li>
             </ul>
@@ -101,16 +101,16 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
               <Store className="w-5 h-5 text-green-400" />
-              For Sellers
+              {t("forSellers")}
             </h4>
             <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-              Join our platform and start selling your fresh products to thousands of customers.
+              {t("sellerTagline")}
             </p>
             <button
               onClick={() => navigate("/seller")}
               className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 flex items-center justify-center gap-2 group shadow-lg hover:shadow-green-500/50 hover:scale-[1.02] border border-green-500/30"
             >
-              Join as Seller
+              {t("joinAsSeller")}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
@@ -122,16 +122,16 @@ export const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-gray-400">
-              <p>&copy; 2025 Farm Fresh. All rights reserved.</p>
+              <p>&copy; 2025 {t("FarmFresh")} {t("allRightsReserved")}.</p>
               <div className="flex space-x-4">
                 <a href="#" className="hover:text-green-400 transition-colors">
-                  Privacy Policy
+                  {t("privacyPolicy")}
                 </a>
                 <a href="#" className="hover:text-green-400 transition-colors">
-                  Terms of Service
+                  {t("termsOfService")}
                 </a>
                 <a href="#" className="hover:text-green-400 transition-colors">
-                  Cookie Policy
+                  {t("cookiePolicy")}
                 </a>
               </div>
             </div>

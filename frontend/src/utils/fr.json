@@ -146,7 +146,20 @@
   "headOfOperations": "Responsable des opérations",
   "headOfOperationsDescription": "Superviseur et responsable des opérations",
   "technicalLead": "Responsable technique & Développeur",
-  "technicalLeadDescription": "En charge de tout le développement technique."
+  "technicalLeadDescription": "En charge de tout le développement technique.",
+
+  "quickLinks": "Liens rapides",
+  "aboutUs": "À propos de nous",
+  "customerService": "Service client",
+  "contactUs": "Contactez-nous",
+  "faq": "FAQ",
+  "forSellers": "Pour les vendeurs",
+  "sellerTagline": "Rejoignez notre plateforme et vendez vos produits frais à des milliers de clients.",
+  "joinAsSeller": "Devenir vendeur",
+  "privacyPolicy": "Politique de confidentialité",
+  "termsOfService": "Conditions d'utilisation",
+  "cookiePolicy": "Politique de cookies",
+  "allRightsReserved": "Tous droits réservés."
 
 
 

@@ -145,7 +145,19 @@
   "headOfOperations": "运营主管",
   "headOfOperationsDescription": "主管及业务负责人",
   "technicalLead": "技术负责人 & 开发者",
-  "technicalLeadDescription": "负责所有技术开发。"
+  "technicalLeadDescription": "负责所有技术开发。",
+  "quickLinks": "快速链接",
+  "aboutUs": "关于我们",
+  "customerService": "客户服务",
+  "contactUs": "联系我们",
+  "faq": "常见问题",
+  "forSellers": "卖家专区",
+  "sellerTagline": "加入我们的平台，将您的新鲜产品销售给成千上万的顾客。",
+  "joinAsSeller": "成为卖家",
+  "privacyPolicy": "隐私政策",
+  "termsOfService": "服务条款",
+  "cookiePolicy": "Cookie 政策",
+  "allRightsReserved": "版权所有。"
 
 }
 

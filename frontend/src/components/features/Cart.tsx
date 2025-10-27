@@ -4,21 +4,44 @@ import { ShoppingBag, Plus, Minus, Trash2 } from "lucide-react"
 import { Button } from "../common/Button"
 import { useCart } from "@/hooks/useCart"
 import { useTranslation } from "react-i18next"
+import { useAuth } from "@/hooks/useAuth"
 
 
 
 export const Cart = () => {
   const { items, updateQuantity, removeFromCart, getTotalPrice, getTotalItems } = useCart()
   const { t } = useTranslation()
- 
 
-  function order(items: any[], price: number) {
-  console.log("Order Placed")
-  console.log("Items:", items)
-  console.log("Total Price", price)
-  
+  const { user } = useAuth()
+  const user_email = user?.email
 
 
+  async function order(items: any[], price: number) {
+  const orderData = {
+    user_email,
+    items,
+    total_price: price
+  }
+
+  try {
+    const res = await fetch("http://localhost:5000/api/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(orderData)
+    })
+
+    if (!res.ok) {
+      throw new Error("Failed to place order")
+    }
+
+    const data = await res.json()
+    console.log("✅ Order placed successfully:", data)
+
+  } catch (error) {
+    console.error("❌ Order failed:", error)
+  }
 }
 
   if (items.length === 0) {
@@ -128,7 +151,7 @@ export const Cart = () => {
           <Button
             className="w-full h-12 text-base font-semibold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-200 hover:shadow-xl hover:shadow-primary/30 group"
             size="lg"
-            onClick={() => order(items,getTotalPrice())}
+            onClick={() => order(items, getTotalPrice())}
           >
             <span>{t("proceedToCheckout")}</span>
           </Button>

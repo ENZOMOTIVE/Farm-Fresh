@@ -16,7 +16,7 @@ import { Cart } from "@/components/features/Cart"
 
 export default function ProductPage() {
   const [showCart, setShowCart] = useState(false)
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   const [products, setProducts] = useState<Product[]>([])
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -28,7 +28,7 @@ export default function ProductPage() {
     inStockOnly: false,
   })
 
-  // Fetch products on component mount
+  // Fetch products on mount
   useEffect(() => {
     const loadProducts = async () => {
       setIsLoading(true)
@@ -46,7 +46,7 @@ export default function ProductPage() {
     loadProducts()
   }, [])
 
-  // Filter products when filters or products change
+  // Filter products whenever filters or products change
   useEffect(() => {
     const filtered = searchProducts(products, filters)
     setFilteredProducts(filtered)
@@ -60,81 +60,107 @@ export default function ProductPage() {
     setFilters((prev) => ({ ...prev, query }))
   }
 
-  // Show loader while fetching products
   if (isLoading) {
     return <Loader />
   }
 
   return (
     <div className="min-h-screen bg-background relative overflow-x-hidden pt-16 bg-gradient-to-br from-green-50 to-emerald-50">
-  <div className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
-    <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />
+      {/* Header */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
+        <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />
+      </div>
+
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-8 max-w-7xl flex gap-6">
+        {/* Products and Filters */}
+        <div className="flex-1">
+<div className="mt-20 sm:mt-0">
+    <Filters filters={filters} onFiltersChange={setFilters} />
   </div>
-
-  <main className="container mx-auto px-4 py-8 max-w-7xl flex gap-6">
-    {/* Main content */}
-    <div className="flex-1">
-      <Filters filters={filters} onFiltersChange={setFilters} />
-
-      <Card className="border-border/50 shadow-sm">
-        <div className="p-4 sm:p-6 lg:p-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-4">
-            <div className="min-w-0">
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1 sm:mb-2">{t("premiumproducts")}</h3>
-              <p className="text-sm sm:text-base text-muted-foreground">
-                {t("DiscoverSelection")} {filteredProducts.length} {t("PremiumItems")}
-              </p>
-            </div>
-            <Button
-              onClick={() => setShowCart(!showCart)}
-              variant="outline"
-              className="lg:hidden w-full sm:w-auto flex-shrink-0"
-            >
-              {t("ViewCart")}
-            </Button>
-          </div>
-
-          {filteredProducts.length === 0 ? (
-            <div className="text-center py-12 sm:py-16">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
-                <svg
-                  className="w-6 h-6 sm:w-8 sm:h-8 text-muted-foreground"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+          <Card className="border-border/50 shadow-sm mt-4">
+            <div className="p-4 sm:p-6 lg:p-8">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-4">
+                <div className="min-w-0">
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1 sm:mb-2">{t("premiumproducts")}</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground">
+                    {t("DiscoverSelection")} {filteredProducts.length} {t("PremiumItems")}
+                  </p>
+                </div>
+                {/* Small Screen View Cart Button */}
+                <Button
+                  onClick={() => setShowCart(!showCart)}
+                  variant="outline"
+                  className="lg:hidden w-full sm:w-auto flex-shrink-0"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
+                  {t("ViewCart")}
+                </Button>
               </div>
-              <h4 className="text-base sm:text-lg font-semibold text-foreground mb-2">{t("NoProductsFound")}</h4>
-              <p className="text-sm sm:text-base text-muted-foreground px-4">
-                {t("SearchHint")}
-              </p>
+
+              {filteredProducts.length === 0 ? (
+                <div className="text-center py-12 sm:py-16">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
+                    <svg
+                      className="w-6 h-6 sm:w-8 sm:h-8 text-muted-foreground"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
+                    </svg>
+                  </div>
+                  <h4 className="text-base sm:text-lg font-semibold text-foreground mb-2">{t("NoProductsFound")}</h4>
+                  <p className="text-sm sm:text-base text-muted-foreground px-4">
+                    {t("SearchHint")}
+                  </p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
+                  {filteredProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+                </div>
+              )}
             </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
-              {filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          )}
+          </Card>
         </div>
-      </Card>
+
+        {/* Large Screen Mini Cart Sidebar */}
+        <div className="hidden lg:block w-80 sticky top-20 self-start">
+          <Cart variant="mini" />
+        </div>
+      </main>
+
+      {/* Small Screen Slide-Over Cart */}
+
+{showCart && (
+  <div className="fixed inset-0 z-50 bg-black/60 flex flex-col pt-16 sm:pt-0">
+    {/* Close Button */}
+    <div className="flex justify-end p-4">
+      <button
+        onClick={() => setShowCart(false)}
+        className="text-white hover:text-red-500 text-2xl font-bold"
+      >
+        &times;
+      </button>
     </div>
 
-    {/* Mini Cart Sidebar for larger screens */}
-    <div className="hidden lg:block w-80 sticky top-20 self-start">
-      <Cart variant="mini"/>
+    {/* Cart Content */}
+    <div className="flex-1 overflow-y-auto px-4">
+      <Cart variant="mini" />
     </div>
-  </main>
+  </div>
+)}
 
-  <ChatbotWidget />
-</div>
 
+
+
+      <ChatbotWidget />
+    </div>
   )
 }

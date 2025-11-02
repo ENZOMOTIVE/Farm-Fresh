@@ -159,7 +159,9 @@
   "privacyPolicy": "Privacy Policy",
   "termsOfService": "Terms of Service",
   "cookiePolicy": "Cookie Policy",
-  "allRightsReserved": "All rights reserved."
+  "allRightsReserved": "All rights reserved.",
+
+  "buy":"Buy"
 
  
 }

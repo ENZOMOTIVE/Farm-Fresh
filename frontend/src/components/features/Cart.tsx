@@ -5,6 +5,7 @@ import { Button } from "../common/Button"
 import { useCart } from "@/hooks/useCart"
 import { useTranslation } from "react-i18next"
 import { useAuth } from "@/hooks/useAuth"
+import { useNavigate } from "react-router-dom"
 
 
 type CartProps = {
@@ -16,6 +17,7 @@ export const Cart = ({ variant = "detailed" }: CartProps) => {
   const { t } = useTranslation()
   const { user } = useAuth()
   const user_email = user?.email
+  const navigate = useNavigate()
 
   async function order(items: any[], price: number) {
     const orderData = { user_email, items, total_price: price }
@@ -80,7 +82,7 @@ export const Cart = ({ variant = "detailed" }: CartProps) => {
           </div>
           <Button
             className="w-full h-10 text-base font-semibold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow transition-all"
-            onClick={() => order(items, getTotalPrice())}
+            onClick={() => navigate('/cart')}
           >
             {t("proceedToCheckout")}
           </Button>
@@ -187,7 +189,7 @@ export const Cart = ({ variant = "detailed" }: CartProps) => {
       size="lg"
       onClick={() => order(items, getTotalPrice())}
     >
-      {t("proceedToCheckout")}
+        {t("buy")}
     </Button>
   </div>
 </div>

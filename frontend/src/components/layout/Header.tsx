@@ -34,9 +34,10 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
          <Link to="/" className="flex items-center space-x-2">
   <div className="flex items-center justify-center">
     <img
-      src="/brand-logo.png"
+      src="/new_brand_logo.png"
       className="w-14 h-14 rounded-full border-2 border-green-200"
     />
+
   </div>
   <div>
     <h1 className="text-xl font-bold text-green-500">{t('FarmFresh')}</h1>

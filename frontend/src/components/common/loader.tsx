@@ -100,7 +100,7 @@ export const Loader = () => {
         </div>
 
         {/* Subtle tagline */}
-        <p className="text-emerald-600/70 text-sm font-medium">Preparing something sweet...</p>
+        <p className="text-emerald-600/70 text-sm font-medium">Preparing something  sweet...</p>
       </div>
 
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">

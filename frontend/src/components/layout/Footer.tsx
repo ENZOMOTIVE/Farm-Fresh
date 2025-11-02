@@ -39,7 +39,7 @@ export const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="flex items-center justify-center">
-                <img src="/brand-logo.png" className="w-14 h-14 rounded-full border-2 border-green-200" />
+                <img src="/new_brand_logo.png" className="w-14 h-14 rounded-full border-2 border-green-200" />
               </div>
               <div>
                 <h3 className="text-xl font-bold">{t("FarmFresh")}</h3>

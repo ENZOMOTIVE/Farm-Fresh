@@ -56,7 +56,7 @@ export default function PastryLoader() {
               {/* Main circular image */}
               <div className="absolute inset-1 rounded-full overflow-hidden border-4 border-white shadow-2xl shadow-emerald-500/20">
                 <img
-                  src="/brand-logo.png"
+                  src="/new_brand_logo.png"
                   alt="Loading..."
                   className="w-full h-full object-cover"
                 />

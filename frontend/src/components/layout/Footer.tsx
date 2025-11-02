@@ -1,6 +1,6 @@
 "use client"
 
-import { Facebook, Instagram, Twitter, ArrowRight, Store } from "lucide-react"
+import { ArrowRight, Store } from "lucide-react"
 import { FaCcVisa, FaCcPaypal, FaCcStripe, FaCcMastercard } from "react-icons/fa"
 import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom"
 export const Footer = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
+
   return (
     <footer className="bg-gray-900 text-white">
       {/* Newsletter Section */}
@@ -35,37 +36,18 @@ export const Footer = () => {
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
+          {/* Brand Info (Logo + Name) */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="flex items-center justify-center">
-                <img src="/new_brand_logo.png" className="w-14 h-14 rounded-full border-2 border-green-200" />
-              </div>
+            <div className="flex items-center space-x-3 mb-4">
+              <img
+                src="/new_brand_logo.png"
+                alt="Brand Logo"
+                className="w-14 h-14 rounded-full border-2 border-green-200"
+              />
               <div>
                 <h3 className="text-xl font-bold">{t("FarmFresh")}</h3>
                 <p className="text-sm text-green-400">{t("EggsnPastries")}</p>
               </div>
-            </div>
-            <p className="text-gray-300 mb-4 leading-relaxed">{t("tagline")}</p>
-            <div className="flex space-x-3">
-              <a
-                href="#"
-                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors"
-              >
-                <Twitter className="w-4 h-4" />
-              </a>
             </div>
           </div>
 
@@ -98,14 +80,12 @@ export const Footer = () => {
             </ul>
           </div>
 
+          {/* Seller CTA */}
           <div>
             <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
               <Store className="w-5 h-5 text-green-400" />
               {t("forSellers")}
             </h4>
-            <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-              {t("sellerTagline")}
-            </p>
             <button
               onClick={() => navigate("/seller")}
               className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 flex items-center justify-center gap-2 group shadow-lg hover:shadow-green-500/50 hover:scale-[1.02] border border-green-500/30"
@@ -135,22 +115,24 @@ export const Footer = () => {
                 </a>
               </div>
             </div>
+
+            {/* Payment Icons */}
             <div className="flex items-center gap-4 text-sm text-gray-400">
               <FaCcVisa
                 size={35}
-                className="  cursor-pointer transition-colors duration-200 hover:scale-110 hover:text-green-400 "
+                className="cursor-pointer transition-all duration-200 hover:scale-110 hover:text-green-400"
               />
               <FaCcPaypal
                 size={35}
-                className="  cursor-pointer transition-colors duration-200 hover:scale-110 hover:text-green-400 "
+                className="cursor-pointer transition-all duration-200 hover:scale-110 hover:text-green-400"
               />
               <FaCcStripe
                 size={35}
-                className="  cursor-pointer transition-colors duration-200 hover:scale-110 hover:text-green-400 "
+                className="cursor-pointer transition-all duration-200 hover:scale-110 hover:text-green-400"
               />
               <FaCcMastercard
                 size={35}
-                className="  cursor-pointer transition-colors duration-200 hover:scale-110 hover:text-green-400 "
+                className="cursor-pointer transition-all duration-200 hover:scale-110 hover:text-green-400"
               />
             </div>
           </div>

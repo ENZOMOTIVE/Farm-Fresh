@@ -1,6 +1,6 @@
 "use client"
 
-import DefaultNavbar from "../components/layout/DefaultNavbar"
+
 import { useState } from "react"
 import { Cart } from "@/components/features/Cart"
 import { SearchFilters } from "@/types"

@@ -3,14 +3,37 @@
 import { useState } from "react"
 import { X, Send } from "lucide-react"
 import { RiRobot2Line } from 'react-icons/ri';
+import { getAIResponse } from "../../../api/ai_assistant_config"
 
 export const ChatbotWidget = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [message, setMessage] = useState("")
+  const [messages, setMessages] = useState<{ from: 'user' | 'bot'; text: string }[]>([
+    { from: 'bot', text: "👋 Welcome to our bakery! How can I help you today? Ask me about any product!" }
+  ])
+  const [loading, setLoading] = useState(false)
+
+  const handleSend = async () => {
+    if (!message.trim()) return
+
+    const userMsg = message
+    setMessages(prev => [...prev, { from: 'user', text: userMsg }])
+    setMessage("")
+    setLoading(true)
+
+    try {
+      const aiReply = await getAIResponse(userMsg)
+      setMessages(prev => [...prev, { from: 'bot', text: aiReply }])
+    } catch (err) {
+      setMessages(prev => [...prev, { from: 'bot', text: "⚠️ Sorry, something went wrong. Please try again." }])
+      console.error(err)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      {/* Floating Button */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
@@ -22,7 +45,6 @@ export const ChatbotWidget = () => {
         </button>
       )}
 
-      {/* Chat Window */}
       {isOpen && (
         <div className="w-[380px] h-[520px] bg-white rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-green-400 animate-in slide-in-from-bottom-4 duration-300">
           
@@ -47,52 +69,36 @@ export const ChatbotWidget = () => {
           </div>
 
           {/* Messages Area */}
-          <div className="flex-1 p-6 overflow-y-auto bg-gradient-to-b from-white to-green-100">
-            <div className="space-y-4">
-
-              {/* Bot Message */}
-              <div className="flex gap-3 animate-in fade-in slide-in-from-left-2 duration-500">
+          <div className="flex-1 p-4 overflow-y-auto bg-gradient-to-b from-white to-green-100 space-y-4">
+            {messages.map((msg, idx) => (
+              <div
+                key={idx}
+                className={`flex gap-3 ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}
+              >
+                {msg.from === 'bot' && (
+                  <div className="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <RiRobot2Line size={16} className="text-green-800" />
+                  </div>
+                )}
+                <div className={`flex-1 flex flex-col ${msg.from === 'user' ? 'items-end' : 'items-start'}`}>
+                  <div className={`p-4 rounded-2xl shadow-sm max-w-[85%] ${msg.from === 'user' ? 'bg-green-600 text-white rounded-tr-sm' : 'bg-green-200 text-green-900 rounded-tl-sm'}`}>
+                    <p className="text-sm leading-relaxed whitespace-pre-line">{msg.text}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+            {loading && (
+              <div className="flex gap-3 justify-start animate-pulse">
                 <div className="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                   <RiRobot2Line size={16} className="text-green-800" />
                 </div>
-                <div className="flex-1">
-                  <div className="bg-green-200 text-green-900 p-4 rounded-2xl rounded-tl-sm shadow-sm">
-                    <p className="text-sm leading-relaxed">
-                      👋 Welcome to our bakery! How can I help you today? Whether you're looking for custom cakes,
-                      pastries, or have questions about our menu, I'm here to assist!
-                    </p>
+                <div className="flex-1 flex flex-col items-start">
+                  <div className="p-4 rounded-2xl shadow-sm max-w-[60%] bg-green-200 text-green-900 rounded-tl-sm">
+                    <p className="text-sm leading-relaxed">Typing...</p>
                   </div>
-                  <p className="text-xs text-green-700 mt-2 ml-1">Just now</p>
                 </div>
               </div>
-
-              {/* User Message */}
-              <div className="flex gap-3 justify-end animate-in fade-in slide-in-from-right-2 duration-500 delay-300">
-                <div className="flex-1 flex flex-col items-end">
-                  <div className="bg-green-600 text-white p-4 rounded-2xl rounded-tr-sm shadow-sm max-w-[85%]">
-                    <p className="text-sm leading-relaxed">I'd love to order a custom birthday cake!</p>
-                  </div>
-                  <p className="text-xs text-green-700 mt-2 mr-1">Just now</p>
-                </div>
-              </div>
-
-              {/* Bot Response */}
-              <div className="flex gap-3 animate-in fade-in slide-in-from-left-2 duration-500 delay-500">
-                <div className="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <RiRobot2Line size={16} className="text-green-800" />
-                </div>
-                <div className="flex-1">
-                  <div className="bg-green-200 text-green-900 p-4 rounded-2xl rounded-tl-sm shadow-sm">
-                    <p className="text-sm leading-relaxed">
-                      🎂 Wonderful! I'd be happy to help you create the perfect birthday cake. What flavor and size are
-                      you thinking of?
-                    </p>
-                  </div>
-                  <p className="text-xs text-green-700 mt-2 ml-1">Just now</p>
-                </div>
-              </div>
-
-            </div>
+            )}
           </div>
 
           {/* Input Area */}
@@ -104,15 +110,12 @@ export const ChatbotWidget = () => {
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Type your message..."
                 className="flex-1 bg-green-100 border-0 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-shadow placeholder:text-green-700"
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" && message.trim()) {
-                    setMessage("")
-                  }
-                }}
+                onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+                disabled={loading}
               />
               <button
-                onClick={() => message.trim() && setMessage("")}
-                disabled={!message.trim()}
+                onClick={handleSend}
+                disabled={!message.trim() || loading}
                 className="bg-gradient-to-r from-green-500 to-green-700 text-white px-5 py-3 rounded-xl hover:opacity-90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-md active:scale-95 flex items-center justify-center"
                 aria-label="Send message"
               >
@@ -121,7 +124,6 @@ export const ChatbotWidget = () => {
             </div>
             <p className="text-xs text-green-700 text-center mt-3">Powered by Sweet AI ✨</p>
           </div>
-
         </div>
       )}
     </div>

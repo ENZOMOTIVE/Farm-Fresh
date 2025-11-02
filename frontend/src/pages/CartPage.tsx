@@ -34,7 +34,7 @@ export default function CartPage() {
         <div className={`xl:block ${showCart ? "block" : "hidden"} xl:col-span-1`}>
                     <div className="sticky top-6">
                      
-                      <Cart />
+                      <Cart variant="detailed"/>
                     </div>
                   </div>
 

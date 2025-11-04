@@ -1,28 +1,57 @@
-import { buildProductContext, getAIResponse } from './api/ai_response'; // adjust path
+import { buildProductContext, getAIResponse } from "./api/ai_response";
+import type { Request, Response } from "express";
 
-export default async function handler(req: any, res: any) {
-  if (req.method !== 'POST') {
-    res.status(405).json({ success: false, error: 'Method not allowed' });
-    return;
-  }
+const express = require("express");
+const cors = require("cors");
 
+const app = express();
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST"],
+  })
+);
+
+app.use(express.json());
+
+// ✅ POST route to test OpenAI connection
+app.post("/ai-response", async (req: Request, res: Response) => {
   try {
-    const { message } = req.body;
-    if (!message || typeof message !== 'string') {
-      return res.status(400).json({ success: false, error: 'Invalid message format' });
+    const { message } = req.body; // extract the string
+
+    if (!message || typeof message !== "string") {
+      return res
+        .status(400)
+        .json({ success: false, error: "Invalid message format" });
     }
 
+    // Only runs if message is valid
     const aiResponse = await getAIResponse(message);
 
-    console.log('📩 Incoming message:', message);
-    console.log('🧠 OpenAI Response:', aiResponse);
+    console.log("📩 Incoming message:", message);
+    console.log("🧠 OpenAI Response:", aiResponse);
 
-    res.setHeader('Access-Control-Allow-Origin', 'https://treatz-fresh.vercel.app');
-    res.setHeader('Access-Control-Allow-Methods', 'POST');
-
-    res.status(200).json({ success: true, aiResponse });
+    return res.status(200).json({ success: true, aiResponse });
   } catch (error: any) {
-    console.error('❌ Error testing OpenAI API:', error);
-    res.status(500).json({ success: false, error: error.message || 'Unknown error' });
+    console.error("❌ Error testing OpenAI API:", error);
+    return res.status(500).json({
+      success: false,
+      error: error.message || "Unknown error",
+    });
   }
-}
+});
+
+app.listen(5001, () => {
+  try {
+    const context = buildProductContext();
+
+    if (context && context.length > 0) {
+      console.log("✅ The server started successfully on port 5001!");
+    } else {
+      console.warn("⚠️ buildProductContext returned empty content.");
+    }
+  } catch (err) {
+    console.error("❌ Error while building product context:", err);
+  }
+});

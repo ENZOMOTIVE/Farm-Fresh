@@ -10,9 +10,10 @@ import { Product } from "@/types"
 import { Button } from "@/components/common/Button"
 import { ProductCard } from "@/components/common/ProductCard"
 import { getProducts, searchProducts } from "../services/products"
-import { Loader } from "@/components/common/loader"
+
 import { ChatbotWidget } from "@/components/features/chatbot"
 import { Cart } from "@/components/features/Cart"
+import PastryLoader from "@/components/common/intro_loader"
 
 export default function ProductPage() {
   const [showCart, setShowCart] = useState(false)
@@ -61,7 +62,7 @@ export default function ProductPage() {
   }
 
   if (isLoading) {
-    return <Loader />
+    return <PastryLoader />
   }
 
   return (

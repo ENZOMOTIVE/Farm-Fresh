@@ -19,6 +19,8 @@ import { useNavigate } from "react-router-dom"
 import PastryLoader from "@/components/common/intro_loader"
 
 
+
+
 export const Dashboard = () => {
   const { user } = useAuth()
   const [products, setProducts] = useState<Product[]>([])

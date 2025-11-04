@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { X, Send } from "lucide-react"
 import { RiRobot2Line } from 'react-icons/ri';
-import { getAIResponse } from "../../../api/ai_assistant_config"
+
 
 export const ChatbotWidget = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,23 +14,37 @@ export const ChatbotWidget = () => {
   const [loading, setLoading] = useState(false)
 
   const handleSend = async () => {
-    if (!message.trim()) return
+  if (!message.trim()) return;
 
-    const userMsg = message
-    setMessages(prev => [...prev, { from: 'user', text: userMsg }])
-    setMessage("")
-    setLoading(true)
+  const userMsg = message;
+  setMessages(prev => [...prev, { from: 'user', text: userMsg }]);
+  setMessage("");
+  setLoading(true);
 
-    try {
-      const aiReply = await getAIResponse(userMsg)
-      setMessages(prev => [...prev, { from: 'bot', text: aiReply }])
-    } catch (err) {
-      setMessages(prev => [...prev, { from: 'bot', text: "⚠️ Sorry, something went wrong. Please try again." }])
-      console.error(err)
-    } finally {
-      setLoading(false)
+  try {
+    // Call your backend API instead of getAIResponse directly
+     const response = await fetch("http://localhost:5001/ai-response", { 
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: userMsg })
+    });
+
+    const data = await response.json();
+
+    if (data.success && data.aiResponse) {
+      setMessages(prev => [...prev, { from: 'bot', text: data.aiResponse }]);
+    } else {
+      setMessages(prev => [...prev, { from: 'bot', text: "⚠️ Sorry, something went wrong. Please try again." }]);
+      console.error(data.error);
     }
+  } catch (err) {
+    setMessages(prev => [...prev, { from: 'bot', text: "⚠️ Sorry, something went wrong. Please try again." }]);
+    console.error(err);
+  } finally {
+    setLoading(false);
   }
+};
+
 
   return (
     <div className="fixed bottom-6 right-6 z-50">

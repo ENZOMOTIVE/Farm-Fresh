@@ -23,7 +23,7 @@ export const ChatbotWidget = () => {
 
   try {
     // Call your backend API instead of getAIResponse directly
-     const response = await fetch("http://localhost:5001/ai-response", { 
+     const response = await fetch("https://farm-fresh-kbrt.onrender.com/ai-response", { 
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: userMsg })

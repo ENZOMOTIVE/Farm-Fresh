@@ -1,7 +1,6 @@
-import { buildProductContext, getAIResponse } from './ai_response'; // adjust path
+import { buildProductContext, getAIResponse } from './api/ai_response'; // adjust path
 
 export default async function handler(req: any, res: any) {
-  // Allow only POST
   if (req.method !== 'POST') {
     res.status(405).json({ success: false, error: 'Method not allowed' });
     return;
@@ -18,16 +17,12 @@ export default async function handler(req: any, res: any) {
     console.log('📩 Incoming message:', message);
     console.log('🧠 OpenAI Response:', aiResponse);
 
-    // CORS headers (optional)
     res.setHeader('Access-Control-Allow-Origin', 'https://treatz-fresh.vercel.app');
     res.setHeader('Access-Control-Allow-Methods', 'POST');
 
     res.status(200).json({ success: true, aiResponse });
   } catch (error: any) {
     console.error('❌ Error testing OpenAI API:', error);
-    res.status(500).json({
-      success: false,
-      error: error.message || 'Unknown error',
-    });
+    res.status(500).json({ success: false, error: error.message || 'Unknown error' });
   }
 }

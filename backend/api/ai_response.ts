@@ -1,4 +1,4 @@
-import { SAMPLE_PRODUCTS } from "./utils/constant";
+import { SAMPLE_PRODUCTS } from "../utils/constant";
 
 const dotenv = require("dotenv");
 

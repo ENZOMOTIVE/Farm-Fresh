@@ -13,7 +13,7 @@ export default function PastryLoader() {
   if (!mounted) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-white via-emerald-50 to-emerald-100">
+<div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-20 text-emerald-200/30 text-6xl animate-[float_3s_ease-in-out_infinite]">🧁</div>

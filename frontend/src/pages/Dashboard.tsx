@@ -1,14 +1,14 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import type { Product, SearchFilters } from "../types"
+import { useState } from "react"
+import type {  SearchFilters } from "../types"
 import { Header } from "../components/layout/Header"
 
 
 
 import { Footer } from "../components/layout/Footer"
-import { getProducts, searchProducts } from "../services/products"
-import { useAuth } from "../hooks/useAuth"
+
+
 
 import { Button } from "@/components/common/Button"
 
@@ -16,16 +16,16 @@ import { Badge } from "@/components/ui/badge"
 import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
 
-import PastryLoader from "@/components/common/intro_loader"
+
 
 
 
 
 export const Dashboard = () => {
-  const { user } = useAuth()
-  const [products, setProducts] = useState<Product[]>([])
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+
+
+
+
   
   
  
@@ -43,55 +43,22 @@ export const Dashboard = () => {
     inStockOnly: false,
   })
 
- useEffect(() => {
-  const loadData = async () => {
-    setIsLoading(true);
-
-    // Helper to delay for given ms
-    const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
-
-    try {
-      // Run both fetch and 4s delay in parallel
-      const [productsData] = await Promise.all([
-        getProducts(),
-        delay(2000) // ensures loader shows at least 4 seconds
-      ]);
-
-      setProducts(productsData);
-      setFilteredProducts(productsData);
-    } catch (error) {
-      console.error("Error loading data:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  loadData();
-}, [user?.id]);
 
 
 
 
 
 
-  useEffect(() => {
-    const filtered = searchProducts(products, filters)
-    setFilteredProducts(filtered)
-  }, [products, filters])
+  
 
   const handleSearchChange = (query: string) => {
     setFilters((prev) => ({ ...prev, query }))
   }
 
-  const handleCategorySelect = (category: 'cheese_cakes' | 'chiffon_cakes' | 'french_tarts' | 'cream_puffs') => {
-    setFilters((prev) => ({ ...prev, category }))
-  }
+ 
 
 
 
-  if (isLoading) {
-    return <PastryLoader />
-  }
 
 
 

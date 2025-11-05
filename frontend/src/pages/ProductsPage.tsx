@@ -14,6 +14,7 @@ import { getProducts, searchProducts } from "../services/products"
 import { ChatbotWidget } from "@/components/features/chatbot"
 import { Cart } from "@/components/features/Cart"
 import PastryLoader from "@/components/common/intro_loader"
+import { MiniCart } from "@/components/features/miniCart"
 
 export default function ProductPage() {
   const [showCart, setShowCart] = useState(false)
@@ -133,7 +134,7 @@ export default function ProductPage() {
 
         {/* Large Screen Mini Cart Sidebar */}
         <div className="hidden lg:block w-80 sticky top-20 self-start">
-          <Cart variant="mini" />
+          <MiniCart />
         </div>
       </main>
 
@@ -153,7 +154,7 @@ export default function ProductPage() {
 
     {/* Cart Content */}
     <div className="flex-1 overflow-y-auto px-4">
-      <Cart variant="mini" />
+      <MiniCart />
     </div>
   </div>
 )}

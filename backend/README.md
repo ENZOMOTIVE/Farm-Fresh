@@ -17,6 +17,14 @@ npm run dev
 
 - AI Response
 
+
+
+### Local mode:
 ``` 
 http://localhost:5001/ai-response
+```
+
+### Deployed API:
+```
+https://farm-fresh-kbrt.onrender.com/ai-response
 ```

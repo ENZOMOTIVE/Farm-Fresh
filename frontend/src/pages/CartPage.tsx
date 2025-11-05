@@ -2,9 +2,10 @@
 
 
 import { useState } from "react"
-import { Cart } from "@/components/features/Cart"
+
 import { SearchFilters } from "@/types"
 import { Header } from "@/components/layout/Header"
+import { TestCart } from "@/components/features/mainCart"
 
 export default function CartPage() {
   const [showCart, setShowCart] = useState(false)
@@ -34,7 +35,7 @@ export default function CartPage() {
         <div className={`xl:block ${showCart ? "block" : "hidden"} xl:col-span-1`}>
                     <div className="sticky top-6">
                      
-                      <Cart variant="detailed"/>
+                      <TestCart />
                     </div>
                   </div>
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import { AuthProvider, useAuth } from "./hooks/useAuth";
+import { AuthProvider } from "./hooks/useAuth";
 import { CartProvider } from "./hooks/useCart";
 import AppRoutes from "./Routes/Routes";
 import PastryLoader from "@/components/common/intro_loader";

@@ -8,12 +8,14 @@ import './utils/i18n.ts';
 
 
 
-const google_ouauth_clientid = "518176702540-38d5pkshbhbb805ro84lfd1dp6de0fi5.apps.googleusercontent.com";
+
+
+const google_auth = import.meta.env.VITE_GOOGLE_AUTH
 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-  <GoogleOAuthProvider clientId={google_ouauth_clientid}>
+  <GoogleOAuthProvider clientId={google_auth}>
       <BrowserRouter>
         <App />
       

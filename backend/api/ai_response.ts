@@ -1,7 +1,6 @@
 import { SAMPLE_PRODUCTS } from "../utils/constant";
 
 const dotenv = require("dotenv");
-
 dotenv.config();
 
 export function buildProductContext() {
@@ -15,8 +14,6 @@ Tags: ${p.tags.join(', ')}
   ).join('\n');
 }
 
-
-
 export async function getAIResponse(userMessage: string) {
   const productContext = buildProductContext();
   const openai_apikey = process.env.OPENAI_API_KEY;
@@ -29,10 +26,14 @@ export async function getAIResponse(userMessage: string) {
     {
       role: "system",
       content: `
-You are a helpful bakery assistant. Only answer using the following products. 
-Do NOT make up any products or prices. Respond politely and concisely.
+You are a helpful multilingual bakery assistant.
+You can reply in the same language as the user (e.g., English, Chinese, etc.).
+Only answer based on the following product list — do NOT make up new products or prices.
+Be polite and concise.
+
 Product information:
-${productContext}`
+${productContext}
+`
     },
     {
       role: "user",
@@ -47,7 +48,7 @@ ${productContext}`
       "Authorization": `Bearer ${openai_apikey}`,
     },
     body: JSON.stringify({
-      model: "gpt-4o-mini", // ✅ smaller, faster model for testing
+      model: "gpt-4o-mini",
       messages,
       max_tokens: 200,
     }),

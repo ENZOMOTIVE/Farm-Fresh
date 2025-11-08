@@ -1,12 +1,15 @@
+// app/analytics/page.tsx
 import DashboardLayout from "../dashboard/layout";
+import Charts from "./Charts";
 
-export default function AnayticsPage() {
+export default function AnalyticsPage() {
   return (
-    <div>
-      <DashboardLayout>
-      <h1 className="text-2xl font-bold">Anaytics</h1>
-      <p className="mt-2 text-gray-600">View the Analysis.</p>
+    <DashboardLayout>
+
+      <div className="bg-white p-6 rounded shadow mb-10">
+        <h2 className="text-lg font-semibold mb-4">Profit Chart</h2>
+        <Charts />
+      </div>
     </DashboardLayout>
-    </div>
   );
 }

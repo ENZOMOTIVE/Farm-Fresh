@@ -27,6 +27,8 @@
   },
   "dependencies": {
     "@vercel/node": "^5.5.4",
-    "cors": "^2.8.5"
+    "chart.js": "^4.5.1",
+    "cors": "^2.8.5",
+    "react-chartjs-2": "^5.3.1"
   }
 }

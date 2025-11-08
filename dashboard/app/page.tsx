@@ -1,14 +1,14 @@
-import Link from "next/link";
+import DashboardLayout from "./dashboard/layout";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <Link
-        href="/about"
-        className="rounded-full bg-black px-6 py-3 text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-300"
-      >
-        Go to the About page
-      </Link>
+    <div>
+      <DashboardLayout>
+      <h1 className="text-3xl font-bold">Dashboard Overview</h1>
+      <p className="mt-4 text-gray-600">
+        Welcome to your dashboard! Select a section from the sidebar.
+      </p>
+      </DashboardLayout>
     </div>
   );
 }

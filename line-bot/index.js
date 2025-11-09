@@ -5,6 +5,8 @@ import dotenv from 'dotenv';
 import { SAMPLE_PRODUCTS } from './products.js';
 import OpenAI from 'openai';
 
+
+
 dotenv.config();
 
 
@@ -18,7 +20,6 @@ channelAccessToken: "2yQhcZHJIFnfYqYk4he6vVS/Cqgr3CovfOfesc1+3DYCDpi73bGPUTA3yma
 // Messaging client
 const client = new line.Client(config);
 
- const openai = new OpenAI({ apiKey:  process.env.OPEN_AI_Key });
 
 
 
@@ -27,93 +28,112 @@ const client = new line.Client(config);
 const app = express();
 app.use('/webhook', line.middleware(config), bodyParser.json());
 
+// Build product context for AI
+function buildProductContext() {
+  return SAMPLE_PRODUCTS.map(p =>
+    `Product: ${p.name}
+Description: ${p.description}
+Price: $${p.price}
+In Stock: ${p.inStock ? 'Yes' : 'No'}
+Tags: ${p.tags.join(', ')}
+`
+  ).join('\n');
+}
 
-// Webhook endpoint
-app.post('/webhook', async (req, res) => {
-  try {
-    const events = req.body.events;
-    await Promise.all(events.map(handleEvent));
-    res.sendStatus(200);
-  } catch (err) {
-    console.error(err);
-    res.sendStatus(500);
+// Get AI response based on user message
+async function getAIResponse(userMessage) {
+  const productContext = buildProductContext();
+  const openai_apikey = process.env.OPEN_AI_Key; // must match .env
+
+  if (!openai_apikey) {
+    throw new Error("Missing OpenAI API key (OPENAI_API_KEY).");
   }
-});
 
-// Handle LINE events
+  const messages = [
+    {
+      role: "system",
+      content: `
+You are a helpful multilingual bakery assistant.
+Reply in the same language as the user.
+Only answer based on the product list below — do NOT make up products or prices.
+Be concise and polite.
+
+Product information:
+${productContext}
+`
+    },
+    {
+      role: "user",
+      content: userMessage
+    }
+  ];
+
+  const res = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${openai_apikey}`, // <-- use the API key string
+    },
+    body: JSON.stringify({
+      model: "gpt-4o-mini",
+      messages,
+      max_tokens: 300,
+    }),
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    console.error("OpenAI API error:", data);
+    throw new Error(`OpenAI API returned error: ${data.error?.message || "Unknown error"}`);
+  }
+
+  if (!data.choices || !data.choices[0]?.message?.content) {
+    console.error("Unexpected OpenAI response structure:", data);
+    throw new Error("Invalid response from OpenAI API.");
+  }
+
+  return data.choices[0].message.content;
+}
+
+
+/**
+ * Handle LINE webhook events
+ */
 async function handleEvent(event) {
   if (event.type !== 'message' || event.message.type !== 'text') return;
 
   const userMessage = event.message.text;
 
-  // Filter or sort products based on the user's query (basic example)
-  const matchingProducts = SAMPLE_PRODUCTS.slice(0, 3); // top 3 for demo
-
-  // Build Flex Message "bubbles" for each product
-  const bubbles = matchingProducts.map((p) => ({
-    type: 'bubble',
-    hero: {
-      type: 'image',
-      url: p.image,
-      size: 'full',
-      aspectRatio: '20:13',
-      aspectMode: 'cover',
-    },
-    body: {
-      type: 'box',
-      layout: 'vertical',
-      contents: [
-        { type: 'text', text: p.name, weight: 'bold', size: 'lg' },
-        { type: 'text', text: p.description, wrap: true, size: 'sm', color: '#666666' },
-        { type: 'text', text: `$${p.price}`, size: 'md', weight: 'bold', margin: 'md' },
-      ],
-    },
-    footer: {
-      type: 'box',
-      layout: 'vertical',
-      spacing: 'sm',
-      contents: [
-        {
-          type: 'button',
-          style: 'primary',
-          action: {
-            type: 'uri',
-            label: 'Buy Now',
-            uri: 'https://your-shop-link.com/products/' + p.id,
-          },
-        },
-        {
-          type: 'button',
-          style: 'secondary',
-          action: {
-            type: 'postback',
-            label: 'Get Coupon',
-            data: JSON.stringify({ type: 'coupon', couponId: '01JYNW8JMQVFBNWF1APF8Z3FS7', productId: p.id }),
-          },
-        },
-      ],
-    },
-  }));
-
   try {
-    // Send Flex Message with products
-    await client.replyMessage(event.replyToken, [
-      {
-        type: 'flex',
-        altText: 'Here are some products you might like!',
-        contents: {
-          type: 'carousel',
-          contents: bubbles,
-        },
-      },
-    ]);
+    const aiResponse = await getAIResponse(userMessage);
+
+    await client.replyMessage(event.replyToken, {
+      type: 'text',
+      text: aiResponse,
+    });
   } catch (err) {
-    console.error(err);
-    await client.replyMessage(event.replyToken, [
-      { type: 'text', text: '⚠️ Error sending product cards.' },
-    ]);
+    console.error("Error handling AI response:", err);
+    await client.replyMessage(event.replyToken, {
+      type: 'text',
+      text: 'Sorry, there was an error processing your request. Please try again.',
+    });
   }
 }
 
+/**
+ * Webhook endpoint
+ */
+app.post('/webhook', (req, res) => {
+  Promise.all(req.body.events.map(handleEvent))
+    .then(() => res.status(200).send('OK'))
+    .catch(err => {
+      console.error(err);
+      res.status(500).send(err);
+    });
+});
 
-app.listen(4000, () => console.log('Server running on port 4000'));
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

@@ -10,7 +10,7 @@ import './utils/i18n.ts';
 
 
 
-const google_auth = import.meta.env.VITE_GOOGLE_AUTH
+const google_auth = "518176702540-38d5pkshbhbb805ro84lfd1dp6de0fi5.apps.googleusercontent.com"
 
 
 createRoot(document.getElementById('root')!).render(

@@ -1,25 +1,34 @@
 import express from 'express';
-import { Client, middleware } from '@line/bot-sdk';
+import * as line from '@line/bot-sdk';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import { SAMPLE_PRODUCTS } from './products.js';
+import OpenAI from 'openai';
 
 dotenv.config();
 
+
+
 const config = {
-  channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN,
-  channelSecret: process.env.LINE_CHANNEL_SECRET
-};
+channelAccessToken: "2yQhcZHJIFnfYqYk4he6vVS/Cqgr3CovfOfesc1+3DYCDpi73bGPUTA3ymabUPhlG2TtdFNMR6YtkN6/abTczlDlrow+znbZJwUSOL90/njY4tTZpoOvI/PwTGz840mmmjfTy9EqTZRAhu0QUSAXLgdB04t89/1O/w1cDnyilFU=",
+    channelSecret: "1dce35da519bc10dd215873102b2a25d",
 
-const client = new Client(config);
+}
+
+// Messaging client
+const client = new line.Client(config);
+
+ const openai = new OpenAI({ apiKey:  process.env.OPEN_AI_Key });
+
+
+
+
+
 const app = express();
-
-app.use(middleware(config));
-app.use(bodyParser.json());
+app.use('/webhook', line.middleware(config), bodyParser.json());
 
 
-
-// LINE Webhook
+// Webhook endpoint
 app.post('/webhook', async (req, res) => {
   try {
     const events = req.body.events;
@@ -31,52 +40,42 @@ app.post('/webhook', async (req, res) => {
   }
 });
 
-// Event Handler
+// Handle LINE events
 async function handleEvent(event) {
-  if (event.type !== 'message' || event.message.type !== 'text') {
-    return Promise.resolve(null);
+  if (event.type !== 'message' || event.message.type !== 'text') return;
+
+  const userMessage = event.message.text;
+
+  const catalogText = SAMPLE_PRODUCTS.map(
+    p => `${p.name} ($${p.price}): ${p.description}`
+  ).join('\n');
+
+  const prompt = `
+You are a helpful product assistant. A user asked: "${userMessage}".
+Suggest the most relevant products from this catalog:
+
+${catalogText}
+`;
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: 'gpt-4o-mini',
+      messages: [{ role: 'user', content: prompt }],
+    });
+
+    const replyText = response.choices[0].message.content || "⚠️ I couldn't find any matching products.";
+
+    await client.replyMessage(event.replyToken, [
+  { type: 'text', text: replyText }
+]);
+
+  } catch (err) {
+    console.error(err);
+    await client.replyMessage({
+      replyToken: event.replyToken,
+      messages: [{ type: 'text', text: '⚠️ Error processing your request.' }],
+    });
   }
-
-  const userMessage = event.message.text.toLowerCase();
-
-  // Check if user asks about a product
-  const product = SAMPLE_PRODUCTS.find(p =>
-    p.name.toLowerCase().includes(userMessage) ||
-    p.category.toLowerCase().includes(userMessage)
-  );
-
-  if (product) {
-    const message = {
-      type: 'flex',
-      altText: `${product.name} - $${product.price}`,
-      contents: {
-        type: 'bubble',
-        hero: {
-          type: 'image',
-          url: product.image,
-          size: 'full',
-          aspectMode: 'cover'
-        },
-        body: {
-          type: 'box',
-          layout: 'vertical',
-          contents: [
-            { type: 'text', text: product.name, weight: 'bold', size: 'lg' },
-            { type: 'text', text: `Price: $${product.price}`, size: 'sm', color: '#888888' },
-            { type: 'text', text: `Rating: ${product.rating} ⭐ (${product.reviews} reviews)`, size: 'sm', color: '#555555' },
-            { type: 'text', text: product.description, size: 'sm', color: '#333333', wrap: true }
-          ]
-        }
-      }
-    };
-
-    return client.replyMessage(event.replyToken, message);
-  }
-
-  // Default reply
-  return client.replyMessage(event.replyToken, { type: 'text', text: "Sorry, I couldn't find that product." });
 }
 
-// Start server
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(4000, () => console.log('Server running on port 4000'));

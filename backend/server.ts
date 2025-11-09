@@ -1,5 +1,9 @@
 import { buildProductContext, getAIResponse } from "./api/ai_response";
 import type { Request, Response } from "express";
+import { supabase} from "./utils/supabase"
+
+
+
 
 
 
@@ -7,6 +11,8 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
+
+
 
 app.use(
   cors({
@@ -44,8 +50,8 @@ app.post("/ai-response", async (req: Request, res: Response) => {
   }
 });
 
-// receive order from the frontend
-app.post("/order", (req: Request, res: Response) => {
+// receive order from the frontend -> store to database
+app.post("/order", async (req: Request, res: Response) => {
   try {
     const { user_email, items, total_price } = req.body;
 
@@ -54,21 +60,50 @@ app.post("/order", (req: Request, res: Response) => {
       return res.status(400).json({ success: false, error: "Invalid order data" });
     }
 
-    // Log the order to the console (frontend can see this in backend logs)
-    console.log("🛒 New order received from frontend:");
-    console.log("User:", user_email);
-    console.log("Items:", items);
-    console.log("Total price:", total_price);
+    // Insert into Supabase
+    const { data, error } = await supabase
+      .from("orders")
+      .insert([{ user_email, items, total_price }]);
 
-    // Send success response to frontend
+    if (error) {
+      console.error("❌ Supabase insert error:", error);
+      return res.status(500).json({ success: false, error: error.message });
+    }
+
+    console.log("🛒 Order saved to Supabase:", data);
+
     res.status(200).json({
       success: true,
-      message: "Order received successfully",
-      order: { user_email, items, total_price },
+      message: "Order saved successfully",
+      order: data,
     });
-  } catch (error: any) {
-    console.error("❌ Error in /order route:", error);
-    res.status(500).json({ success: false, error: error.message || "Server error" });
+  } catch (err) {
+    console.error("❌ Error in /order route:", err);
+    res.status(500).json({ success: false, error: err || "Server error" });
+  }
+});
+
+//fetch orders from database -> send to dashboard 
+app.get("/orders/all", async (req: Request, res: Response) => {
+  try {
+    // Fetch all orders from Supabase
+    const { data, error } = await supabase
+      .from("orders")
+      .select("*")
+      .order("created_at", { ascending: false }); // newest first
+
+    if (error) {
+      console.error("❌ Supabase fetch error:", error);
+      return res.status(500).json({ success: false, error: error.message });
+    }
+
+    res.status(200).json({
+      success: true,
+      orders: data,
+    });
+  } catch (err) {
+    console.error("❌ Error in /orders/all route:", err);
+    res.status(500).json({ success: false, error: err || "Server error" });
   }
 });
 

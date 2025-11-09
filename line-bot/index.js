@@ -46,36 +46,74 @@ async function handleEvent(event) {
 
   const userMessage = event.message.text;
 
-  const catalogText = SAMPLE_PRODUCTS.map(
-    p => `${p.name} ($${p.price}): ${p.description}`
-  ).join('\n');
+  // Filter or sort products based on the user's query (basic example)
+  const matchingProducts = SAMPLE_PRODUCTS.slice(0, 3); // top 3 for demo
 
-  const prompt = `
-You are a helpful product assistant. A user asked: "${userMessage}".
-Suggest the most relevant products from this catalog:
-
-${catalogText}
-`;
+  // Build Flex Message "bubbles" for each product
+  const bubbles = matchingProducts.map((p) => ({
+    type: 'bubble',
+    hero: {
+      type: 'image',
+      url: p.image,
+      size: 'full',
+      aspectRatio: '20:13',
+      aspectMode: 'cover',
+    },
+    body: {
+      type: 'box',
+      layout: 'vertical',
+      contents: [
+        { type: 'text', text: p.name, weight: 'bold', size: 'lg' },
+        { type: 'text', text: p.description, wrap: true, size: 'sm', color: '#666666' },
+        { type: 'text', text: `$${p.price}`, size: 'md', weight: 'bold', margin: 'md' },
+      ],
+    },
+    footer: {
+      type: 'box',
+      layout: 'vertical',
+      spacing: 'sm',
+      contents: [
+        {
+          type: 'button',
+          style: 'primary',
+          action: {
+            type: 'uri',
+            label: 'Buy Now',
+            uri: 'https://your-shop-link.com/products/' + p.id,
+          },
+        },
+        {
+          type: 'button',
+          style: 'secondary',
+          action: {
+            type: 'postback',
+            label: 'Get Coupon',
+            data: JSON.stringify({ type: 'coupon', couponId: '01JYNW8JMQVFBNWF1APF8Z3FS7', productId: p.id }),
+          },
+        },
+      ],
+    },
+  }));
 
   try {
-    const response = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: [{ role: 'user', content: prompt }],
-    });
-
-    const replyText = response.choices[0].message.content || "⚠️ I couldn't find any matching products.";
-
+    // Send Flex Message with products
     await client.replyMessage(event.replyToken, [
-  { type: 'text', text: replyText }
-]);
-
+      {
+        type: 'flex',
+        altText: 'Here are some products you might like!',
+        contents: {
+          type: 'carousel',
+          contents: bubbles,
+        },
+      },
+    ]);
   } catch (err) {
     console.error(err);
-    await client.replyMessage({
-      replyToken: event.replyToken,
-      messages: [{ type: 'text', text: '⚠️ Error processing your request.' }],
-    });
+    await client.replyMessage(event.replyToken, [
+      { type: 'text', text: '⚠️ Error sending product cards.' },
+    ]);
   }
 }
+
 
 app.listen(4000, () => console.log('Server running on port 4000'));

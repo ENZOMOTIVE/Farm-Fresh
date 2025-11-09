@@ -35,7 +35,7 @@ export default function Orders() {
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch("http://localhost:5001/orders/all");
+      const response = await fetch("https://farm-fresh-kbrt.onrender.com/orders/all");
       const result = await response.json();
 
       if (response.ok && result.success) {

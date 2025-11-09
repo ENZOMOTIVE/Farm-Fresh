@@ -32,7 +32,7 @@ async function order(items: any[], price: number) {
   const orderData = { user_email, items, total_price: price};
 
   try {
-    const response = await fetch("http://localhost:5001/order", {
+    const response = await fetch("https://farm-fresh-kbrt.onrender.com/order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

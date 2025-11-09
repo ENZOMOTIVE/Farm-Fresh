@@ -5,8 +5,8 @@ import { GoogleLogin } from "@react-oauth/google"
 import { useAuth } from "../hooks/useAuth"
 import { useNavigate } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-import dessertsHero from "/new_brand_logo.png"
-import brandLogo from "/new_brand_logo.png"
+import dessertsHero from "/bg-picdrchang.png"
+import brandLogo from "/DrChang.png"
 import { Croissant, Sparkles, Heart, ArrowRight, Star } from "lucide-react"
 
 const Login = () => {
@@ -104,7 +104,7 @@ const Login = () => {
             >
               {[
                 { icon: Croissant, label: "French Pastries" },
-                { icon: Sparkles, label: "Indian Sweets" },
+                { icon: Sparkles, label: "Cakes" },
                 { icon: Heart, label: "Premium Quality" },
               ].map((item, index) => (
                 <motion.div
@@ -156,7 +156,7 @@ const Login = () => {
                   />
                   <div className="relative w-36 h-36 rounded-full border-4 border-green-500 shadow-2xl overflow-hidden bg-white">
                     <img
-                      src={brandLogo || "/placeholder.svg"}
+                      src={brandLogo }
                       alt="Delicieux Mithai Logo"
                       className="w-full h-full object-cover"
                     />
@@ -204,7 +204,7 @@ const Login = () => {
                 transition={{ delay: 0.7 }}
                 className="mb-10"
               >
-                <div className="flex justify-center p-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl shadow-lg">
+                <div className="flex justify-center p-8 ">
                   <GoogleLogin
                     onSuccess={async (credentialResponse) => {
                       if (credentialResponse.credential) {
@@ -224,9 +224,8 @@ const Login = () => {
                 className="text-center pt-8 border-t-2 border-green-500/30"
               >
                 <h2 className="text-3xl font-black bg-gradient-to-r from-green-600 via-green-500 to-emerald-600 bg-clip-text text-transparent mb-2">
-                  Delicieux Mithai
+                      Dr. Chang Healthy Farm
                 </h2>
-                <p className="text-gray-700 font-semibold text-base">French elegance meets Indian tradition</p>
               </motion.div>
 
               <motion.p
@@ -235,7 +234,7 @@ const Login = () => {
                 transition={{ delay: 1.1 }}
                 className="text-center text-xs text-gray-500 mt-8 font-medium"
               >
-                © {new Date().getFullYear()} Delicieux Mithai. All rights reserved.
+                © {new Date().getFullYear()} Dr Chang Healthy Farm. All rights reserved.
               </motion.p>
             </motion.div>
           </motion.div>
@@ -246,8 +245,8 @@ const Login = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="md:hidden text-center -mt-6"
           >
-            <h2 className="text-4xl font-black text-white mb-3 drop-shadow-lg">Treatz - Fresh</h2>
-            <p className="text-white/90 font-semibold text-lg drop-shadow">French elegance meets Indian tradition</p>
+            <h2 className="text-4xl font-black text-white mb-3 drop-shadow-lg">Dr Chang Healthy Farm</h2>
+            <p className="text-white/90 font-semibold text-lg drop-shadow">Fresh and Baked</p>
           </motion.div>
         </div>
       </div>

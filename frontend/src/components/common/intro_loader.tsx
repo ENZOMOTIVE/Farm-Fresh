@@ -36,7 +36,7 @@ export default function PastryLoader() {
 
         {/* Loading text */}
         <div className="relative z-10 mt-12 text-center">
-          <h2 className="text-2xl font-bold text-emerald-600 mb-2">Preparing Something Sweet</h2>
+          <h2 className="text-2xl font-bold text-emerald-600 mb-2">準備一些甜點</h2>
           <div className="flex items-center justify-center gap-2">
             <div className="w-2 h-2 bg-emerald-500 rounded-full animate-bounce" />
             <div className="w-2 h-2 bg-emerald-500 rounded-full animate-bounce delay-100" />

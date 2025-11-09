@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Menu, X, } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
-import { useCart } from '../../hooks/useCart';
+
 import { Button } from '../common/Button';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';

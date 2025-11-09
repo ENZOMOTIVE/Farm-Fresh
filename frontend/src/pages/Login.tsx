@@ -90,7 +90,7 @@ const Login = () => {
               <div className="relative rounded-[2rem] overflow-hidden border-4 border-white shadow-2xl shadow-black/30">
                 <img
                   src={dessertsHero || "/placeholder.svg"}
-                  alt="Exquisite French and Indian Desserts"
+                  alt="精緻法式與印度甜點"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -103,9 +103,9 @@ const Login = () => {
               className="mt-10 grid grid-cols-3 gap-4"
             >
               {[
-                { icon: Croissant, label: "French Pastries" },
-                { icon: Sparkles, label: "Cakes" },
-                { icon: Heart, label: "Premium Quality" },
+                { icon: Croissant, label: "法式酥點" },
+                { icon: Sparkles, label: "蛋糕" },
+                { icon: Heart, label: "頂級品質" },
               ].map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -156,8 +156,8 @@ const Login = () => {
                   />
                   <div className="relative w-36 h-36 rounded-full border-4 border-green-500 shadow-2xl overflow-hidden bg-white">
                     <img
-                      src={brandLogo }
-                      alt="Delicieux Mithai Logo"
+                      src={brandLogo}
+                      alt="張博士健康農場標誌"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -185,10 +185,10 @@ const Login = () => {
                 className="text-center mb-12"
               >
                 <h1 className="text-5xl font-bold bg-gradient-to-r from-green-600 via-green-500 to-emerald-600 bg-clip-text text-transparent mb-4">
-                  {t("WelcomeBack")}
+                  歡迎回來
                 </h1>
                 <p className="text-gray-700 text-lg font-medium flex items-center justify-center gap-2">
-                  {t("SignInToExplore")}
+                  登入以探索更多美味
                   <motion.span
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
@@ -212,7 +212,7 @@ const Login = () => {
                         if (success) navigate("/")
                       }
                     }}
-                    onError={() => console.error("Google login failed")}
+                    onError={() => console.error("Google 登入失敗")}
                   />
                 </div>
               </motion.div>
@@ -224,7 +224,7 @@ const Login = () => {
                 className="text-center pt-8 border-t-2 border-green-500/30"
               >
                 <h2 className="text-3xl font-black bg-gradient-to-r from-green-600 via-green-500 to-emerald-600 bg-clip-text text-transparent mb-2">
-                      Dr. Chang Healthy Farm
+                  張博士健康農場
                 </h2>
               </motion.div>
 
@@ -234,7 +234,7 @@ const Login = () => {
                 transition={{ delay: 1.1 }}
                 className="text-center text-xs text-gray-500 mt-8 font-medium"
               >
-                © {new Date().getFullYear()} Dr Chang Healthy Farm. All rights reserved.
+                © {new Date().getFullYear()} 張博士健康農場. 版權所有。
               </motion.p>
             </motion.div>
           </motion.div>
@@ -245,8 +245,8 @@ const Login = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="md:hidden text-center -mt-6"
           >
-            <h2 className="text-4xl font-black text-white mb-3 drop-shadow-lg">Dr Chang Healthy Farm</h2>
-            <p className="text-white/90 font-semibold text-lg drop-shadow">Fresh and Baked</p>
+            <h2 className="text-4xl font-black text-white mb-3 drop-shadow-lg">張博士健康農場</h2>
+            <p className="text-white/90 font-semibold text-lg drop-shadow">新鮮烘焙的美味</p>
           </motion.div>
         </div>
       </div>

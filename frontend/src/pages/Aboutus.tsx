@@ -34,7 +34,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center text-center px-6">
           <div className="max-w-3xl mx-auto text-white">
             <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-              Dr. Chang Healthy Farm
+              張博士健康農場
             </h1>
             <p className="text-lg md:text-2xl leading-relaxed opacity-90">
               {t("farmStory")}
@@ -51,10 +51,10 @@ export default function AboutPage() {
     <div className="space-y-6 order-2 md:order-1">
       <h3 className="text-3xl font-bold text-green-600">{t("bakedFresh")}</h3>
       <p className="text-lg text-gray-700 leading-relaxed">
-        {t("bakedFreshDescription1")}
+      Connect with our farms
       </p>
       <p className="text-lg text-gray-700 leading-relaxed">
-        {t("bakedFreshDescription2")}
+    Learn How we do the entire process
       </p>
     </div>
 

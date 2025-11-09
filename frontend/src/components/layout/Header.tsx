@@ -21,7 +21,7 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { t } = useTranslation();
 
-  const totalItems = getTotalItems()
+
 
   const navigate = useNavigate()
 
@@ -40,7 +40,7 @@ export const Header = ({ onSearchChange, searchQuery }: HeaderProps) => {
 
   </div>
   <div>
-    <h1 className="text-xl font-bold text-green-500">Dr Chang Healthy Farm</h1>
+    <h1 className="text-xl font-bold text-green-500">張博士健康農場</h1>
     <p className="text-xs text-green-600">{t('EggsnPastries')}</p>
   </div>
 </Link>

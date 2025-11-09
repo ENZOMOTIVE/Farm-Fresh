@@ -34,7 +34,7 @@ export default function Seller() {
     }
 
     return (
-        <section className="h-screen overflow-hidden bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 py-6 px-4 flex items-center justify-center">
+        <section className="relative h-screen overflow-hidden bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 py-6 px-4 flex items-center justify-center">
             <div className="w-full max-w-6xl">
                 <Card className="overflow-hidden shadow-2xl border-0 max-h-[90vh]">
                     <div className="grid lg:grid-cols-5 min-h-[600px]">
@@ -219,6 +219,13 @@ export default function Seller() {
                         </div>
                     </div>
                 </Card>
+            </div>
+
+            {/* COMING SOON Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center bg-white/70 backdrop-blur-sm z-50">
+                <h1 className="text-6xl md:text-8xl font-extrabold text-emerald-800/80 tracking-widest">
+                    COMING SOON
+                </h1>
             </div>
         </section>
     )

@@ -1,12 +1,4 @@
-// constants.ts (or wherever you keep them)
-export const CATEGORIES = {
-  all: "All Products",
- 
-  cheese_cakes: "Cheese Cakes",
-  chiffon_cakes: "Chiffon Cakes",
-  french_tarts: " French Tarts",
-  cream_puffs: "Cream Puffs"
-} as const;
+
 
 export const categoryStyles: Record<string, string> = {
   

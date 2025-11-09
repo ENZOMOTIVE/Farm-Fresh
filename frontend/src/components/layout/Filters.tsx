@@ -1,7 +1,7 @@
 
 import { Filter } from 'lucide-react';
 import { SearchFilters } from '../../types';
-import { CATEGORIES, PRICE_RANGES } from '../../utils/constants';
+import {  PRICE_RANGES } from '../../utils/constants';
 import { useTranslation } from 'react-i18next';
 
 interface FiltersProps {
@@ -18,6 +18,15 @@ export const Filters = ({ filters, onFiltersChange }: FiltersProps) => {
   };
 
   const {t} = useTranslation();
+
+const SPECIFIC_CATEGORIES = {
+  all: t("allproducts"),
+ 
+  cheese_cakes: t("cheese_cakes"),
+  chiffon_cakes: t("chiffon_cakes"),
+  french_tarts: t("french_tarts"),
+  cream_puffs: t("cream_puffs")
+} as const;
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
@@ -37,7 +46,7 @@ export const Filters = ({ filters, onFiltersChange }: FiltersProps) => {
             onChange={(e) => updateFilter('category', e.target.value)}
             className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-green-500"
           >
-            {Object.entries(CATEGORIES).map(([key, label]) => (
+            {Object.entries(SPECIFIC_CATEGORIES).map(([key, label]) => (
               <option key={key} value={key}>{label}</option>
             ))}
           </select>

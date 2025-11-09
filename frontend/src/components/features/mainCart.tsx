@@ -7,6 +7,7 @@ import { useCart } from "@/hooks/useCart"
 import { useTranslation } from "react-i18next"
 import { useAuth } from "@/hooks/useAuth"
 import { useState } from "react"
+import toast, { Toaster } from "react-hot-toast"
 import { SearchFilters } from "@/types"
 
 export const TestCart = () => {
@@ -26,35 +27,42 @@ export const TestCart = () => {
     setFilters((prev) => ({ ...prev, query }))
   }
 
-async function order(items: any[], price: number) {
+  async function order(items: any[], price: number) {
+    // ✅ Instant feedback when the user clicks
+    toast("🛍️ Order placed!", { icon: "✅" })
 
+    const orderData = { user_email, items, total_price: price }
+    const loadingToast = toast.loading("Sending your order...")
 
-  const orderData = { user_email, items, total_price: price};
+    try {
+      const response = await fetch("https://farm-fresh-kbrt.onrender.com/order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderData),
+      })
 
-  try {
-    const response = await fetch("https://farm-fresh-kbrt.onrender.com/order", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(orderData),
-    });
+      const result = await response.json()
+      toast.dismiss(loadingToast)
 
-    const result = await response.json();
-
-    if (response.ok && result.success) {
-      console.log("✅ Order sent successfully:", result.order);
-    } else {
-      console.error("⚠️ Order failed:", result.error);
+      if (response.ok && result.success) {
+        toast.success("✅ Order confirmed successfully!")
+        console.log("✅ Order sent successfully:", result.order)
+      } else {
+        toast.error(`⚠️ Order failed: ${result.error || "Try again later."}`)
+        console.error("⚠️ Order failed:", result.error)
+      }
+    } catch (error) {
+      toast.dismiss(loadingToast)
+      toast.error("❌ Network or server error. Please try again.")
+      console.error("❌ Network or server error:", error)
     }
-  } catch (error) {
-    console.error("❌ Network or server error:", error);
   }
-}
-
 
   return (
     <div className="min-h-screen bg-background relative overflow-x-hidden pt-16 bg-gradient-to-br from-green-50 to-emerald-50">
+      {/* ✅ Add the Toaster once here */}
+      <Toaster position="top-center" reverseOrder={false} />
+
       {/* Header */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
         <Header onSearchChange={handleSearchChange} searchQuery={filters.query} />

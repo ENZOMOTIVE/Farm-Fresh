@@ -145,5 +145,8 @@
   "termsOfService": "服務條款",
   "cookiePolicy": "Cookie 政策",
   "allRightsReserved": "版權所有。",
-  "buy": "購買"
+  "buy": "購買",
+  "allproducts" : "所有產品",
+    "reviews": "評價"
+
 }

@@ -4,7 +4,7 @@ import { Product } from '../../types';
 import { Button } from './Button';
 import { useCart } from '../../hooks/useCart';
 import { categoryStyles } from '@/utils/constants'
-import { CATEGORIES } from '@/utils/constants';
+
 import { useTranslation } from 'react-i18next';
 
 interface ProductCardProps {
@@ -20,6 +20,15 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       addToCart(product);
     }
   };
+
+  const SPECIFIC_CATEGORIES = {
+  all: t("allproducts"),
+ 
+  cheese_cakes: t("cheese_cakes"),
+  chiffon_cakes: t("chiffon_cakes"),
+  french_tarts: t("french_tarts"),
+  cream_puffs: t("cream_puffs")
+} as const;
 
   return (
     <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group">
@@ -39,7 +48,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             className={`px-2 py-1 rounded-full text-xs font-medium ${categoryStyles[product.category] || "bg-gray-100 text-gray-800"
               }`}
           >
-            {CATEGORIES[product.category as keyof typeof CATEGORIES] || "Other"}
+            {SPECIFIC_CATEGORIES[product.category as keyof typeof SPECIFIC_CATEGORIES] || "Other"}
           </span>
         </div>
 
@@ -67,13 +76,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           </span>
         </div>
 
-        <div className="flex items-center gap-2 mb-3">
-          {product.tags.slice(0, 2).map(tag => (
-            <span key={tag} className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">
-              {tag}
-            </span>
-          ))}
-        </div>
+       
 
         <div className="flex items-center justify-between">
           <span className="text-2xl font-bold text-green-600">

@@ -91,7 +91,7 @@ export const Dashboard = () => {
             variant="secondary"
             className="bg-accent/20 text-accent border-accent/30 backdrop-blur-sm text-xs sm:text-sm"
           >
-            {t('FarmFresh')}
+              張博士健康農場
           </Badge>
         </div>
 

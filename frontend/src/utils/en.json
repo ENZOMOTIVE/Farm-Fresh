@@ -161,7 +161,11 @@
   "cookiePolicy": "Cookie Policy",
   "allRightsReserved": "All rights reserved.",
 
-  "buy":"Buy"
+  "buy":"Buy",
+
+  "allproducts" : "All Products",
+    "reviews": "reviews"
+
 
  
 }

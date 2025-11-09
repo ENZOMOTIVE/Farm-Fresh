@@ -12,7 +12,7 @@ import { ProductCard } from "@/components/common/ProductCard"
 import { getProducts, searchProducts } from "../services/products"
 
 import { ChatbotWidget } from "@/components/features/chatbot"
-import { Cart } from "@/components/features/Cart"
+
 import PastryLoader from "@/components/common/intro_loader"
 import { MiniCart } from "@/components/features/miniCart"
 

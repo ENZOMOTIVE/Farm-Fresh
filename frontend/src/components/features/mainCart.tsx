@@ -26,14 +26,32 @@ export const TestCart = () => {
     setFilters((prev) => ({ ...prev, query }))
   }
 
-  async function order(items: any[], price: number) {
-    const orderData = { user_email, items, total_price: price }
-    try {
-      console.log("✅ Order placed successfully:", orderData)
-    } catch (error) {
-      console.error("❌ Order failed:", error)
+async function order(items: any[], price: number) {
+
+
+  const orderData = { user_email, items, total_price: price};
+
+  try {
+    const response = await fetch("http://localhost:5001/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(orderData),
+    });
+
+    const result = await response.json();
+
+    if (response.ok && result.success) {
+      console.log("✅ Order sent successfully:", result.order);
+    } else {
+      console.error("⚠️ Order failed:", result.error);
     }
+  } catch (error) {
+    console.error("❌ Network or server error:", error);
   }
+}
+
 
   return (
     <div className="min-h-screen bg-background relative overflow-x-hidden pt-16 bg-gradient-to-br from-green-50 to-emerald-50">

@@ -11,8 +11,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <Link href="/analytics" className="p-2 hover:bg-gray-200 rounded">Analytics</Link>
           <Link href="/orders" className="p-2 hover:bg-gray-200 rounded">Users Orders</Link>
           <Link href="/products" className="p-2 hover:bg-gray-200 rounded">Product Management</Link>
-          <Link href="/settings" className="p-2 hover:bg-gray-200 rounded">Settings</Link>
-          <Link href="/orders" className="p-2 hover:bg-gray-200 rounded">Users</Link>
+          
         </nav>
       </aside>
 

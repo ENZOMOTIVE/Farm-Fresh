@@ -40,7 +40,7 @@ export const Footer = () => {
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <img
-                src="/new_brand_logo.png"
+                src="/chang_logo.png"
                 alt="Brand Logo"
                 className="w-14 h-14 rounded-full border-2 border-green-200"
               />

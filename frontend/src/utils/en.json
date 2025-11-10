@@ -164,7 +164,21 @@
   "buy":"Buy",
 
   "allproducts" : "All Products",
-    "reviews": "reviews"
+    "reviews": "reviews",
+  "bakedFreshFromOurFarms": "We believe great pastries start with the freshest ingredients, directly from our trusted local farms.",
+    "scanQRCode": "Scan the QR code to visit our farm partners and see how we source our eggs and dairy sustainably.",
+    "partner_farm" : "Partner Farms",
+    "shipping_address" : "Shipping Address",
+      "defaultDeliveryAddress": "Default Delivery Address",
+        "aiAssistant": "AI Assistant",
+          "drChangHealthyFarm": "Dr Chang Healthy Farm"
+
+
+        
+
+
+
+
 
 
  

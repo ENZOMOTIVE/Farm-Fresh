@@ -146,7 +146,13 @@
   "cookiePolicy": "Cookie 政策",
   "allRightsReserved": "版權所有。",
   "buy": "購買",
-  "allproducts" : "所有產品",
-    "reviews": "評價"
-
+  "allproducts": "所有產品",
+  "reviews": "評價",
+  "bakedFreshFromOurFarms": "我們相信，美味的糕點源自最新鮮的食材，直接來自我們信賴的在地農場。",
+  "scanQRCode": "掃描 QR 碼，造訪我們的合作農場，了解我們如何永續取得雞蛋和乳製品。",
+  "partner_farm": "合作農場",
+  "shipping_address": "收件地址",
+  "defaultDeliveryAddress": "預設收貨地址",
+  "aiAssistant": "AI 助手",
+  "drChangHealthyFarm": "張博士健康農場"
 }

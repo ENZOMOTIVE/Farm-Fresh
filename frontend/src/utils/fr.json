@@ -162,7 +162,19 @@
   "allRightsReserved": "Tous droits réservés.",
   "buy": "Acheter",
   "allproducts" : "Tous les produits",
-    "reviews": "Avis"
+    "reviews": "Avis",
+      "bakedFreshFromOurFarms": "Nous croyons que de délicieuses pâtisseries commencent avec les ingrédients les plus frais, directement issus de nos fermes locales de confiance.",
+        "scanQRCode": "Scannez le QR code pour visiter nos fermes partenaires et découvrir comment nous nous approvisionnons en œufs et produits laitiers de manière durable.",
+        "partner_farm" : "Fermes partenaires",
+        "shipping_address": "adresse de livraison",
+          "defaultDeliveryAddress": "Adresse de livraison par défaut",
+            "aiAssistant": "Assistant IA",
+              "drChangHealthyFarm": "Ferme Saine du Dr Chang"
+
+
+
+
+
 
 
 

@@ -192,15 +192,15 @@ export default function Profile() {
                 <CardHeader>
                   <CardTitle className="text-green-700 flex items-center text-lg">
                     <MapPin className="w-5 h-5 mr-2" />
-                    Shipping Address
+                    {t("shipping_address")}
                   </CardTitle>
-                  <CardDescription>Default delivery address</CardDescription>
+                  <CardDescription>{t("defaultDeliveryAddress")}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   {isEditing ? (
                     <div className="space-y-3">
                       <div>
-                        <label className="text-sm font-medium text-green-700">Street Address</label>
+                        <label className="text-sm font-medium text-green-700">{t("streetAddress")}</label>
                         <input
                           type="text"
                           value={editData.shippingAddress.street}
@@ -210,7 +210,7 @@ export default function Profile() {
                         />
                       </div>
                       <div>
-                        <label className="text-sm font-medium text-green-700">Apartment/Suite</label>
+                        <label className="text-sm font-medium text-green-700">{t("apartmentSuite")}</label>
                         <input
                           type="text"
                           value={editData.shippingAddress.apartment}
@@ -221,7 +221,7 @@ export default function Profile() {
                       </div>
                       <div className="grid grid-cols-2 gap-3">
                         <div>
-                          <label className="text-sm font-medium text-green-700">City</label>
+                          <label className="text-sm font-medium text-green-700">{t("city")}</label>
                           <input
                             type="text"
                             value={editData.shippingAddress.city}
@@ -231,7 +231,7 @@ export default function Profile() {
                           />
                         </div>
                         <div>
-                          <label className="text-sm font-medium text-green-700">State</label>
+                          <label className="text-sm font-medium text-green-700">{t("state")}</label>
                           <input
                             type="text"
                             value={editData.shippingAddress.state}
@@ -243,7 +243,7 @@ export default function Profile() {
                       </div>
                       <div className="grid grid-cols-2 gap-3">
                         <div>
-                          <label className="text-sm font-medium text-green-700">ZIP Code</label>
+                          <label className="text-sm font-medium text-green-700">{t("zipCode")}</label>
                           <input
                             type="text"
                             value={editData.shippingAddress.zip}
@@ -253,7 +253,7 @@ export default function Profile() {
                           />
                         </div>
                         <div>
-                          <label className="text-sm font-medium text-green-700">Country</label>
+                          <label className="text-sm font-medium text-green-700">{t("country")}</label>
                           <input
                             type="text"
                             value={editData.shippingAddress.country}
@@ -280,14 +280,14 @@ export default function Profile() {
                       <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-3">
                         <MapPin className="w-8 h-8 text-green-600" />
                       </div>
-                      <p className="text-green-700 font-medium mb-1">No address added</p>
-                      <p className="text-green-600 text-sm mb-4">Add your shipping address to get started</p>
+                      <p className="text-green-700 font-medium mb-1">{t("noAddressAdded")}</p>
+                      <p className="text-green-600 text-sm mb-4">{t("addYourShippingAddress")}</p>
                       <Button
                         onClick={handleEdit}
                         variant="outline"
                         className="border-green-600 text-green-600 hover:bg-green-50 bg-transparent"
                       >
-                        Add Address
+                        {t("addAddress")}
                       </Button>
                     </div>
                   )}

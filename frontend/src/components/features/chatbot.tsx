@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { X, Send } from "lucide-react"
 import { RiRobot2Line } from 'react-icons/ri';
+import { useTranslation } from "react-i18next";
 
 
 export const ChatbotWidget = () => {
@@ -12,6 +13,8 @@ export const ChatbotWidget = () => {
     { from: 'bot', text: "👋 Welcome to our bakery! How can I help you today? Ask me about any product!" }
   ])
   const [loading, setLoading] = useState(false)
+
+  const {t} = useTranslation()
 
   const handleSend = async () => {
   if (!message.trim()) return;
@@ -69,8 +72,8 @@ export const ChatbotWidget = () => {
                 <RiRobot2Line size={20} className="text-white" />
               </div>
               <div>
-                <h3 className="font-semibold text-lg">Sweet Assistant</h3>
-                <p className="text-xs text-white/90">Always here to help</p>
+                <h3 className="font-semibold text-lg">{t("drChangHealthyFarm")}</h3>
+                <p className="text-xs text-white/90">{t("aiAssistant")}</p>
               </div>
             </div>
             <button
@@ -136,7 +139,7 @@ export const ChatbotWidget = () => {
                 <Send size={18} />
               </button>
             </div>
-            <p className="text-xs text-green-700 text-center mt-3">Powered by Sweet AI ✨</p>
+            <p className="text-xs text-green-700 text-center mt-3">Powered by Dr Chang Healthy Farm ✨</p>
           </div>
         </div>
       )}

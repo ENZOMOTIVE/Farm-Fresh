@@ -44,17 +44,17 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story Section */}
-      {/* Our Story Section */}
+
 <section className="py-24 px-6 bg-white/70 backdrop-blur-sm">
   <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
     {/* Text */}
     <div className="space-y-6 order-2 md:order-1">
-      <h3 className="text-3xl font-bold text-green-600">{t("bakedFresh")}</h3>
+      <h3 className="text-3xl font-bold text-green-600">{t("partner_farm")}</h3>
       <p className="text-lg text-gray-700 leading-relaxed">
-      Connect with our farms
+      {t("bakedFreshFromOurFarms")}
       </p>
       <p className="text-lg text-gray-700 leading-relaxed">
-    Learn How we do the entire process
+      {t("scanQRCode")}
       </p>
     </div>
 
@@ -70,7 +70,6 @@ export default function AboutPage() {
     </div>
   </div>
 </section>
-
 
       {/* Team Section */}
       <section className="py-24 bg-gradient-to-b from-emerald-50 to-green-100">

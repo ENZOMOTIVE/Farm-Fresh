@@ -9,12 +9,14 @@ import { useTranslation } from "react-i18next";
 export const ChatbotWidget = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [message, setMessage] = useState("")
+
+  const {t} = useTranslation()
   const [messages, setMessages] = useState<{ from: 'user' | 'bot'; text: string }[]>([
-    { from: 'bot', text: "👋 Welcome to our bakery! How can I help you today? Ask me about any product!" }
+    { from: 'bot', text: t("ai-welcome") }
   ])
   const [loading, setLoading] = useState(false)
 
-  const {t} = useTranslation()
+
 
   const handleSend = async () => {
   if (!message.trim()) return;

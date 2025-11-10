@@ -60,9 +60,6 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           {t(product.name)}
         </h3>
 
-        <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-          {t(product.description)}
-        </p>
 
         <div className="flex items-center gap-2 mb-3">
           <div className="flex items-center">
@@ -72,7 +69,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             </span>
           </div>
           <span className="text-sm text-gray-500">
-            ({product.reviews} reviews)
+            ({product.reviews} {t("reviews")})
           </span>
         </div>
 

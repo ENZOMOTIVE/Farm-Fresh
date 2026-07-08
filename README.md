@@ -1,48 +1,28 @@
 # Farm Fresh
 
-## Project Tags
+> Farm Fresh is a bakery commerce workspace with a storefront, dashboard, backend services, and an OpenAI-powered LINE/customer assistant.
 
-- `Agentic AI`
-- `Full Stack`
+## The Story
 
-## Overview
+Farm Fresh starts with a simple goal: bring AI-assisted behavior into a complete product workflow instead of leaving it as a loose experiment. Its shape tells the same story: the product interface, the service layer, and the AI-assisted workflow live close enough together that a maintainer can see the project as a whole before diving into individual folders.
 
-Farm Fresh is a full-stack bakery commerce project with customer-facing UI, dashboard, backend services, and an OpenAI-powered LINE/customer assistant.
+## What It Includes
 
-## Features
+- A user-facing surface for the product, demo, dashboard, or static experience.
+- A service layer for APIs, realtime behavior, bot logic, or server-side workflows.
+- AI-assisted behavior through model providers, bot flows, or agent-oriented tooling.
 
-- User-facing frontend or app interface
-- Backend service, API, websocket, bot, or server workflow
-- AI, agent, bot, MCP, or assistant-oriented automation surface
+## How It Is Put Together
 
-## Tech Stack
+| Path | Role |
+| --- | --- |
+| `.gitattributes` | project file or folder |
+| `backend` | service, bot, API, or realtime layer |
+| `dashboard` | frontend or dashboard application |
+| `frontend` | frontend or dashboard application |
+| `line-bot` | service, bot, API, or realtime layer |
 
-- Next.js
-- React
-- Vite
-- Express
-- Node.js
-- TypeScript
-- JavaScript
-- HTML
-- CSS
-
-## Project Structure
-
-- `.gitattributes` - project file or directory
-- `backend` - backend, API, bot, or server code
-- `dashboard` - project file or directory
-- `frontend` - frontend application code
-- `line-bot` - project file or directory
-
-## Getting Started
-
-### Prerequisites
-
-- Git
-- Node.js 18+
-
-### Setup and Run
+## Local Development
 
 ```bash
 git clone https://github.com/ENZOMOTIVE/Farm-Fresh.git
@@ -72,19 +52,20 @@ cd line-bot
 npm install
 ```
 
-## Commands
+## Command Surface
 
-- `backend/package.json`: `test`, `dev`
-- `dashboard/package.json`: `dev`, `build`, `start`, `lint`
-- `frontend/package.json`: `dev`, `build`, `lint`, `preview`
-- `line-bot/package.json`: package metadata is present; no scripts are defined yet.
+| Area | Commands |
+| --- | --- |
+| `backend/package.json` | `test`, `dev` |
+| `dashboard/package.json` | `dev`, `build`, `start`, `lint` |
+| `frontend/package.json` | `dev`, `build`, `lint`, `preview` |
 
 ## Configuration
 
-- Document required service ports, database URLs, and API credentials before deployment.
-- Keep model/provider keys and agent secrets outside version control.
+- Document API ports, database URLs, third-party credentials, and service endpoints in `.env.example` before deployment.
+- Keep model provider keys such as OpenAI or AI SDK credentials in local environment files only.
 
-## Testing and Quality
+## Quality Checks
 
 - From `backend`, run `npm test`.
 - From `dashboard`, run `npm run lint`.
@@ -92,17 +73,22 @@ npm install
 - From `frontend`, run `npm run lint`.
 - From `frontend`, run `npm run build`.
 
-## Documentation Notes
+## Where To Take It Next
 
-- Keep this README aligned with the actual source layout and commands.
-- Add screenshots, API examples, contract addresses, or deployment links when they become stable.
-- Update the project tags when the scope changes.
+- Add screenshots or a short user flow so visitors can see the interface before running it.
+- Document the main API routes, bot events, or service responsibilities with example inputs and outputs.
+- Describe the model provider, prompt boundaries, and evaluation approach for the AI-assisted parts.
+- Keep setup commands current whenever dependencies, scripts, or deployment targets change.
+- Record important product decisions here so the repository keeps its story as the code evolves.
 
-## Contributing
+## Project Metadata
 
-1. Create a focused branch for the change.
-2. Update code and documentation together.
-3. Run the relevant checks before opening a pull request.
+| Field | Details |
+| --- | --- |
+| Repository | `ENZOMOTIVE/Farm-Fresh` |
+| Categories | `Agentic AI`, `Full Stack` |
+| Primary stack | Next.js, React, Vite, Express, Node.js, TypeScript, JavaScript, HTML, CSS |
+
 
 ## License
 

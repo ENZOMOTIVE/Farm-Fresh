@@ -1,107 +1,75 @@
-# Farm Fresh
+# Dr Chang Healthy Farm 🍰
 
-> Farm Fresh is a bakery commerce workspace with a storefront, dashboard, backend services, and an OpenAI-powered LINE/customer assistant.
+**Farm Fresh: An E-commerce Platform to Connect Bakeries**
 
-## The Story
+Dr Chang Healthy Farm is a modern e-commerce platform dedicated to selling cakes, pastries, and other healthy baked goods. The platform connects customers directly with the bakery products while providing a seamless shopping experience.  
 
-Farm Fresh starts with a simple goal: bring AI-assisted behavior into a complete product workflow instead of leaving it as a loose experiment. Its shape tells the same story: the product interface, the service layer, and the AI-assisted workflow live close enough together that a maintainer can see the project as a whole before diving into individual folders.
+---
 
-## Detailed Description
+## 🌟 Project Components
 
-Farm Fresh is a bakery commerce workspace with a storefront, dashboard, backend services, and an OpenAI-powered LINE/customer assistant. This README is meant to explain the project like a handoff note: what the idea is, why the repository exists, and how someone can start working with it without opening every file first.
+This project consists of **four main components**:
 
-The AI layer should be treated as a product feature, not as a black box. Keep prompts, provider assumptions, tool boundaries, and expected outputs documented so future changes can be tested instead of guessed.
+### 1. Frontend – The E-commerce Website
+A user-friendly website where customers can browse products, place orders, and interact with the bakery.
 
-At the top level, the most important entry points are `backend`, `dashboard`, `frontend`, and `line-bot`. Together they show the current boundary of the project and make it easier to separate product code, support files, documentation, and experiments.
+🔗 [Visit Frontend Website](https://drchang-healthy.vercel.app)
 
-The declared Node surfaces include `backend` (scripts: `test`, `dev`), `dashboard` (scripts: `dev`, `build`, `start`, `lint`), `frontend` (scripts: `dev`, `build`, `lint`, `preview`), and `line-bot` (no scripts declared). Those package files are the best starting points for understanding how the app runs, builds, or validates itself.
+---
 
-The visible stack currently points to `Next.js`, `React`, `Vite`, `Express`, `Node.js`, `TypeScript`, `JavaScript`, `HTML`, and `CSS`. Keep this list honest as the project changes so the README remains useful as a first technical map.
+### 2. Backend – Server & API
+The backend handles all order management, product data, and AI-powered customer support.
 
-## What It Includes
+🔗 [Visit Backend API](https://farm-fresh-kbrt.onrender.com)
 
-- A user-facing surface for the product, demo, dashboard, or static experience.
-- A service layer for APIs, realtime behavior, bot logic, or server-side workflows.
-- AI-assisted behavior through model providers, bot flows, or agent-oriented tooling.
+---
 
-## How It Is Put Together
+### 3. Dashboard – Admin Panel
+A dashboard for maintaining the website, analyzing orders, and managing bakery products efficiently.
 
-| Path | Role |
-| --- | --- |
-| `.gitattributes` | project file or folder |
-| `backend` | service, bot, API, or realtime layer |
-| `dashboard` | frontend or dashboard application |
-| `frontend` | frontend or dashboard application |
-| `line-bot` | service, bot, API, or realtime layer |
+🔗 [Visit Admin Dashboard](https://farm-fresh-admin-dashboard.vercel.app/)
 
-## Local Development
+---
 
-```bash
-git clone https://github.com/ENZOMOTIVE/Farm-Fresh.git
-cd Farm-Fresh
-```
+### 4. LINE Bot – Customer Interaction
+An interactive LINE bot to assist customers, answer queries, and provide product recommendations in real-time.
 
-```bash
-cd backend
-npm install
-npm run dev
-```
+---
 
-```bash
-cd dashboard
-npm install
-npm run dev
-```
+## 🎂 Features
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
+- Browse cakes, pastries, and bakery items
+- Place orders securely
+- AI-powered assistance to answer customer queries
+- Admin dashboard for order tracking and product management
+- LINE bot integration for instant customer support
 
-```bash
-cd line-bot
-npm install
-```
+---
 
-## Command Surface
+## ⚙️ Technologies Used
 
-| Area | Commands |
-| --- | --- |
-| `backend/package.json` | `test`, `dev` |
-| `dashboard/package.json` | `dev`, `build`, `start`, `lint` |
-| `frontend/package.json` | `dev`, `build`, `lint`, `preview` |
+- **Frontend:** React, Next.js, Tailwind CSS  
+- **Backend:** Node.js, Express, Supabase, OpenAI API  
+- **Dashboard:** React, Vercel  
+- **Messaging Bot:** LINE Messaging API  
 
-## Configuration
+---
 
-- Document API ports, database URLs, third-party credentials, and service endpoints in `.env.example` before deployment.
-- Keep model provider keys such as OpenAI or AI SDK credentials in local environment files only.
+## 📌 Purpose
 
-## Quality Checks
+Dr Chang Healthy Farm aims to provide a healthy, convenient, and delightful bakery shopping experience online, combining AI assistance and a robust e-commerce platform.
 
-- From `backend`, run `npm test`.
-- From `dashboard`, run `npm run lint`.
-- From `dashboard`, run `npm run build`.
-- From `frontend`, run `npm run lint`.
-- From `frontend`, run `npm run build`.
+---
 
-## Where To Take It Next
+## 🔗 Quick Links
 
-- Add screenshots or a short user flow so visitors can see the interface before running it.
-- Document the main API routes, bot events, or service responsibilities with example inputs and outputs.
-- Describe the model provider, prompt boundaries, and evaluation approach for the AI-assisted parts.
-- Keep setup commands current whenever dependencies, scripts, or deployment targets change.
-- Record important product decisions here so the repository keeps its story as the code evolves.
+| Component        | Link                                                      |
+|-----------------|-----------------------------------------------------------|
+| Frontend Website | [drchang-healthy.vercel.app](https://drchang-healthy.vercel.app) |
+| Backend API      | [farm-fresh-kbrt.onrender.com](https://farm-fresh-kbrt.onrender.com) |
+| Admin Dashboard  | [farm-fresh-admin-dashboard.vercel.app](https://farm-fresh-admin-dashboard.vercel.app/) |
+| LINE Bot         | Integrated with backend for user interactions            |
 
-## Project Metadata
-
-| Field | Details |
-| --- | --- |
-| Repository | `ENZOMOTIVE/Farm-Fresh` |
-| Categories | `Agentic AI`, `Full Stack` |
-| Primary stack | Next.js, React, Vite, Express, Node.js, TypeScript, JavaScript, HTML, CSS |
+---
 
 
-## License
-
-No license file is currently committed. Add one before distributing this project publicly.
